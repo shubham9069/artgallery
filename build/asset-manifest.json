@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "./static/css/main.47b97875.css",
+    "main.js": "./static/js/main.3e80d656.js",
+    "static/media/Rectangle 3965.png": "./static/media/Rectangle 3965.4702fe53e91208311e60.png",
+    "static/media/banner_1.png": "./static/media/banner_1.356ad3fc5788d37bc148.png",
+    "static/media/Rectangle 3964.png": "./static/media/Rectangle 3964.296511d6f548dc073364.png",
+    "static/media/Rectangle 3966.png": "./static/media/Rectangle 3966.d296af05ab8716a6f620.png",
+    "static/media/bottom-big1.png": "./static/media/bottom-big1.02a5f9b1e9f56dfefde6.png",
+    "static/media/bottom-big2.png": "./static/media/bottom-big2.f8f941bd853030aae02f.png",
+    "static/media/image 3.png": "./static/media/image 3.e95d12991cc5ba5b925d.png",
+    "static/media/bootstrap-icons.woff?": "./static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
+    "static/media/Rectangle 3963.png": "./static/media/Rectangle 3963.313b258d104cc662e949.png",
+    "static/media/bootstrap-icons.woff2?": "./static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
+    "static/media/landscape (1) 1.png": "./static/media/landscape (1) 1.95273326ddc4da492c9a.png",
+    "static/media/image 2.png": "./static/media/image 2.1357a5349102d2bbe514.png",
+    "static/media/portrait (2).png": "./static/media/portrait (2).415d85bc97dc914761cb.png",
+    "static/media/abstract-shape (2).png": "./static/media/abstract-shape (2).78112f6f013af2f76556.png",
+    "static/media/abstract-art (2).png": "./static/media/abstract-art (2).1b5622291c20daad4fe5.png",
+    "static/media/slick.svg": "./static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "./static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "./static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "./static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "./index.html",
+    "main.47b97875.css.map": "./static/css/main.47b97875.css.map",
+    "main.3e80d656.js.map": "./static/js/main.3e80d656.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47b97875.css",
+    "static/js/main.3e80d656.js"
+  ]
+}
