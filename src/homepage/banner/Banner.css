@@ -1,0 +1,37 @@
+
+
+.carousel-indicators>button{
+
+    background-color: white !important ;
+}
+.text-banner{
+    position: relative;
+}
+.text-banner>div{
+    background-color: transparent;
+   
+   margin: 0 !important;
+   /* padding :2rem 4rem ; */
+   position :absolute ;
+   left:10%;
+   top: 40%;
+   -ms-transform: translateY(-70%);
+   transform: translateY(-70%);
+   z-index: 1;
+   display: flex;
+   flex-direction: column;
+   justify-content:center;
+  
+}
+.text-banner>div>*{
+   color:white;
+}
+.text-banner:after{
+    content: "";
+    height:100%;
+    width: 100%;;
+    position: absolute;;
+    left: 0;
+    top: 0;
+    background-color:#00000061;;
+}

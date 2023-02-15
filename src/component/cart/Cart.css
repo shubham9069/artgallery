@@ -1,0 +1,111 @@
+.filterForm {
+    /* width: 100%; */
+    padding: 0px 0px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.filterForm select {
+ 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 16px;
+    height: 44px;
+    border-radius: 5.66816px;
+ width:100px;
+    border: 0.70852px solid #56BDBD;
+    cursor: pointer;
+    /* margin: 0px 20px 20px 0 */
+}
+
+.processedbtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #56BDBD;
+    color: white;
+    /* padding: 10px 25px; */
+    margin: 1rem auto;
+    height: 58px;
+    cursor: pointer;
+    border: 1.5px solid #56BDBD;
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    ;
+    font-style: normal;
+    font-weight: 500;
+    justify-content: center;
+    max-width:445px !important;
+   
+}
+.voucher{
+    border: 1px solid #C7C5C5;
+    padding :2rem 2rem 2rem 3% !important;
+    border-radius: 10px;
+    /* max-width: 800px; */
+}
+
+.voucher-input>input{
+    width: 300px;
+    height: 55px;
+    border: 1px solid #C6C0C0;
+border-radius: 8px 0 8px 8px;
+
+}
+.voucher-input>button{
+    width: 150px;
+    height: 55px;
+position: relative;
+    color:white;
+    border:none;
+    background: #56BDBD;
+    border-radius: 8px;
+    left: -10px;
+    font-size: 0.8rem;
+    top: -1px
+
+}
+.coupon{
+  
+    padding:1.5rem 0 ;
+    border-top: 1px solid #DADADA;
+    position: relative;
+    width: 90%;
+    
+    
+}
+.coupon>h6{
+   width: fit-content;
+    background-color: white;
+    margin:  0 auto;
+    position: relative;
+    padding: 0 0.5rem;
+    top: -35px;
+    left: 0;
+}
+.coupon>div{
+   padding:1.5rem;
+   background: #F3FAFA;
+border: 1px dashed #56BDBD;
+border-radius: 8px;
+}
+.coupan-lable{
+    display: flex;
+    grid-gap:20px;
+    align-items: center;
+}
+.coupan-lable>p{
+    padding: 0.5rem;
+    border: 1px dashed #56BDBD;
+border-radius: 8px;
+font-size:0.7rem;
+margin: 0;
+
+}
+

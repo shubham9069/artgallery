@@ -1,0 +1,99 @@
+.salebanner{
+
+    grid-gap:50px;
+    flex-wrap: wrap;
+}
+
+.salebanner-left,.salebanner-right{
+    position: relative;
+    width: 600px;
+}
+.salebanner-left>img,.salebanner-right>img{
+    width: inherit;
+}
+
+.salebanner-left::after{
+    content: "";
+    height:100%;
+    width: 100%;;
+    position: absolute;;
+    left: 0;
+    top: 0;
+    background-color:#00000061;;
+    
+     
+}
+.salebanner-left>div{
+    background-color: transparent;
+   border :2px solid white ;
+   margin: 0 !important;
+   padding :2rem 4rem ;
+   position :absolute ;
+   top: 50%;
+   -ms-transform: translateY(-50%);
+   transform: translateY(-50%);
+   z-index: 1;
+   display: flex;
+   flex-direction: column;
+   justify-content:center;
+   align-items:center;
+
+}
+.salebanner-left>div>p{
+   color:white;
+   font-size: 24px;
+    font-weight: 700;
+    line-height: 126.19%;
+
+}
+.salebanner-left>div>h1{
+   color:white;
+   font-weight: 800;
+font-size: 96px;
+line-height: 126.19%;
+
+}
+.salebanner-left>div>h3{
+   color:white;
+   font-weight: 500;
+font-size: 32px;
+line-height: 126.19%;
+/* or 40px */
+
+letter-spacing: 0.15em;
+margin-bottom: 1.5rem;
+
+}
+
+@media screen and (max-width:600px) {
+    .salebanner-left>div{
+     
+       padding :1rem 2rem ;
+      
+    
+    }
+    .salebanner-left,.salebanner-right{
+        position: relative;
+        width: 400px;
+    }
+    .salebanner-left>div>p{
+        color:white;
+        font-size: 20px;
+         line-height:36px
+     
+     }
+     .salebanner-left>div>h1{
+       
+     font-size: 50px;
+     line-height:40px
+     
+     }
+     .salebanner-left>div>h3{
+        
+     font-size: 22px;
+     line-height: 36px
+     
+     
+     }
+    
+}

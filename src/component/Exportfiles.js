@@ -1,0 +1,5 @@
+export {default as AllProduct} from './allproduct/AllProduct'
+export {default as ProductDetails} from './productDetails/ProductDetails'
+export {default as CheckOut} from './checkout/CheckOut'
+export {default as Cart} from './cart/Cart'
+export {default as Thanku} from './thanku/Thanku'

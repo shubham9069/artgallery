@@ -1,0 +1,33 @@
+
+
+.shopby-container{
+grid-gap:40px;
+max-width: 1200px;
+margin:0 auto ;
+flex-wrap: wrap;
+}
+
+
+
+
+
+.shopby-box{
+    flex-direction: column;
+    grid-gap:40px;
+    padding:1.5rem 4rem ;
+    background: white;
+     border-radius: 8px !important;
+     transition: all 0.3s ease-in-out;
+}
+.shopby-box>img{
+   max-width: 70px !important;
+}
+.shopby-box:hover {
+    
+    background: #56BDBD;
+     
+}
+
+.shopby-box>p{
+  margin: 0 !important;
+}

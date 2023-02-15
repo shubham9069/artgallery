@@ -1,0 +1,101 @@
+.inputForm {
+    width: 100%;
+    padding: 10px;
+    max-width: 500px;
+    margin:  0 auto ;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+
+.inputForm input {
+    /* display: flex; */
+    padding: 10px 25px;
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 20px;
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0.717514px 4.30509px rgba(0, 0, 0, 0.15);
+    border-radius: 5.74011px;
+    transition: all 0.4s;
+}
+
+.inputForm select {
+    /* display: flex; */
+    padding: 10px 4%;
+    width: 100%;
+    font-size: 15px;
+    margin-bottom: 20px;
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0.717514px 4.30509px rgba(0, 0, 0, 0.15);
+    border-radius: 5.74011px;
+    transition: all 0.4s;
+}
+
+.inputForm input:focus, .inputForm textarea:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.labelAndInput {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.labelAndInput label {
+    color: #000;
+    margin-bottom: 10px;
+    font-weight:500;
+}
+.otpform{
+    width: 100%;
+    padding: 10px;
+    max-width: 500px;
+    margin:  0 auto ;
+}
+
+.otpWrapper {
+    display: flex;
+    flex-direction: row;
+  grid-Gap:40px;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.otpInput {
+    width: 20%;
+    height: 50px;
+    text-align: center;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.4s;
+    max-width: 100px;
+    /* margin:  0 auto ; */
+    border: none;
+    border-bottom: 2px solid #c4c4c4
+}
+.googleBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 25px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+   
+    font-weight: 500;
+    color:#000;
+    background-color: #E5E5E5;
+}
+.googleBtn:hover{
+    color: #000;
+    filter: drop-shadow(1px 4px 4px #0005);
+}
+

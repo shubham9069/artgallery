@@ -1,0 +1,45 @@
+
+
+
+.help{
+    width: 100%;
+}
+
+
+
+.help>div{
+    display: flex;
+     background: #F6F6F6;;
+     padding: 1rem 2rem ;
+    
+     align-items: center;
+     justify-content: space-between;
+     background: rgba(255, 255, 255, 0.17);
+box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+border-radius: 4px;
+     
+}
+.help>div>p{
+   
+    font-weight: 500;
+font-size: 16px;
+line-height:30px;
+/* identical to box height, or 22px */
+
+letter-spacing: -0.01em;
+
+   
+}
+
+@media screen and (max-width:600px) {
+    .help>div>p{
+        font-size: 0.8rem;
+        
+       
+    }
+    .ANIMATION{
+        font-size:0.8rem
+    }
+    
+}
+

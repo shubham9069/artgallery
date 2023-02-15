@@ -1,0 +1,26 @@
+
+.main-div{
+    background-image: url("../asset/image 2.png");
+    padding: 1rem ;
+    /* height: 90px; */
+}
+
+ .menu>ul{
+    padding: 0;;
+    margin: 0;
+list-style: none;
+color: #000;
+display: flex;
+flex-direction: row;
+align-items: center;
+
+}
+.nav-btn{
+padding: 0 1.2rem;
+font-weight: 600;
+
+}
+.btn{
+   background-color: #56BDBD;
+   color: #fff;
+}

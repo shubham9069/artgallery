@@ -1,0 +1,6 @@
+export {default as Navigationbar} from './navbar/Navigationbar'
+export {default as Banner} from './banner/Banner'
+export {default as Slickslider} from './slickslider/Slickslider'
+export {default as ShopbyCategory} from './Shopby/ShopbyCategory'
+export {default as SaleBanner} from './SaleBanner/SaleBanner'
+export {default as Footer} from './footer/Footer'
