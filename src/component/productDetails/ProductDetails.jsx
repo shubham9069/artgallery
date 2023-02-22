@@ -12,20 +12,24 @@ const ProductDetails = () => {
   const {userToken,All_Product_Page,Cart,setCart} = useContext(AuthContext)
   const [isLoading,setIsLoading] = useState(false);
   const {id} = useParams()
-  const [productDetails, setProductDetails] = useState([])
+  const [productDetails, setProductDetails] = useState([]);
+  
   
 
 
   const readMore=(e)=>{
+    var span = document.getElementById("showdesc")
 console.log(readmore)
     if(readmore.current.style['overflow']=="hidden"){
       readmore.current.style['overflow'] = "visible"
       readmore.current.style['height'] = "fit-content"
+      span.innerText="Show Less"
       
     }   
     else{
       readmore.current.style['overflow'] = "hidden"
-      readmore.current.style['height'] = "190px"
+      readmore.current.style['height'] = "130px"
+      span.innerText="Show More"
     } 
   }
 
@@ -113,10 +117,10 @@ console.log(readmore)
     <p>size : {productDetails?.size}</p>
     <p>Mediam: {productDetails?.medium}</p>
     <p>Code  : {productDetails?.product_id}</p>
-    <p>Orientation : {productDetails?.orientation}</p>
+    <p>Orientation : {productDetails?.orientation==1?"Landscape":"Portrait"}</p>
     <p>frame: {productDetails?.style}</p>
   </div>
-  <p id="description-text" style={{overflow:'hidden',height:'190px'}} ref={readmore} dangerouslySetInnerHTML={{__html: `${productDetails?.description}`}}/> <span onClick={readMore} style={{color:'#56BDBD' }}>read more .</span>
+  <p id="description-text" style={{overflow:'hidden',height:'130px'}} ref={readmore} dangerouslySetInnerHTML={{__html: `${productDetails?.description}`}}/> <span onClick={readMore} id="showdesc" style={{color:'#56BDBD',cursor:'pointer' }}>Show More </span>
 <Link to='/checkout' className="product-btn link-a" >Buy now</Link>
 </div>
   </div>

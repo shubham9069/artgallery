@@ -13,8 +13,8 @@ flex-wrap: wrap;
 
 .shopby-box{
     flex-direction: column;
-    grid-gap:40px;
-    padding:1.5rem 4rem ;
+    grid-gap:20px;
+    padding:1rem 3rem ;
     background: white;
      border-radius: 8px !important;
      transition: all 0.3s ease-in-out;
@@ -31,4 +31,5 @@ flex-wrap: wrap;
 
 .shopby-box>p{
   margin: 0 !important;
+  font-size: 14px;
 }

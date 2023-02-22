@@ -4,6 +4,8 @@
     display: flex;
     justify-content:space-between;
     align-items:center;
+    max-width: 150px !important;
+    margin-left:10px ;
 }
 .filterForm div {
      width: 100%; 

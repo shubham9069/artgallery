@@ -1,9 +1,12 @@
+html { font-size: 15px !important; }
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
   color: black;
+  
   
 
 }
@@ -16,6 +19,7 @@ body {
   margin: 0;
   padding: 0;
   
+ min-width: 280px;
  
 }
 
@@ -28,16 +32,16 @@ a:hover{
 }
  
 .section-margin{
-  margin: 4rem 4rem !important ;
+  margin: 2rem 2rem !important ;
 }
 .section-padding{
-  padding: 4rem 4rem !important ;
+  padding: 2rem 2rem !important ;
 }
 .section-paddingX{
-  padding: 0 4rem !important ;
+  padding: 0 2rem !important ;
 }
 .section-marginY{
-margin: 4rem 0 !important
+margin: 2rem 0 !important
 }
 .btn-design{
   padding: 0.6rem 1.5rem !important ;
@@ -55,7 +59,7 @@ height: fit-content;
   padding: 0.8rem 1.5rem !important ;
   border: 2px solid #56BDBD;
   color:#56BDBD!important;
-  font-size: 16px;
+  font-size: 14px;
 line-height: 19px; 
 background: white;
 border-radius: 3px !important;
@@ -75,7 +79,7 @@ border-radius: 3px !important;
   transition: 0.2s ease-in-out;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
-  ;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
 }
@@ -94,7 +98,7 @@ border-radius: 3px !important;
   transition: 0.2s ease-in-out;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
-  ;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
 }
@@ -130,7 +134,7 @@ border-radius: 0 !important;
 }
 .input-name{
   font-weight: 700 !important;
-  font-size: 16px !important;
+  font-size: 14px !important;
   
 }
 
@@ -189,7 +193,7 @@ select option[hidden]{
 .span-underline{
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 126.19%;
   /* or 20px */
   cursor: pointer;
@@ -200,7 +204,7 @@ select option[hidden]{
 .section-heading{
   font-style: normal;
 
-font-size: 24px;
+font-size: 20px;
 line-height: 126.19%;
   text-transform: uppercase !important;
   font-weight: 600 !important;
@@ -226,7 +230,7 @@ line-height: 126.19%;
   select,
   textarea,
   input {
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
   .section-margin{
     margin: 1rem 1rem !important ;
@@ -246,7 +250,7 @@ line-height: 126.19%;
     
   }
   .section-subheading{
-    font-size: 20px !important;
+    font-size: 16px !important;
     margin: 0 1rem 1rem 1rem !important;
   
   }
@@ -254,13 +258,13 @@ line-height: 126.19%;
 .section-heading {
  
   
-  font-size: 26px !important;
+  font-size: 18px !important;
   
 }
 .lighptgrey-p{
   font-weight: 500;
   line-height: 20px;
-  font-size: 14px;
+  font-size: 12px;
   color: #B5ABAB;
 }
 .form-btn{
@@ -285,6 +289,29 @@ line-height: 15px;
 
 }
 } 
+@media screen and (max-width:350px) {
+  
+  .white-btn-design{
+    padding: 0.5rem 0.5rem !important ;
+  
+    font-size: 12px;
+  line-height: 15px; 
+  
+  }
+  .themeButton {
+    padding: 7px 15px;
+   
+    font-size: 12px;
+  
+  }
+  .white-themeButton {
+    
+    padding: 7px 15px;
+   
+    font-size: 12px;
+   
+  }
+}
 
 
 

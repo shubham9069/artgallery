@@ -4,6 +4,7 @@ import './Slider.css'
 import { Link, useNavigate } from 'react-router-dom';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { arrows } from 'react-slick-carousel/lib/default-props';
 
 
 
@@ -16,7 +17,9 @@ const Slickslider = ({ImgArr,type,title}) => {
   var settings1= {
     className: 'slideShow',
     dots: true,
-
+    draggable: true,
+    
+    arrows: true,
   slidesToShow: 4,
   slidesToScroll: 4,
   pauseOnHover: true,
@@ -44,14 +47,20 @@ const Slickslider = ({ImgArr,type,title}) => {
       settings: {
         slidesToShow: 1.5,
         slidesToScroll: 1,
-        initialSlide: 2
+        infinite: true,
+        dots: true
+
       }
     },
     {
       breakpoint: 750,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+        arrows:false
+        
       }
     }
   ]
@@ -61,7 +70,9 @@ const Slickslider = ({ImgArr,type,title}) => {
 var settings2= {
   className: 'slideShow thirdslide ',
   dots: true,
-
+  
+    arrows: true,
+  draggable: true,
 slidesToShow: 3.5,
 slidesToScroll: 1,
 pauseOnHover: true,
@@ -89,7 +100,9 @@ responsive: [
     settings: {
       slidesToShow: 2,
       slidesToScroll: 1,
-      initialSlide: 2
+      initialSlide: 2,
+      infinite: true,
+        dots: true
     }
   },
 
@@ -97,14 +110,19 @@ responsive: [
     breakpoint: 750,
     settings: {
       slidesToShow: 1.5,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      infinite: true,
+        dots: true,
+        arrows:false
     }
   },
   {
     breakpoint: 600,
     settings: {
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      infinite: true,
+        dots: true
     }
   }
 ]
@@ -113,8 +131,8 @@ responsive: [
 
 // first crousel 
   var settings =  {
-    dots: true,
-    arrows:true,
+    // dots: true,
+    // arrows:true,
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -197,8 +215,8 @@ responsive: [
      
          {ImgArr?.map((element,index)=>{
           
-           return <Link to={'/ProductDetails/' + element.product_id} Style={'all:unset'} ><div  key={index} className='d-flex center-div slider-container' Style={'flex-direction:column;height:270px !important;  margin: 0 auto; cursor:pointer'} >
-           <img src={element?.images?.length &&(element?.images[0])} alt="img1" Style={" max-width:300px;width: 100%;height:100%; object-fit:cover"} ></img>
+           return <div  key={index} className='d-flex center-div slider-container' Style={'flex-direction:column;height:270px !important;  margin: 0 auto; cursor:pointer'} >
+           <img src={element?.images?.length &&(element?.images[0])} alt="img1" Style={" max-width:300px;width: 60%;height:80%; object-fit:fill"} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
            {/* <div className=' potrait-hover-details '>
 
            <div className="item1"><h3>Abstract - GP0009-22</h3></div>
@@ -213,7 +231,7 @@ responsive: [
             
            </div> */}
           </div>
-          </Link>
+          
          })} 
          
           
@@ -223,10 +241,10 @@ responsive: [
      
      {ImgArr?.map((element,index)=>{
       
-       return   <Link to={'/ProductDetails/' + element.product_id} Style={'all:unset'} ><div  key={index} className='d-flex center-div' Style={"height:370px !important;max-width:350px;  margin: 0 auto; cursor:pointer"}>
-       <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={"width: 100%;height:100%; max-width:350px;object-fit:cover"}></img>
+       return <div  key={index} className='d-flex center-div' Style={"height:370px !important;max-width:350px;  margin: 0 auto; cursor:pointer"}>
+       <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={"width: 100%;height:100%; max-width:350px;object-fit:fill"} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
       </div>
-      </Link>
+      
      })} 
      
       
@@ -237,10 +255,10 @@ responsive: [
      
          {ImgArr?.map((element,index)=>{
           
-           return   <Link to={'/ProductDetails/' + element.product_id} Style={'all:unset'} ><div   key={index} className='d-flex center-div' Style={'height:250px !important;cursor:pointer  '} >
-           <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={"max-width:300px;width: 100%;height:100%; object-fit:cover"} ></img>
+           return   <div   key={index} className='d-flex center-div' Style={'height:250px !important;cursor:pointer  '} >
+           <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={'max-width:300px;width: 70%;height:80%; object-fit:fill'} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
           </div>
-          </Link>
+          
          })} 
          
           

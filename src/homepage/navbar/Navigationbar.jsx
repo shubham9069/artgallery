@@ -15,14 +15,14 @@ const Navigationbar = () => {
     <div className="main-div d-flex section-paddingX py-3 " >
     <nav className="navbar navbar-expand-lg bg-body-tertiary " Style={'background-color: transparent !important; width:100% !important; padding:0 !important'}>
     <div className="container-fluid "  >
-    <Link to='/' ><img src={logo} alt="" className='artgallery-logo'></img></Link>
+    <img src={logo} alt="" className='artgallery-logo'></img>
       <button className="navbar-toggler" type="button" style={{margin:'0 0 0 auto'}} data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0" style={{gridGap:'10px'}}>
           <li className="nav-item">
-            <a className="nav-link nav-btn active" aria-current="page" href="#">Home</a>
+            <Link to="/" className="nav-link nav-btn active link-a" aria-current="page" >Home</Link>
           </li>
           <li className="nav-item">
             <a className="nav-link nav-btn" href="#">About</a>
@@ -65,7 +65,7 @@ const Navigationbar = () => {
                         }}></img>
                       </div>
                       <div className='col-md-9' style={{ textAlign: 'center' }}>
-                        <span style={{ fontSize: 20, fontWeight: '700', color: '#000' }}> {userData?.name}</span><br></br>
+                        <span style={{ fontSize: 18, fontWeight: '700', color: '#000' }}> {userData?.name}</span><br></br>
                         <a className='darkLink grayLink' href='#/profile' style={{ margin: 0 }}>See your profile</a>
                       </div>
                     </div>
@@ -74,7 +74,7 @@ const Navigationbar = () => {
 
                     <div style={{ margin: 15 }}>
                       <Link to='/cart' className='darkLink' href='#/cart' style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 0 }}>
-                        <i className="bi bi-cart" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 18 }}>
+                        <i className="bi bi-cart" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 13 }}>
                         </i>
                         Cart
                         <span class="position-absolute translate-middle badge rounded-pill bg-danger">
@@ -91,14 +91,14 @@ const Navigationbar = () => {
 
                     <div style={{ margin: 15 }}>
                       <Link to='/help&support' className='darkLink' href="#/help" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 0 }}>
-                        <i className="bi bi-question-circle" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 18 }}></i>
+                        <i className="bi bi-question-circle" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 13 }}></i>
                         Help & Support</Link>
                     </div>
 
                     <div style={{ margin: 15 }}>
                       <div className='darkLink' style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 0 }}
                         onClick={() => logout()}>
-                        <i className="bi bi-box-arrow-right" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 18 }}></i>
+                        <i className="bi bi-box-arrow-right" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 13 }}></i>
                         Logout</div>
                     </div>
 

@@ -231,7 +231,7 @@ const Add_to_cart= async(id) =>{
       </select>
     </div>
     
-<div className=" d-flex" style={{gridGap:'30px'}}>
+<div className=" d-flex" style={{gridGap:'10px'}}>
     {/* --------------left---------------- */}
     <div className="allproduct-left">
 

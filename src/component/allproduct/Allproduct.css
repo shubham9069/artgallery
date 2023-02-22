@@ -1,7 +1,7 @@
 
 
-.all-product{
-  
+.all-product span{
+   font-size: 13px;
 }
 
 .allproduct-top{
@@ -14,13 +14,14 @@
     width: 400px;
     border: 1px solid #E5E5E5;
     border-radius: 8px;
+    font-size:14px !important
 }
 
 .allproduct-left{
-    padding: 1rem 4rem 1rem 2rem   ;
+    padding: 1rem 2rem 1rem 2rem   ;
     background: #F4F1F1;
     border-radius: 8px;
-    min-width: 320px;
+    min-width: 280px;
     /* overflow: scroll; */
     
     
@@ -36,7 +37,7 @@ padding: 0.5rem 0;
 }
 .product-filter-input>label{
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px !important;
     line-height: 126.19%;
     /* identical to box height, or 18px */
     
@@ -55,7 +56,7 @@ left: 3px;
 
 .allproduct-right{
    display: flex;
-   grid-gap:40px;
+   grid-gap:10px;
    flex-wrap: wrap;
    justify-content: space-evenly;
 
@@ -65,7 +66,7 @@ left: 3px;
 .allproduct-right>div{
   
    background: #FFFFFF;
-   max-width: 330px;
+   max-width: 300px;
    height: max-content;
 border: 1px solid #D3D1D1;
 border-radius: 8px ;
@@ -82,8 +83,8 @@ border-radius: 8px ;
 .product-box-desc{
     margin:1rem;
     overflow: auto;
-    height: 57px;
-    font-size: 0.8rem;
+    height: 50px;
+    font-size: 12px;
 }
 .product-box-desc>*{
     display: none;
@@ -127,6 +128,14 @@ border-radius: 8px ;
         height: 12px;
         background: black;
         border-radius: 2px;
+    }
+
+
+    @media screen and (max-width:650px) {
+
+
+        
+        
     }
     
    

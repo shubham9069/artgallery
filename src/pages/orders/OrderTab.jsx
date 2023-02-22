@@ -151,14 +151,14 @@ const cancel_order= async(id)=>{
                         </div>
                         <hr class="dropdown-divider" style={{ margin: "20px 0px 5px 0px", backgroundColor: "#aaa" }}></hr>
 
-                        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center',gridGap:20 }}>
                             <div href="#/cart" className="themeButton" style={{
-                                marginTop: 10, marginRight: 10, width: 150, height: 40
+                                width: 150, height: 40
                             }} onClick={() => { }}>Track</div>
 
-                            <Link to='/OrderDetails'
+                            <Link to={'/OrderDetails/'+element?.id}
                                className="secondaryBtn" style={{
-                                    marginTop: 10, marginLeft: 10, width: 150, height: 40
+                                    width: 150, height: 40
                                 }}>Details</Link>
                         </div>
                     </div>

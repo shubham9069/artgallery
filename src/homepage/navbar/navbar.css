@@ -9,6 +9,9 @@
    width: 100% !important;
     /* height: 90px; */
 }
+.artgallery-logo{
+   max-width: 100px;
+}
 
  .menu>ul{
     padding: 0;;
@@ -56,6 +59,7 @@ color:black !important
     text-decoration: none; 
     font-weight: 500;
     color:#626262;
+    font-size: 13px;
     
 }
 .darkLink:hover{
@@ -78,6 +82,20 @@ color:black !important
     .nav-link>span{
         display:none;
     }
+    .navbar-toggler{
+        font-size:14px !important;
+    }
+    .main-div{
+        padding: 8px !important;
+    }
+    
+    
+}
+@media screen and (max-width:350px) {
+    .artgallery-logo{
+        width:50%;
+    }
+    
     
 }
 

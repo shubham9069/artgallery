@@ -75,7 +75,7 @@ margin-bottom: 1.5rem;
     }
     .salebanner-left,.salebanner-right{
         position: relative;
-        width: 400px;
+        width: 100%
     }
     .salebanner-left>div>p{
         color:white;
@@ -93,6 +93,38 @@ margin-bottom: 1.5rem;
         
      font-size: 22px;
      line-height: 36px
+     
+     
+     }
+    
+}
+@media screen and (max-width:350px) {
+    .salebanner-left>div{
+     
+       padding :0.5rem 1rem ;
+      
+    
+    }
+    .salebanner-left,.salebanner-right{
+        position: relative;
+        width: 100%
+    }
+    .salebanner-left>div>p{
+        color:white;
+        font-size: 16px;
+         line-height:22px
+     
+     }
+     .salebanner-left>div>h1{
+       
+     font-size: 35px;
+     line-height:26px
+     
+     }
+     .salebanner-left>div>h3{
+        
+     font-size: 18px;
+     line-height: 22px
      
      
      }

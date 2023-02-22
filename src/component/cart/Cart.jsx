@@ -220,21 +220,21 @@ const Add_to_cart= async(id,qty,type) =>{
   return (
     !Cart?.cart_items?.length?
     <div className='container section' style={{ display: 'flex', flexDirection: 'column',alignItems:'center',justifyContent:'center',gridGap:'30px' }}>
-    <a href='#/'><img src={cart_empty} alt="no-item" style={{ maxHeight: 450, maxWidth: 350 }}></img></a>
-    <h6 style={{fontSize: '28px',color:'#56BDBD'}}> Your Cart Is Empty</h6>
-    <p style={{color: '#C4C4C4', fontSize:'24px'}}> Look like you haven’t made 
+    <img src={cart_empty} alt="no-item" style={{ maxHeight: 450, maxWidth: 350,width:'80%',textAlign:'center' }}></img>
+    <h6 style={{fontSize: '22px',color:'#56BDBD'}}> Your Cart Is Empty</h6>
+    <p style={{color: '#C4C4C4', fontSize:'18px'}}> Look like you haven’t made 
 your choice yet..</p>
 </div>
     :
    <>
    
-   <div className='container ' style={{margin: '4rem auto',}}>
+   <div className='container ' style={{margin: '2rem auto',}}>
 
                       
 
                       
 
-<h2 style={{ marginBottom: "2rem", fontWeight: "600" }}>Shopping Cart</h2>
+<h4 style={{ marginBottom: "2rem", fontWeight: "600" }}>Shopping Cart</h4>
 
     <div >
     {Cart?.cart_items?.map((element, index) =>{
@@ -259,25 +259,25 @@ your choice yet..</p>
                 </div>
                 <div className='row'>
                     <div className='col-sm-4'>
-                        <h6 style={{  color: '#000',fontSize:'24px',fontWeight:600,lineHeight:"36px" }}> {element?.product?.name}</h6>
+                        <h6 style={{  color: '#000',fontSize:'21px',fontWeight:600,lineHeight:"36px" }}> {element?.product?.name}</h6>
                     </div>
                     
                 </div>
                 <div className='row'>
                     <div className='col-sm-4'>
-                        <span style={{color: '#000',fontSize:'16px',fontWeight:600,lineHeight: '30px'}}>Medium - <span style={{fontSize:"13px",color: '#1D1D1D' }}>{element?.product?.medium}</span></span>
+                        <span style={{color: '#000',fontSize:'14px',fontWeight:400,lineHeight: '30px'}}>Medium - <span style={{fontSize:"13px",color: '#1D1D1D' }}>{element?.product?.medium}</span></span>
                     </div>
                 
                 </div>
                 <div className='row'>
                     <div className='col-sm-4'>
-                        <span style={{ fontSize:'16px',fontWeight:600, color: '#000',lineHeight: '30px' }}>Style - <span style={{fontSize:"13px",color: '#1D1D1D' }}>{element?.product?.style}</span></span>
+                        <span style={{ fontSize:'14px',fontWeight:400, color: '#000',lineHeight: '30px' }}>Style - <span style={{fontSize:"13px",color: '#1D1D1D' }}>{element?.product?.style}</span></span>
                     </div>
                 
                 </div>
                 <div className='row'>
                     <div className='col-sm-4'>
-                        <span style={{ fontSize:'16px',fontWeight:600, color: '#000',lineHeight: '30px' }}>Orientation - <span style={{fontSize:"13px",color: '#1D1D1D' }}>{element?.product?.orientation}</span></span>
+                        <span style={{ fontSize:'14px',fontWeight:400, color: '#000',lineHeight: '30px' }}>Orientation - <span style={{fontSize:"13px",color: '#1D1D1D' }}>{element?.product?.orientation==1?"Landscape":"portrait"}</span></span>
                     </div>
                 
                 </div>
@@ -326,7 +326,7 @@ your choice yet..</p>
               
            
                 <div className='col-md-2 d-flex align-items-center ' style={{margin:'0 0 0 auto'}}>
-                        <div style={{fontSize: 16,fontWeight:600}}>₹{element?.product?.price}<span style={{ textDecoration: 'line-through', fontSize: 12}}> ₹30000 </span></div>
+                        <div style={{fontSize: 16,fontWeight:600,color:"#56BDBD"}}>₹{element?.product?.price}<span style={{ textDecoration: 'line-through', fontSize: 12}}> ₹30000 </span></div>
                        
                     </div>
 
@@ -370,7 +370,7 @@ your choice yet..</p>
 
 <div className='section section-marginY section-padding' style={{ backgroundColor: 'rgba(86, 189, 189, 0.07)' }}>
 <div className='container columnAlign'>
-    <span style={{ color: '#000', fontWeight: 500, fontSize: 20 }}>Price Details ( items )</span>
+    <span style={{ color: '#000', fontWeight: 500, fontSize: 18 }}>Price Details ( items )</span>
 
         {/* <div className='row justify-content-between' >
             <div className='col-md-6 my-3'>
@@ -383,13 +383,13 @@ your choice yet..</p>
   
     <div className='row justify-content-between' style={{ marginTop: 10 }}>
         <div className='col-md-6 my-2'>
-            <span>Total MRP</span>
+            <span style={{ fontSize:14}}>Total MRP</span>
         </div>
         <div className='col-md-6 my-2' style={{ display: 'flex', justifyContent: 'flex-end', }}>
-            <span>₹{Cart?.total}</span>
+            <span >₹{Cart?.total}</span>
         </div>
         <div className='col-md-6 my-2'>
-            <span>Discount on MRP</span>
+            <span style={{ fontSize:14}}>Discount on MRP</span>
         </div>
         <div className='col-md-6 my-2' style={{ display: 'flex', justifyContent: 'flex-end', }}>
             <span style={{ color: '#34A853' }}>₹{couponprice ? couponprice?.type==1 || couponprice?.type==3? (couponprice?.discount) : couponprice?.type==2 || couponprice?.type==4 ? (Cart?.total*(couponprice?.discount)/100) :0:0}</span>
@@ -397,7 +397,7 @@ your choice yet..</p>
       
 
         <div className='col-md-6 my-2'>
-            <span>Insurance</span>
+            <span style={{ fontSize:14}}>Insurance</span>
         </div>
         <div className='col-md-6 my-2' style={{ display: 'flex', justifyContent: 'flex-end', }}>
             <span style={{}}>₹0</span>
@@ -435,10 +435,10 @@ your choice yet..</p>
          
         </Modal.Header>
         <Modal.Body className='center-div flex-column'>
-        <h3>Apply Voucher / Offers</h3>
+        <h4>Apply Voucher / Offers</h4>
         <div className="voucher-input" style={{margin: '2rem 0'}}>
         <input type="text" style={{padding: '1rem'}} onChange={search} />
-        <button >Apply</button>
+        {/* <button >Apply</button> */}
         </div>
         <div className="coupon">
         <h6>OR</h6>
