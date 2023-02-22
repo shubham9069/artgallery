@@ -15,13 +15,13 @@ function Forgot() {
     
     return (
         // <div className='container section'>
-        <div className=''>
-            <div className='row' style={{ alignItems: 'center',margin:0 }}>
+        <div className='main-form'>
+            <div className='row .main-form' style={{ alignItems: 'center',margin:0 }}>
                 <div className='col-md-6' style={{ padding: 0 }}>
                     <img src={form} alt="focusImg"
                         style={{ objectFit: 'fill', width: '100%', height: '100%' }}></img>
                 </div>
-                <div className='col-md-6' style={{ padding: 0}}>
+                <div className='col-md-6 form-rightW1000' style={{ padding: 0}}>
                     <form className=' inputForm'
                         style={{}}>
                       

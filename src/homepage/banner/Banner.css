@@ -23,6 +23,19 @@
    justify-content:center;
   
 }
+.text-banner>div>h2{
+    margin-bottom:2rem;
+}
+.text-banner>div>p{
+    max-width:600px;
+    margin-bottom:2rem;
+    overflow-y: hidden;
+    max-height: 50px;
+    font-size: 12px;
+}
+.text-banner>div>*{
+   color:white;
+}
 .text-banner>div>*{
    color:white;
 }
@@ -34,4 +47,24 @@
     left: 0;
     top: 0;
     background-color:#00000061;;
+}
+
+
+@media screen and (max-width:600px) {
+    .text-banner>div>h1{
+        margin-bottom:0.5rem;
+        font-size: 1.2rem;
+    }
+    .text-banner>div{
+      top:55%
+      
+    }
+    .text-banner>div>p{
+        max-width:400px;
+        font-size: 0.8rem;
+        margin-bottom:0.2rem;
+        overflow: hidden;
+        
+        height: 40px;
+    }
 }

@@ -5,13 +5,16 @@ import App from './App';
 import "bootstrap-icons/font/bootstrap-icons.css"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { HashRouter } from 'react-router-dom';
+import AuthProvider from './AuthProvider';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   <HashRouter >
+  <AuthProvider>
     <App />
+    </AuthProvider>
     </HashRouter>
   </React.StrictMode>
 );

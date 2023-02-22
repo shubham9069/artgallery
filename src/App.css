@@ -33,6 +33,9 @@ a:hover{
 .section-padding{
   padding: 4rem 4rem !important ;
 }
+.section-paddingX{
+  padding: 0 4rem !important ;
+}
 .section-marginY{
 margin: 4rem 0 !important
 }
@@ -44,6 +47,8 @@ margin: 4rem 0 !important
 line-height: 19px; 
 background: #56BDBD;
 border-radius: 8px !important;
+width: max-content;
+height: fit-content;
 }
 
 .white-btn-design{
@@ -62,6 +67,25 @@ border-radius: 3px !important;
   align-items: center;
   background-color: #56BDBD;
   color: white;
+  padding: 10px 25px;
+  /* margin: 30px 0px; */
+  cursor: pointer;
+  border: 1.5px solid #56BDBD;
+  border-radius: 8px;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  ;
+  font-style: normal;
+  font-weight: 500;
+}
+.white-themeButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:white;
+  color: #56BDBD;
   padding: 10px 25px;
   /* margin: 30px 0px; */
   cursor: pointer;
@@ -123,6 +147,12 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
   }
+input:focus-visible {
+    outline:none;
+  }
+select option[hidden]{
+    color:red !important
+  }
  
 
 
@@ -162,6 +192,7 @@ input[type=number] {
   font-size: 16px;
   line-height: 126.19%;
   /* or 20px */
+  cursor: pointer;
   font-weight: 500;
   text-decoration: none;
   color: #56BDBD;
@@ -176,7 +207,7 @@ line-height: 126.19%;
 
 }
 
-/* @media screen and (max-width:1200px) {
+ @media screen and (max-width:1200px) {
   .section-margin{
     margin: 2rem 2rem !important ;
   }
@@ -185,6 +216,9 @@ line-height: 126.19%;
   }
   .section-marginX{
   margin: 0 2rem !important
+  }
+  .section-paddingX{
+  padding: 0 2rem !important
   }
 }
 
@@ -198,11 +232,14 @@ line-height: 126.19%;
     margin: 1rem 1rem !important ;
   }
   .section-padding{
-    padding: 1rem 1rem !important ;
+    padding: 2rem 1rem !important ;
   }
  
   .section-marginX{
   margin: 0 1rem !important
+  }
+  .section-paddingX{
+  padding: 0 1rem !important
   }
   .container{
     width: 100% !important;
@@ -233,7 +270,21 @@ line-height: 126.19%;
   margin: 2rem auto;
   font-size: 0.8rem !important;
 }
-} */
+.white-btn-design{
+  padding: 0.5rem 1rem !important ;
+
+  font-size: 12px;
+line-height: 15px; 
+
+}
+.btn-design{
+  padding: 0.6rem 1.2rem !important ;
+  
+  font-size: 14px;
+line-height: 15px; 
+
+}
+} 
 
 
 

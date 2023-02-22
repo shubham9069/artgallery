@@ -1,7 +1,12 @@
 
 .main-div{
     background-image: url("../asset/image 2.png");
-    padding: 1rem ;
+   width: 100% !important;
+    /* height: 90px; */
+}
+.main-div:before{
+    background-image: url("../asset/image 2.png");
+   width: 100% !important;
     /* height: 90px; */
 }
 
@@ -15,12 +20,65 @@ flex-direction: row;
 align-items: center;
 
 }
+.nav-item{
+    list-style-type: none !important;
+}
 .nav-btn{
-padding: 0 1.2rem;
-font-weight: 600;
+padding: 0 0.8rem !important;
+font-weight: 600 !important;
+color:black !important
 
 }
 .btn{
    background-color: #56BDBD;
    color: #fff;
 }
+.navbar>.container-fluid{
+    grid-gap:40px ;
+}
+.Buttonofnavbar{
+    position: relative;
+    top: 10px;
+}
+.headerLink {
+    padding: 0px 10px;
+}
+
+.headerLink>.nav-link {
+    font-weight: 700;
+    font-family: 'Raleway';
+}
+
+.headerLink>.nav-link:hover {
+    color: #fc9918 !important;
+}
+.darkLink{
+    text-decoration: none; 
+    font-weight: 500;
+    color:#626262;
+    
+}
+.darkLink:hover{
+  
+    color:rgb(86, 189, 189);
+    
+}
+
+
+@media screen and (max-width:1000px) {
+    .navbar .container-fluid{
+        grid-gap:20px !important;
+    }
+    
+}
+@media screen and (max-width:600px) {
+    .artgallery-logo{
+        width:80%;
+    }
+    .nav-link>span{
+        display:none;
+    }
+    
+}
+
+

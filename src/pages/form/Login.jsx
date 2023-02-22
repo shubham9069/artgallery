@@ -1,38 +1,84 @@
 import React, { useContext, useState } from 'react'
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate,Link,useLocation } from 'react-router-dom';
 import './form.css'
 import form from '../assest/Rectangle 4007.png'
+import Toast from '../../Toast'
+import axios from '../../axios'
+import { AuthContext } from '../../AuthProvider';
 
 
 
 function Login() {
-
-    
-
-    let navigate = useNavigate()
-    const [selected, setSelected] = useState(true)
+    const {setUserToken,setUserData} = useContext(AuthContext)
+    let navigate = useNavigate();
+    const location =useLocation();
+  const from = location?.state?.from?.pathname
+    const [selected, setSelected] = useState(true);
+    const [isLoading, setIsLoading] = useState(false)
  
     const [users, setUsers] = useState({
-        username: "",
+        email: "",
         password: ""
 
     });
-    const { username, password } = users;
+    const { email, password } = users;
     const onchange = e => {
         // setErrorMsg('')
         setUsers(users => ({ ...users, [e.target.name]: e.target.value }));
     }
+
+    
+  const login = async(e)=>{
+    e.preventDefault()
+
+     if(!email || !password ) return Toast("please fill properly")
+    
+     try{
+      setIsLoading(true)
+      const response= await axios({
+        method: "post",
+       url:'/login',
+        data:{
+          email,password
+        },
+        headers: {
+          "Content-Type": "application/json",
+          
+        },
+       })
+       
+       if(response.status===200){
+        const data = response.data
+        setUserToken(data.accessToken);
+        setUserData(data.Customer)
+        window.localStorage.setItem('userToken', JSON.stringify(data.accessToken));
+        window.localStorage.setItem('userData', JSON.stringify(data.Customer));
+        Toast(data.message,response.status)
+        navigate(from || '/')
+       }
+     }
+     catch(err){
+      const error = err.response.data
+      Toast(error.message);
+      
+
+
+     }
+     finally{
+      setIsLoading(false)
+     }
+  }
     
     return (
-        <div className='' style={{paddingRight: '2rem'}}>
+        <div className='main-form' style={{}}>
          
-            <div className='row' style={{ alignItems: 'center',margin:0 }}>
+            <div className='row between-div form-width1000' style={{ alignItems: 'center',margin:0 }}>
                 <div className='col-md-6' style={{ padding: 0 }}>
                     <img src={form} alt="focusImg"
                         style={{ objectFit: 'fill', width: '100%', height: '100%'}}></img>
                 </div>
-                <div className='col-md-5' style={{ padding: 0 }}>
-                    <form className=' inputForm'
+                <div className='col-md-5 form-rightW1000' style={{ padding: 0 }}>
+                    <form className=' inputForm' onSubmit={login}
                         style={{}}>
                         {/* <ErrorContainer /> */}
                         
@@ -42,7 +88,7 @@ function Login() {
                         <br></br>
                         <div className="labelAndInput">
                             <label> Email </label>
-                            <input type='email' placeholder="Enter email" name="username" value={users.username} onChange={e => onchange(e)}></input>
+                            <input type='email' placeholder="Enter email" name="email" value={users.email} onChange={e => onchange(e)}></input>
                            
                         </div>
                         <div className="labelAndInput">

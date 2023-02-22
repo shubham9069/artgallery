@@ -16,11 +16,12 @@
     max-width: 1700px;
     margin: 0 auto;
     flex-wrap: wrap;
+    justify-content: space-between;
    
 
 }
 .footer-section{
-    margin: 60px;
+    margin:  50px 30px;
 }
 .footer-section>h5{
     color:black;
@@ -31,6 +32,17 @@
     
 }
 .footer-section>p{
+    color:black;
+    
+    font-size: 16px;
+    line-height: 24px;
+    
+}
+.footer-section>a{
+    all:unset;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 1rem;
     color:black;
     
     font-size: 16px;
@@ -48,12 +60,49 @@
 
 @media only screen and (max-width : 1500px) {
     .footer-section{
-        margin: 50px;
+        margin:  50px 10px;
         flex-basis: 200px;
     }
+    .footer-section>h5{
+        color:black;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 1rem;
+        
+    }
+    .footer-section>p{
+        color:black;
+        
+        font-size: 14px;
+        line-height: 24px;
+        
+    }
 }
-@media only screen and (max-width : 900px) {
+@media only screen and (max-width : 1000px) {
+    .main-footer
+    {
+        
+        
+        padding: 0 2rem;
+       
+        margin: 0 ;
+        
+       
+    
+    }
    
 }
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 600px) {
+    .main-footer
+{
+    
+    
+    padding: 0 1rem;
+   
+    margin: 0 ;
+    
+   
+
+}
 }

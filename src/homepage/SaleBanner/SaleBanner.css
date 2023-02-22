@@ -6,10 +6,11 @@
 
 .salebanner-left,.salebanner-right{
     position: relative;
-    width: 600px;
+    
 }
 .salebanner-left>img,.salebanner-right>img{
     width: inherit;
+    max-width: 500px;
 }
 
 .salebanner-left::after{

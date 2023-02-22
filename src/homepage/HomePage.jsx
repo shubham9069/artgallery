@@ -1,19 +1,26 @@
 import React from 'react'
-import {bottomLeft, img1,img2,img3,img4,bottomRight} from './asset/Export'
+import { useContext,useEffect } from 'react'
+import { useState } from 'react'
+import { AuthContext } from '../AuthProvider'
 import { Banner,Slickslider,SaleBanner,ShopbyCategory } from './Exportfile'
+import axios from '../axios'
+import Toast from '../Toast'
 
 
-var image =[img1,img2,img3,img4,img1,img2,img3,img4]
+
 const HomePage = () => {
+  const {All_Product_Page} = useContext(AuthContext)
+ 
+  
   return (
     <>
     <Banner />
-    <div style={{padding:'0 2rem'}}><Slickslider ImgArr={image} title={['RECENT','VIEW']}  /> </div>
-    <ShopbyCategory />
-    <Slickslider ImgArr={image} type="1"  title={['PORTRAIT','ART']} />
-    <div style={{padding:'0 2rem'}}><Slickslider ImgArr={image} type={2} title={['TODAYS','DEALS']}  /> </div>
+    <Slickslider ImgArr={All_Product_Page} title={['RECENT','VIEW']}  /> 
+    <ShopbyCategory  />
+    <Slickslider ImgArr={All_Product_Page} type={1}  title={['PORTRAIT','ART']} />
+    <Slickslider ImgArr={All_Product_Page} type={2} title={['TODAYS','DEALS']}  /> 
   <SaleBanner/>
-  <div style={{padding:'0 2rem'}}><Slickslider ImgArr={image} title={['RECOMMENDED','VIEW']}  /> </div>
+  <Slickslider ImgArr={All_Product_Page} title={['RECOMMENDED','VIEW']}  /> 
   </>
 
   )

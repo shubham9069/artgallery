@@ -1,9 +1,14 @@
 import React from 'react'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../AuthProvider'
 import {girl,shape,art,landscape,whitegirl,whitelandscape,whiteart,whitepotrait, whiteshape,} from '../asset/Export'
 import './Shopby.css'
 
 
-const ShopbyCategory = () => {
+const ShopbyCategory = ({CatArr}) => {
+  const {CategoryData} = useContext(AuthContext)
+  const navigate = useNavigate()
 
 
   var hover =(i,img)=>{
@@ -31,32 +36,22 @@ const ShopbyCategory = () => {
         
           <div className=" d-flex justify-content-between " style={{marginBottom:"2rem"}} >
         <h2 className="section-heading"> <span className="section-heading" style={{color:"#56BDBD"}}>Shop</span> By Category</h2>
-        <p className='span-underline' > View All </p>
+        <p className='span-underline' onClick={()=>navigate('/allproduct')}> View All </p>
         </div>
       
 
 {/* --------------------box section ---------------- */}
       <div className="center-div shopby-container" >
 
-    <div className="center-div shopby-box" id="shopby-container1" onMouseEnter={()=>hover(1,whitegirl)} onMouseLeave={()=>removehover(1,girl)}>
-    <img src={girl}/>
-    <p>Portrait</p>
+{CategoryData?.map((element,index)=>{
+
+  return <div className="center-div shopby-box" id={"shopby-container"+(index+1)} onClick={()=>navigate('allproduct')} onMouseEnter={()=>hover(index+1,element?.icon_white)} onMouseLeave={()=>removehover(index+1,element?.icon)}>
+    <img src={element?.icon}/>
+    <p>{element?.name}</p>
     </div>
+})}
     
-    <div  className="center-div shopby-box" id="shopby-container2" onMouseOver={()=>hover(2,whitelandscape)} onMouseLeave={()=>removehover(2,landscape)} >
-    <img src={landscape}/>
-    <p>Landscape</p>
-    </div>
-
-    <div  className="center-div shopby-box" id="shopby-container3" onMouseOver={()=>hover(3,whiteart)} onMouseLeave={()=>removehover(3,art)}>
-    <img src={art}/>
-    <p>Art</p>
-    </div>
-
-    <div  className="center-div shopby-box" id="shopby-container4" onMouseOver={()=>hover(4,whiteshape)} onMouseLeave={()=>removehover(4,shape)} >
-    <img src={shape}/>
-    <p>Shape</p>
-    </div>
+    
 
 
          </div>

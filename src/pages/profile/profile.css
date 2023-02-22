@@ -1,0 +1,51 @@
+
+
+.profile-input{
+    
+/* height: 15.26px; */
+
+background: #F5F5F5;
+border-radius: 9.48039px;
+border: none;
+padding:0.6rem 2rem;
+width: 100%;
+font-size: 12px;
+line-height: 150.6%;
+/* identical to box height, or 18px */
+
+
+color: #7e7979;
+/* max-width:400px */
+}
+
+.modale-Addaddress>.modal-dialog{
+    width:70% !important;
+     max-width:1000px !important;
+}
+
+
+element.style {
+    background-color: transparent;
+}
+.radio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 26px;
+    height: 27px;
+    border-radius: 100% !important;
+    margin-right: 10px;
+    border: 1.5px solid #56BDBD;
+    transition: 0.2s ease-in-out;
+}
+
+@media screen and (max-width:750px) {
+
+    .modale-Addaddress>.modal-dialog{
+        width:98% !important;
+         
+    }
+    
+}

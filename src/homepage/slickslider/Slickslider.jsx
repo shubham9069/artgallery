@@ -1,13 +1,14 @@
 import React from 'react'
 import Slider from "react-slick";
 import './Slider.css'
-
+import { Link, useNavigate } from 'react-router-dom';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
 
 
-const slickslider = ({ImgArr,type,title}) => {
+const Slickslider = ({ImgArr,type,title}) => {
+  const navigate = useNavigate();
   console.log(ImgArr.length)
 
 
@@ -190,14 +191,14 @@ responsive: [
           <div className={type==1?'section-slider section-padding' :"section-slider"}>
           <div className={type==1?" d-flex justify-content-between ":"text d-flex justify-content-between "} style={type==1?{marginBottom:"1.5rem"}:null}>
         <h2 className="section-heading"> <span className="section-heading"style={{color:"#56BDBD"}}>{title[0]}</span> {title[1]}</h2>
-        <p className='span-underline'  > View All </p>
+        <p className='span-underline' onClick={()=>navigate('/allproduct')}  > View All </p>
         </div>
         {type==1?<Slider {...settings1}>
      
-         {ImgArr?.map((element)=>{
+         {ImgArr?.map((element,index)=>{
           
-           return <div className='d-flex center-div slider-container' Style={'flex-direction:column'} >
-           <img src={element} alt="img1" Style={" max-width:300px"} ></img>
+           return <Link to={'/ProductDetails/' + element.product_id} Style={'all:unset'} ><div  key={index} className='d-flex center-div slider-container' Style={'flex-direction:column;height:270px !important;  margin: 0 auto; cursor:pointer'} >
+           <img src={element?.images?.length &&(element?.images[0])} alt="img1" Style={" max-width:300px;width: 100%;height:100%; object-fit:cover"} ></img>
            {/* <div className=' potrait-hover-details '>
 
            <div className="item1"><h3>Abstract - GP0009-22</h3></div>
@@ -212,6 +213,7 @@ responsive: [
             
            </div> */}
           </div>
+          </Link>
          })} 
          
           
@@ -219,11 +221,12 @@ responsive: [
         :
         type==2?<Slider {...settings2}>
      
-     {ImgArr?.map((element)=>{
+     {ImgArr?.map((element,index)=>{
       
-       return  <div className='d-flex center-div' Style={"height:370px !important;max-width:350px;  margin: 0 auto; "}>
-       <img src={element} alt="img1" Style={"width: 100%;height:100%; max-width:350px"}></img>
+       return   <Link to={'/ProductDetails/' + element.product_id} Style={'all:unset'} ><div  key={index} className='d-flex center-div' Style={"height:370px !important;max-width:350px;  margin: 0 auto; cursor:pointer"}>
+       <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={"width: 100%;height:100%; max-width:350px;object-fit:cover"}></img>
       </div>
+      </Link>
      })} 
      
       
@@ -232,19 +235,21 @@ responsive: [
 
         <Slider {...settings}>
      
-         {ImgArr?.map((element)=>{
+         {ImgArr?.map((element,index)=>{
           
-           return  <div className='d-flex center-div' >
-           <img src={element} alt="img1" Style={" max-width:300px"} ></img>
+           return   <Link to={'/ProductDetails/' + element.product_id} Style={'all:unset'} ><div   key={index} className='d-flex center-div' Style={'height:250px !important;cursor:pointer  '} >
+           <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={"max-width:300px;width: 100%;height:100%; object-fit:cover"} ></img>
           </div>
+          </Link>
          })} 
          
           
         </Slider>
         }
+        
       </div>
         </>
       )
 }
 
-export default slickslider
+export default Slickslider

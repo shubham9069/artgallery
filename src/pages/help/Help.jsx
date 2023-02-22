@@ -10,7 +10,7 @@ const Help = () => {
 <div className="container center-div flex-column ">
 <h3>Help & Support</h3>
 
-<img src={help}></img>
+<img src={help} style={{maxWidth:'350px'}}></img>
 
 </div>
 <div className="section-padding center-div flex-column" style={{ maxWidth:'1500px',gridGap:'40px' ,margin:'0 auto'}}>

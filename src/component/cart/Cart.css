@@ -58,6 +58,10 @@
 border-radius: 8px 0 8px 8px;
 
 }
+.voucher-input>input:focus-visible{
+    outline: none !important;
+
+}
 .voucher-input>button{
     width: 150px;
     height: 55px;
@@ -89,7 +93,7 @@ position: relative;
     top: -35px;
     left: 0;
 }
-.coupon>div{
+.coupon>div>div{
    padding:1.5rem;
    background: #F3FAFA;
 border: 1px dashed #56BDBD;

@@ -75,8 +75,8 @@ border-radius: 8px ;
 .allproduct-right>div>a>img{
    width: 100%;
    border-radius: 8px 8px 0 0 ;
-   
-   object-fit: fill;
+   height: 300px;
+   object-fit: cover;
 
 }
 .product-box-desc{
@@ -84,6 +84,14 @@ border-radius: 8px ;
     overflow: auto;
     height: 57px;
     font-size: 0.8rem;
+}
+.product-box-desc>*{
+    display: none;
+   
+}
+.product-box-desc>p{
+    display: block !important
+   
 }
 ::-webkit-scrollbar {
     width: 4px;
@@ -95,6 +103,30 @@ border-radius: 8px ;
     background:#b2b2b2c1; 
     border-radius:80px;
    
+    }
+ .rangeInput {
+        /* background: linear-gradient(to right, #82CFD0 0%, #82CFD0 50%, #fff 50%, #fff 100%);; */
+        /* border: solid 1px #FC9918;
+      border-radius: 8px;
+      height: 7px;
+      width: 100%;
+      outline: none;
+      transition: 450ms ease-in;
+      -webkit-appearance: none; */
+        background-color: #DEE2E6;
+        border-radius: 8px;
+        height: 4px;
+        width: 100%;
+        outline: none;
+        -webkit-appearance: none;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+        width: 6px;
+        -webkit-appearance: none;
+        height: 12px;
+        background: black;
+        border-radius: 2px;
     }
     
    

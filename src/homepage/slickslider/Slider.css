@@ -4,7 +4,7 @@
     margin-bottom:1.5rem
 }
 .section-slider{
-    padding:4rem 0 4rem 0
+    padding:4rem 2rem 4rem 2rem
 }
 .slideShow {
     position: relative;
@@ -72,4 +72,22 @@
 .slider-container:hover .potrait-hover-details{
  
      display: grid;
+}
+
+@media screen and (max-width:600px) {
+    .section-slider{
+        padding:2rem 1rem 2rem 1rem
+    }
+    .text{
+        padding:0 1rem ;
+        margin-bottom:1.5rem
+    }
+    .slideShow .slick-prev {
+       
+        left:0
+    }
+    .slideShow .slick-next {
+right: 0;
+    }
+    
 }

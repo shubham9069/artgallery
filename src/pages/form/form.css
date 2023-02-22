@@ -1,3 +1,7 @@
+.main-form{
+    padding-right: 2rem;
+}
+
 .inputForm {
     width: 100%;
     padding: 10px;
@@ -97,5 +101,18 @@
 .googleBtn:hover{
     color: #000;
     filter: drop-shadow(1px 4px 4px #0005);
+}
+
+@media screen and (max-width:1000px) {
+    .form-width1000{
+        flex-direction: column;
+    }
+    .main-form{
+        padding-right: 0;
+    }
+    .form-rightW1000{
+        padding:  1rem !important; 
+    }
+    
 }
 

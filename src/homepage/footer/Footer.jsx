@@ -1,9 +1,13 @@
 import React from 'react'
 import './footer.css'
 import logo from '../asset/image 1.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../../AuthProvider'
 
 const Footer = () => {
+    const navigate = useNavigate()
+    const {All_Product_Page} = useContext(AuthContext)
   return (
     <div className='footer ' style={{marginTop:'2rem'}}>
     <div className='main-footer d-flex' >
@@ -21,11 +25,12 @@ const Footer = () => {
 </div>
 <div className='footer-section'>
     <h5>PRODUCTS</h5>
-    <p>cources</p>
-    <p>Try coures for free</p>
-    <p>Carrer Camp</p>
-    <p>Mock Interview</p>
-    <p>Hire Talent</p>
+    {All_Product_Page?.slice(0,6)?.map((element)=>{
+
+        return <Link to={'/ProductDetails/' + element.product_id}>{element?.name}</Link>
+    })}
+    
+    
 </div>
 
 <div className='footer-section'>

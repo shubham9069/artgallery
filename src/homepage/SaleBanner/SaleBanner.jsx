@@ -15,7 +15,7 @@ const SaleBanner = () => {
     <h1>SALE</h1>
     <h3>SPECIAL OFFER</h3>
     <div className='center-div' style={{ gridGap:'20px'}}>
-    <button className="white-btn-design" >Add To cart  </button>
+    <button className="white-btn-design" >Add To Cart  </button>
     <button className="white-btn-design" >Wishlist Here </button>
     </div>
 </div>

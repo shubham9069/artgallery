@@ -1,11 +1,20 @@
 import {createContext,useEffect,useState} from "react";
+import axios from "./axios";
+import Toast from "./Toast";
 
 
 export const AuthContext = createContext({})
 
 const AuthProvider = ({children}) => {
-    const [userToken, setUserToken] = useState()
-    const [userData, setUserData] = useState()
+    const [userToken, setUserToken] = useState("")
+    const [userData, setUserData] = useState("")
+    const [All_Product_Page,setAll_Product_Page ] = useState([]);
+    const [Catagory,setCatagory ] = useState({mediums:[],styles:[],sizes:[]});
+    const [Banner,setBanner] = useState([])
+    const [Cart,setCart] = useState([])
+    const [CategoryData ,setCategoryData] = useState()
+  
+    const [isLoading,setIsLoading]=useState(true)
 
     
   //   const initialFetch = {
@@ -25,6 +34,58 @@ const AuthProvider = ({children}) => {
   //     }
   // }
 
+  const get_all= async(url,type) =>{
+
+    try{
+      setIsLoading(true)
+      const response= await axios({
+        method: "get",
+       url:url,
+       })
+       
+       if(response.status===200){
+        const data = response.data;
+
+        switch(type){
+          case 'product': 
+          setAll_Product_Page(data.products);
+          setCatagory((p)=>({...p,["mediums"]:data.mediums}));
+          setCatagory((p)=>({...p,["styles"]:data.styles}));
+          setCatagory((p)=>({...p,["sizes"]:data.sizes}));
+
+          return;
+
+          case 'banner':
+          setBanner(data?.banners)
+          return ;
+
+
+          case 'category':
+            setCategoryData(data?.categories)
+          return ;
+        }
+        
+      //   Toast(data.message,response.status)
+       }
+     }
+     catch(err){
+      const error = err.response.data
+      Toast(error.message);
+      
+
+
+     }
+     finally{
+      setIsLoading(false)
+     }
+    }
+
+    useEffect(()=>{
+      console.log("huehhhrkfhfhrfhrfhjrfrhfjfhfrhjfrhjkf")
+      get_all('/get_all_products','product')
+      get_all('/get_all_banners','banner')
+      get_all('/get_all_categories','category')
+    },[])
 
 
 
@@ -34,7 +95,7 @@ const AuthProvider = ({children}) => {
 
   return (
     <>
-  <AuthContext.Provider value={{userToken,setUserToken,userData,setUserData}}>
+  <AuthContext.Provider value={{userToken,setUserToken,userData,setUserData,setAll_Product_Page,All_Product_Page,Banner,Catagory,Cart,setCart,CategoryData}}>
         {children}
         </AuthContext.Provider>
 
