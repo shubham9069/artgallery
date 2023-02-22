@@ -60,7 +60,7 @@ console.log(readmore)
   useEffect(()=>{
     get_details(`/get_product?product_id=${id}`,'product')
     
-  },[])
+  },[id])
   const Add_to_cart= async(id) =>{
     const Form = new FormData()
     Form.append("product_id",id)

@@ -143,7 +143,7 @@ const Cart = () => {
             
      //  ----------------------------add to cart --------------------
 
-const Add_to_cart= async(id,qty) =>{
+const Add_to_cart= async(id,qty,type) =>{
     const Form = new FormData()
     Form.append("product_id",id)
     Form.append("qty",qty)
@@ -151,7 +151,7 @@ const Add_to_cart= async(id,qty) =>{
       setIsLoading(true)
       const response= await axios({
         method: "post",
-       url:'/add-to-cart',
+       url:`/add-to-cart`,
        data:Form,
        headers:{
         Authorization:`Bearer ${userToken}`,
@@ -163,7 +163,7 @@ const Add_to_cart= async(id,qty) =>{
        if(response.status===200){
         const data = response.data;
         setCart(data)
-        Toast(data.message,response.status)
+        // Toast(data.message,response.status)
        }
      }
      catch(err){
@@ -178,6 +178,45 @@ const Add_to_cart= async(id,qty) =>{
      }
     }          
     
+
+    const place_order = async(e)=>{
+        e.preventDefault()
+      
+        
+         try{
+          setIsLoading(true)
+          const response= await axios({
+            method: "post",
+           url:'/create-order',
+            data:{
+             address_id:2,coupon_id:couponprice?.id
+            },
+            headers: {
+              Authorization:`Bearer ${userToken}`,
+              "Content-Type": "application/json",
+              
+            },
+           })
+           
+           if(response.status===200){
+            const data = response.data
+            
+            Toast(data.message,response.status)
+           
+           }
+         }
+         catch(err){
+          const error = err.response.data
+          Toast(error.message);
+          
+      
+      
+         }
+         finally{
+          
+          setIsLoading(false)
+         }
+      }
   return (
     !Cart?.cart_items?.length?
     <div className='container section' style={{ display: 'flex', flexDirection: 'column',alignItems:'center',justifyContent:'center',gridGap:'30px' }}>
@@ -242,28 +281,37 @@ your choice yet..</p>
                     </div>
                 
                 </div>
-                <div className='row'>
+                {/* <div className='row'>
                     <div className='col-sm-4'>
                         <span style={{ fontSize:'16px',fontWeight:600, color: '#000',lineHeight: '30px' }}>Quantity - <span style={{fontSize:"13px",color: '#1D1D1D' }}>{element?.qty}</span></span>
                     </div>
                 
-                </div>
+                </div> */}
                 <br></br>
                 <div className='row'>
 
                 
-                    <div className='col-md-2 filterForm'>
-                    <select onChange={(e)=>{Add_to_cart(element?.item_id,e.target.value)}}>
+                    <div className='col-md-2 filterForm' style={{border: '1.5px solid #56BDBD'}}>
+                    <div  onClick={()=>Add_to_cart(element?.item_id,-1)}>
+                    <i class="bi bi-dash-lg"></i>
+                    </div>
+                    
+                    {element?.qty}
+                    <div style={{display: 'flex',justifyContent: 'flex-end'}} onClick={()=>Add_to_cart(element?.item_id,1)}>
+                    <i class="bi bi-plus-lg" ></i>
+                    </div>
+                    
+                    {/* <select onChange={(e)=>{Add_to_cart(element?.item_id,e.target.value)}}>
 
 <option seclected hidden>choose</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
 <option value="4">4</option>
-</select>
+</select> */}
                     </div>
 
-
+{/* 
                     <div className='col-md-3 filterForm'>
                 <select style={{width:"110px"}}>
 
@@ -274,7 +322,7 @@ your choice yet..</p>
 <option>08"X10"</option>
 <option>08"X10"</option>
 </select>
-                </div>
+                </div> */}
               
            
                 <div className='col-md-2 d-flex align-items-center ' style={{margin:'0 0 0 auto'}}>
@@ -309,9 +357,12 @@ your choice yet..</p>
 
 </div>
 
-<div className='between-div voucher container '>
+<div className='voucher container '>
+<div className='between-div'>
     <p style={{margin:0,fontWeight:600,}}>Apply voucher</p>
     <button type='button' className='white-btn-design' Style={'padding:0.5rem 4rem !important'} onClick={()=>setShow(true)}>Check</button>
+    </div>
+   {couponprice && (<p style={{color:'green'}}>applied coupen succesfully</p>)} 
 </div>
 
 
@@ -368,7 +419,7 @@ your choice yet..</p>
 
     <br></br>
 <div className='row'>
-    <div className='col-md-12 d-flex themeButton'   replace="" 
+    <div className='col-md-12 d-flex themeButton'   replace="" onClick={place_order}
     // state={{
     //     item_id: 0,
     //     total: total

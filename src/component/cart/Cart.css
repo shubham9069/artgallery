@@ -1,9 +1,23 @@
 .filterForm {
     /* width: 100%; */
-    padding: 0px 0px;
+    padding: 8px 0px;
     display: flex;
-    justify-content:center;
+    justify-content:space-between;
     align-items:center;
+}
+.filterForm div {
+     width: 100%; 
+     cursor: pointer;
+    
+    
+}
+.filterForm div i{
+    /* width: 100%; */
+    font-size: 1rem !important;
+    font-weight: 900 !important;
+    color:#56BDBD;
+   
+    
 }
 
 .filterForm select {
