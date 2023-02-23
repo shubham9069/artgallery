@@ -123,7 +123,9 @@ console.log(readmore)
     <p>frame: {productDetails?.style}</p>
   </div>
   <p id="description-text" style={{overflow:'hidden',height:'130px'}} ref={readmore} dangerouslySetInnerHTML={{__html: `${productDetails?.description}`}}/> <span onClick={readMore} id="showdesc" style={{color:'#56BDBD',cursor:'pointer' }}>Show More </span>
-<Link to='/checkout' className="product-btn link-a" >Buy now</Link>
+  {Cart?.cart_items?.length && (Cart?.cart_items?.find((product) => product?.item_id == productDetails?.product_id)!=undefined) ? 
+    <Link to="/cart" className="product-btn link-a link-a"   >Already added</Link>:
+<Link  className="product-btn link-a"  onClick={()=>Add_to_cart(productDetails?.product_id)} >Add to Cart </Link>}
 </div>
   </div>
 
@@ -150,7 +152,7 @@ return <div>
 <button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
 
 
-<button className="themeButton" >Buy Now </button>
+{/* <button className="themeButton" >Buy Now </button> */}
 </div>
 </div>
 

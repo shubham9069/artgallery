@@ -10,7 +10,11 @@ const AuthProvider = ({children}) => {
     const [userData, setUserData] = useState("")
     const [All_Product_Page,setAll_Product_Page ] = useState([]);
     const [Catagory,setCatagory ] = useState({mediums:[],styles:[],sizes:[]});
-    const [Banner,setBanner] = useState([])
+    const [homepage,setHomepage] = useState({
+      Banner:[],
+      offer:[],
+      Recommended:[]
+    })
     const [Cart,setCart] = useState([])
     const [CategoryData ,setCategoryData] = useState()
   
@@ -54,12 +58,6 @@ const AuthProvider = ({children}) => {
           setCatagory((p)=>({...p,["sizes"]:data.sizes}));
 
           return;
-
-          case 'banner':
-          setBanner(data?.banners)
-          return ;
-
-
           case 'category':
             setCategoryData(data?.categories)
           return ;
@@ -83,7 +81,7 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
       console.log("huehhhrkfhfhrfhrfhjrfrhfjfhfrhjfrhjkf")
       get_all('/get_all_products','product')
-      get_all('/get_all_banners','banner')
+    
       get_all('/get_all_categories','category')
     },[])
 
@@ -95,7 +93,7 @@ const AuthProvider = ({children}) => {
 
   return (
     <>
-  <AuthContext.Provider value={{userToken,setUserToken,userData,setUserData,setAll_Product_Page,All_Product_Page,Banner,Catagory,Cart,setCart,CategoryData}}>
+  <AuthContext.Provider value={{userToken,setUserToken,userData,setUserData,setAll_Product_Page,All_Product_Page,Catagory,Cart,setCart,CategoryData,homepage,setHomepage}}>
         {children}
         </AuthContext.Provider>
 

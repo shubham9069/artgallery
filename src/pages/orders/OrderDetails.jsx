@@ -131,14 +131,14 @@ return   <div className='row ' style={{ border: '1px solid #C7C5C5', padding: '2
 
                
             </div>
-           <div className='d-flex align-items-center px-3' style={{paddingTop:'20px' ,borderTop: '1px solid #C7C5C5',marginTop:'2rem'}}>
+           {/* <div className='d-flex align-items-center px-3' style={{paddingTop:'20px' ,borderTop: '1px solid #C7C5C5',marginTop:'2rem'}}>
             <p style={{margin:0}}>Expected ship Date 14 June ,2022</p>
-           </div>
+           </div> */}
         </div>
 
 })}
       
-
+{/* 
         <div style={{margin:"2rem 0 "}}>
             
             <div></div>
@@ -146,7 +146,7 @@ return   <div className='row ' style={{ border: '1px solid #C7C5C5', padding: '2
   <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style={{minHeight: 150}}></textarea>
   <label for="floatingTextarea" style={{color: 'rgb(158, 150, 150)'}}>Review</label>
 </div>
-        </div>
+        </div> */}
     </div>
   )
 }

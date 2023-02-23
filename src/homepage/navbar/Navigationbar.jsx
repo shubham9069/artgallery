@@ -51,10 +51,10 @@ const Navigationbar = () => {
   
     
   </nav>
-  <div className='d-flex Buttonofnavbar '>
+  <div className='d-flex Buttonofnavbar dropdown '>
        {userToken?<>
         <li className="nav-item dropdown headerLink">
-                  <a className="nav-link dropdown-toggle" href="#"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a className="nav-link dropdown-toggle " href="#"   id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src={userData?.avatar} alt="pic" style={{
                       height: 30, width: 30, borderRadius: 30, marginRight: 5,
                     }}></img>  <span>{userData?.name}</span>

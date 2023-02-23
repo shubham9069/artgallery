@@ -10,7 +10,7 @@ import { arrows } from 'react-slick-carousel/lib/default-props';
 
 const Slickslider = ({ImgArr,type,title}) => {
   const navigate = useNavigate();
-  console.log(ImgArr.length)
+  console.log(ImgArr)
 
 
   // secound crousel 

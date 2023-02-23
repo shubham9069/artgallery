@@ -6,13 +6,16 @@ import Modal from 'react-bootstrap/Modal';
 import { AuthContext } from '../../AuthProvider';
 import axios from '../../axios';
 import Toast from '../../Toast';
+import Addresstab from '../../pages/profile/Addresstab';
 
 const Cart = () => {
     const {userToken,Cart,setCart} = useContext(AuthContext)
     const [show, setShow] = useState(false);
+    const [showAddress, setShowAddress] = useState(false);
     const [isLoading,setIsLoading] = useState(false);
     const [coupon ,setCoupon] = useState([]);
     const [couponFilter ,setCouponFilter] = useState("");
+    const [AddressId ,setAddressId] = useState("");
     const [couponprice ,setCouponPrice] = useState("");
 
 
@@ -182,14 +185,14 @@ const Add_to_cart= async(id,qty,type) =>{
     const place_order = async(e)=>{
         e.preventDefault()
       
-        
+        if(!AddressId) return Toast("plz choose address first ")  
          try{
           setIsLoading(true)
           const response= await axios({
             method: "post",
            url:'/create-order',
             data:{
-             address_id:2,coupon_id:couponprice?.id
+             address_id:AddressId,coupon_id:couponprice?.id
             },
             headers: {
               Authorization:`Bearer ${userToken}`,
@@ -200,7 +203,7 @@ const Add_to_cart= async(id,qty,type) =>{
            
            if(response.status===200){
             const data = response.data
-            
+            setCart([])
             Toast(data.message,response.status)
            
            }
@@ -340,9 +343,9 @@ your choice yet..</p>
 
                
             </div>
-           <div className='d-flex align-items-center px-3' style={{paddingTop:'20px' ,borderTop: '1px solid #C7C5C5',marginTop:'2rem'}}>
+           {/* <div className='d-flex align-items-center px-3' style={{paddingTop:'20px' ,borderTop: '1px solid #C7C5C5',marginTop:'2rem'}}>
             <p style={{margin:0}}>Expected ship Date 14 June ,2022</p>
-           </div>
+           </div> */}
         </div>
 
        
@@ -357,7 +360,7 @@ your choice yet..</p>
 
 </div>
 
-<div className='voucher container '>
+<div className='voucher container my-3'>
 <div className='between-div'>
     <p style={{margin:0,fontWeight:600,}}>Apply voucher</p>
     <button type='button' className='white-btn-design' Style={'padding:0.5rem 4rem !important'} onClick={()=>setShow(true)}>Check</button>
@@ -365,7 +368,13 @@ your choice yet..</p>
    {couponprice && (<p style={{color:'green'}}>applied coupen succesfully</p>)} 
 </div>
 
-
+<div className='voucher container my-3 '>
+<div className='between-div'>
+    <p style={{margin:0,fontWeight:600,}}>Shipment Address</p>
+    <button type='button' className='white-btn-design' Style={'padding:0.5rem 4rem !important'} onClick={()=>{setShowAddress(true)}}>Choose</button>
+    </div>
+   {/* {couponprice && (<p style={{color:'green'}}>applied coupen succesfully</p>)}  */}
+</div>
 
 
 <div className='section section-marginY section-padding' style={{ backgroundColor: 'rgba(86, 189, 189, 0.07)' }}>
@@ -429,7 +438,7 @@ your choice yet..</p>
 </div>
 </div>
 
-
+{/* --------------------coupon ----------------------- */}
 <Modal show={show} onHide={()=>{setCouponFilter("");setShow(false)}}>
         <Modal.Header closeButton>
          
@@ -468,6 +477,18 @@ your choice yet..</p>
       
       </Modal>
 
+
+{/* ================Address=========== */}
+<Modal show={showAddress} onHide={()=>{setShowAddress(false)}}>
+        <Modal.Header closeButton>
+         
+        </Modal.Header>
+        <Modal.Body className='center-div flex-column'>
+        <h4>Choose address</h4>
+        <Addresstab type={"cart"} setAddressId={setAddressId} addressId={AddressId} />
+        </Modal.Body>
+      
+      </Modal>
 
 
 

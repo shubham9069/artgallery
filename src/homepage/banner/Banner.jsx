@@ -10,11 +10,12 @@ import axios from '../../axios'
 
 const Banner = () => {
   const navigate = useNavigate();
-  const {Banner,setBanner} = useContext(AuthContext)
+  const {homepage,setHomepage} = useContext(AuthContext)
+  const {Banner} = homepage
   const [isLoading,setIsLoading] =useState(false)
     const [crrItem, setCrrItem] = useState(0)
 
-    console.log(Banner)
+   
 
     const get_all= async(url,type) =>{
 
@@ -27,8 +28,8 @@ const Banner = () => {
          
          if(response.status===200){
           const data = response.data;
-  
-            setBanner(data?.banners)
+          
+            setHomepage((p)=>({...p,["Banner"]:data?.banners}))
            
   
           }

@@ -12,3 +12,22 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+  #loadingSpin{
+    Animation:ani 2s linear infinite;
+    width:50px;
+    height:50px;
+    background:#ffd700;
+    border-radius:50%;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%)
+    }
+  @keyframes ani{
+    0%{transform:scale(0);
+    opacity:1}
+    100%{
+      transform:scale(3);
+      opacity:0
+    }
+  }

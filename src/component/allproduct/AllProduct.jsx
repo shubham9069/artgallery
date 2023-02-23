@@ -1,7 +1,7 @@
 import React ,{useState,useEffect, useContext} from 'react'
 import './Allproduct.css';
 import {bottomRight} from '../../homepage/asset/Export'
-import { Link,useNavigate } from 'react-router-dom';
+import { Link,useNavigate, useParams } from 'react-router-dom';
 import Toast from '../../Toast';
 import axios from '../../axios';
 import { AuthContext } from '../../AuthProvider';
@@ -13,6 +13,7 @@ const AllProduct = () => {
   const [SortArr,setSortArr]=useState(null)
   const [Toggle,setToggle]=useState(false)
   const [isLoading,setIsLoading]=useState(true)
+  const {catid} = useParams()
 
 
 
@@ -107,9 +108,9 @@ const Add_to_cart= async(id) =>{
     
 <div className=" d-flex" style={{gridGap:'10px'}}>
     {/* --------------left---------------- */}
-    <div id="abovewidth_650"> <Categoryleft sort={SortArr} setSortArr={setSortArr} toggle={true}  /></div>
+    <div id="abovewidth_650"> <Categoryleft sort={SortArr} setSortArr={setSortArr} toggle={true} catid={catid}  /></div>
 
-    <div id="belowwidth_650"><Categoryleft sort={SortArr} setSortArr={setSortArr} toggle={Toggle}/></div>
+    <div id="belowwidth_650"><Categoryleft sort={SortArr} setSortArr={setSortArr} toggle={Toggle} catid={catid} /></div>
   
  
 
@@ -135,7 +136,7 @@ return <div>
 <button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
 
 
-<button className="themeButton" >Buy Now </button>
+{/* <button className="themeButton" >Buy Now </button> */}
 </div>
 </div>
     })
@@ -158,7 +159,7 @@ return <div>
 <button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
 
 
-<button className="themeButton" >Buy Now </button>
+{/* <button className="themeButton" >Buy Now </button> */}
 </div>
 </div>
 

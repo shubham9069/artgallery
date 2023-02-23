@@ -1,7 +1,7 @@
 import React,{useContext,useEffect,useState} from 'react'
 import { AuthContext } from '../../AuthProvider';
 
-const Categoryleft = ({setSortArr,SortArr,toggle}) => {
+const Categoryleft = ({setSortArr,SortArr,toggle,catid}) => {
     const [range,setRange]=useState(2000);
     const [CatagorySort,setCatagorySort]=useState({size:[],style:[],medium:[]})
     const {All_Product_Page,Catagory,userToken,Cart,setCart} = useContext(AuthContext);
@@ -11,11 +11,21 @@ const Categoryleft = ({setSortArr,SortArr,toggle}) => {
     // ===========price bar minmax===========
 
 const MinMax =(value)=>{
-  
-    var min = All_Product_Page[0]?.price;
-    var max = All_Product_Page[0]?.price;
+  var updateArr = All_Product_Page
+  if(catid){
+       
+    updateArr = updateArr?.filter((element) =>{
+      // console.log(CatagorySort?.medium +  element?)
+      return element?.cat_id == catid
+    })
     
-    All_Product_Page.forEach((element, i)=>{
+  }
+    
+  
+    var min = updateArr[0]?.price;
+    var max = updateArr[0]?.price;
+    
+    updateArr.forEach((element, i)=>{
     
       if(min>element.price){
         min=element.price
@@ -47,12 +57,19 @@ const MinMax =(value)=>{
     
     const getdata =(value)=>{
       // setCatagorySort({size:[],style:[],medium:[]})
-      
-    var data =  All_Product_Page?.filter((element)=>{
+      var updateArr = All_Product_Page;
+      if(catid){
+       
+        updateArr = updateArr?.filter((element) =>{
+          // console.log(CatagorySort?.medium +  element?)
+          return element?.cat_id == catid
+        })
+        
+      }
+    var data =  updateArr?.filter((element)=>{
       return Number(element.price) <= value
     })
     
-    console.log(data)
     setSortArr(data);
     }
     const HandleRange =(e)=>{
@@ -92,7 +109,17 @@ const MinMax =(value)=>{
     const filterCatagory = ()=>{
       setRange(2000)
     // console.log("hello cdchdccd")
-      var updateArr = All_Product_Page;
+    var updateArr = All_Product_Page;
+    if(catid){
+       
+      updateArr = updateArr?.filter((element) =>{
+        // console.log(CatagorySort?.medium +  element?)
+        return element?.cat_id == catid
+      })
+      console.log(updateArr)
+
+    }
+      
       
     
     
@@ -140,6 +167,8 @@ const MinMax =(value)=>{
     
   return (
     <>
+
+
  <div className="allproduct-left" style={{display:toggle?"inline-block":"none" }}>
 
 <div style={{borderBottom: '1px solid #D9D9D9', padding : '1rem 0'}}>
