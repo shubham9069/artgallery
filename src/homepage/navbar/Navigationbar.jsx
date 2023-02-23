@@ -1,31 +1,34 @@
 import React from 'react'
 import "./navbar.css"
 import logo from '../asset/image 1.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
   import { useContext } from 'react'
 import { AuthContext } from '../../AuthProvider'
 import { Logout } from '../../pages/exportfiles'
 
 
 const Navigationbar = () => {
-  const {userToken,userData,Cart} =useContext(AuthContext)
+  const navigate = useNavigate()
+  const {userToken,userData,Cart} =useContext(AuthContext);
+  
+  
   const logout = Logout();
   return (
 
     <div className="main-div d-flex section-paddingX py-3 " >
     <nav className="navbar navbar-expand-lg bg-body-tertiary " Style={'background-color: transparent !important; width:100% !important; padding:0 !important'}>
     <div className="container-fluid "  >
-    <img src={logo} alt="" className='artgallery-logo'></img>
+    <img src={logo} alt="" className='artgallery-logo' onClick={()=>{navigate('/')}}></img>
       <button className="navbar-toggler" type="button" style={{margin:'0 0 0 auto'}} data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0" style={{gridGap:'10px'}}>
           <li className="nav-item">
-            <Link to="/" className="nav-link nav-btn active link-a" aria-current="page" >Home</Link>
+            <Link to="/" className="nav-link nav-btn active link-a"  >Home</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link nav-btn" href="#">About</a>
+            <Link to="/aboutus" className="nav-link nav-btn link-a">About</Link>
           </li>
         
           <li className="nav-item">
@@ -51,7 +54,7 @@ const Navigationbar = () => {
   <div className='d-flex Buttonofnavbar '>
        {userToken?<>
         <li className="nav-item dropdown headerLink">
-                  <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a className="nav-link dropdown-toggle" href="#"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src={userData?.avatar} alt="pic" style={{
                       height: 30, width: 30, borderRadius: 30, marginRight: 5,
                     }}></img>  <span>{userData?.name}</span>

@@ -1,17 +1,58 @@
-import React,{useState,useContext} from 'react'
+import React,{useState,useContext,useEffect} from 'react'
 import banner_2 from '../asset/banner_2.png'
 import Carousel from 'react-bootstrap/Carousel'
 import './Banner.css'
 import { AuthContext } from '../../AuthProvider'
 import { useNavigate } from 'react-router-dom'
+import { Toast } from 'bootstrap'
+import axios from '../../axios'
 
 
 const Banner = () => {
   const navigate = useNavigate();
-  const {Banner} = useContext(AuthContext)
+  const {Banner,setBanner} = useContext(AuthContext)
+  const [isLoading,setIsLoading] =useState(false)
     const [crrItem, setCrrItem] = useState(0)
 
     console.log(Banner)
+
+    const get_all= async(url,type) =>{
+
+      try{
+        setIsLoading(true)
+        const response= await axios({
+          method: "get",
+         url:url,
+         })
+         
+         if(response.status===200){
+          const data = response.data;
+  
+            setBanner(data?.banners)
+           
+  
+          }
+          
+        //   Toast(data.message,response.status)
+         
+       }
+       catch(err){
+        const error = err.response.data
+        Toast(error.message);
+        
+  
+  
+       }
+       finally{
+        setIsLoading(false)
+       }
+      }
+  
+      useEffect(()=>{
+       !Banner.length? get_all('/get_all_banners','banner'):setIsLoading(false)
+        
+       
+      },[])
    
   return (
 <>

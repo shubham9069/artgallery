@@ -8,6 +8,7 @@
     display:flex;
     justify-content: flex-end;
     margin-bottom: 2rem;
+    align-items: center;
 }
 .allproduct-top>select{
     padding: 1rem;
@@ -129,12 +130,37 @@ border-radius: 8px ;
         background: black;
         border-radius: 2px;
     }
+    #filter-toggle{
+        display: none
+    }
+    #belowwidth_650{
+        display: none
+    }
 
 
     @media screen and (max-width:650px) {
 
+        #filter-toggle{
+            display: inline-block
+        }
+        #abovewidth_650{
+            display: none;
+        }
+        #belowwidth_650{
+            display: inline-block;
+            position: absolute;
+            
+        }
+        .allproduct-top {
+            
+            justify-content: space-between;
+        }
+        .allproduct-top>select{
+           
+            width: 200px;
+           
+        }
 
-        
         
     }
     

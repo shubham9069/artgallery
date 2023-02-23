@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { CheckOut, AllProduct,ProductDetails, Cart, Thanku } from './component/Exportfiles';
 import { Footer, Navigationbar} from './homepage/Exportfile';
-import {Help,Forget, Login,Signup, Verify, Profile} from './pages/exportfiles'
+import {Help,Forget, Login,Signup, Verify, Profile, AboutUs} from './pages/exportfiles'
 import HomePage from './homepage/HomePage'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -36,6 +36,7 @@ function App() {
     <Route path="/allproduct" element={<><Navigationbar/><AllProduct /><Footer /></>} />
     <Route path="/ProductDetails/:id" element={<><Navigationbar/><ProductDetails /><Footer /></>} />
     <Route path="/help&support" element={<><Navigationbar/><Help /><Footer /></>} />
+    <Route path="/aboutus" element={<><Navigationbar/><AboutUs/><Footer /></>} />
 
     <Route element={<RequiredLogin />}>
     <Route path="/checkout" element={<><Navigationbar/><CheckOut/><Footer /></>} />
