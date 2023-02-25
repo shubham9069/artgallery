@@ -7,8 +7,11 @@ import { AuthContext } from '../../AuthProvider';
 import axios from '../../axios';
 import Toast from '../../Toast';
 import Addresstab from '../../pages/profile/Addresstab';
+import { useNavigate } from 'react-router-dom';
+import Loader from '../Loader';
 
 const Cart = () => {
+    const navigate = useNavigate()
     const {userToken,Cart,setCart} = useContext(AuthContext)
     const [show, setShow] = useState(false);
     const [showAddress, setShowAddress] = useState(false);
@@ -204,6 +207,7 @@ const Add_to_cart= async(id,qty,type) =>{
            if(response.status===200){
             const data = response.data
             setCart([])
+            navigate('/thanku')
             Toast(data.message,response.status)
            
            }
@@ -221,6 +225,7 @@ const Add_to_cart= async(id,qty,type) =>{
          }
       }
   return (
+    
     !Cart?.cart_items?.length?
     <div className='container section' style={{ display: 'flex', flexDirection: 'column',alignItems:'center',justifyContent:'center',gridGap:'30px' }}>
     <img src={cart_empty} alt="no-item" style={{ maxHeight: 450, maxWidth: 350,width:'80%',textAlign:'center' }}></img>
@@ -230,7 +235,7 @@ your choice yet..</p>
 </div>
     :
    <>
-   
+   {isLoading && (<Loader />)}
    <div className='container ' style={{margin: '2rem auto',}}>
 
                       
@@ -371,9 +376,9 @@ your choice yet..</p>
 <div className='voucher container my-3 '>
 <div className='between-div'>
     <p style={{margin:0,fontWeight:600,}}>Shipment Address</p>
-    <button type='button' className='white-btn-design' Style={'padding:0.5rem 4rem !important'} onClick={()=>{setShowAddress(true)}}>Choose</button>
+    <button type='button' className='white-btn-design' Style={'padding:0.5rem 4rem !important'} onClick={()=>{setShowAddress(true)}}>{AddressId ? "selected":"choose"}</button>
     </div>
-   {/* {couponprice && (<p style={{color:'green'}}>applied coupen succesfully</p>)}  */}
+   {AddressId && (<p style={{color:'green'}}>Address is selected </p>)} 
 </div>
 
 

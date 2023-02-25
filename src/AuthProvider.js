@@ -1,5 +1,6 @@
 import {createContext,useEffect,useState} from "react";
 import axios from "./axios";
+import Loader from "./component/Loader";
 import Toast from "./Toast";
 
 
@@ -93,6 +94,7 @@ const AuthProvider = ({children}) => {
 
   return (
     <>
+    {isLoading&&(<Loader/>)}
   <AuthContext.Provider value={{userToken,setUserToken,userData,setUserData,setAll_Product_Page,All_Product_Page,Catagory,Cart,setCart,CategoryData,homepage,setHomepage}}>
         {children}
         </AuthContext.Provider>

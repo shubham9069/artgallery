@@ -3,11 +3,12 @@ import axios from '../../axios'
 import Toast from '../../Toast'
 import Modal from './Modal'
 import { AuthContext } from '../../AuthProvider'
+import Loader from '../../component/Loader'
 
 
 const Addresstab = ({type,setAddressId,addressId}) => {
     const {userToken}=useContext(AuthContext)
-    const [isLoading,setIsLoading]=useState(false)
+    const [isLoading,setIsLoading]=useState(true)
     const [ShowModal,setShowModal] = useState(false)
     const [Modal_for_edit,setModal_for_edit] = useState(false)
     const [editAddress,setEditAddress] = useState("")
@@ -97,6 +98,7 @@ const delete_Address= async(address_id)=>{
  }
   return (
    <>
+   {isLoading &&(<Loader />)}
  <div style={{width: '100%', }}>
  <div className=' section' style={{ display: 'flex', flexDirection: 'column',width:'100%' }}>
 

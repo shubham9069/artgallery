@@ -5,6 +5,7 @@ import form from '../assest/Rectangle 4007.png'
 import Toast from '../../Toast'
 import axios from '../../axios'
 import { AuthContext } from '../../AuthProvider';
+import Loader from '../../component/Loader';
 
 
 
@@ -64,13 +65,15 @@ function Login() {
 
 
      }
-     finally{
-      setIsLoading(false)
-     }
+    //  finally{
+    //   setIsLoading(false)
+    //  }
   }
     
     return (
-        <div className='main-form' style={{}}>
+       
+      <>
+      {isLoading ?<Loader />:null}
          
             <div className='row between-div form-width1000' style={{ alignItems: 'center',margin:0 }}>
                 <div className='col-md-6' style={{ padding: 0 }}>
@@ -132,7 +135,8 @@ function Login() {
                     </form>
                 </div>
             </div>
-        </div>
+        
+        </>
     )
 }
 

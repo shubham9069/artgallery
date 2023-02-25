@@ -5,6 +5,7 @@ import form from '../assest/Rectangle 4007.png'
 import validator from 'validator';
 import Toast from '../../Toast'
 import axios from '../../axios'
+import Loader from '../../component/Loader';
 
 
 
@@ -73,7 +74,10 @@ function Signup() {
 
     
     return(
-        // <div className='container section'>
+        <>
+             {isLoading ?<Loader />:null}
+        
+        
         <div className='main-form'>
             
             <div className='row  form-width1000' style={{ alignItems: 'center',margin:0 }}>
@@ -127,6 +131,7 @@ function Signup() {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

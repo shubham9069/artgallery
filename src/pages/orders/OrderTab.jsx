@@ -3,12 +3,13 @@ import React, { useState,useEffect,useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../AuthProvider'
 import axios from '../../axios'
+import Loader from '../../component/Loader'
 import Toast from '../../Toast'
 
 
 const OrderTab = () => {
     const {userToken}=useContext(AuthContext)
-    const [isLoading,setIsLoading]=useState(false)
+    const [isLoading,setIsLoading]=useState(true)
     const [AllOrder,setAllOrder] = useState([])
 
     
@@ -106,7 +107,7 @@ const cancel_order= async(id)=>{
 
   return (
     <>
-
+{isLoading &&(<Loader />)}
             <div className='container section-padding' style={{ display: 'flex', flexDirection: 'column' }}>
 
               

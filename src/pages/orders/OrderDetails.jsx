@@ -4,12 +4,13 @@ import { useContext ,useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { AuthContext } from '../../AuthProvider'
 import axios from '../../axios'
+import Loader from '../../component/Loader'
 import Toast from '../../Toast'
 
 
 const OrderDetails = () => {
 const {userToken} =useContext(AuthContext)
-const [isLoading,setIsLoading] = useState(false);
+const [isLoading,setIsLoading] = useState(true);
 const [orderDetails,setOrderDetails] = useState({})
 const {id} = useParams()
 
@@ -55,6 +56,8 @@ useEffect(()=>{
    get_orderDetails();
 },[])
   return (
+    <>
+    {isLoading && <Loader />}
     <div className="section-padding">
         <h5 style={{marginBottom:20}}>OrderDetails</h5>
 
@@ -148,6 +151,7 @@ return   <div className='row ' style={{ border: '1px solid #C7C5C5', padding: '2
 </div>
         </div> */}
     </div>
+    </>
   )
 }
 

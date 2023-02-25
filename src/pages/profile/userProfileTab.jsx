@@ -4,13 +4,14 @@ import axios from '../../axios';
 import Toast from '../../Toast';
 import img from '../assest/Rectangle 4007.png' 
 import validator from 'validator';
+import Loader from '../../component/Loader';
 
 
 const UserProfileTab = () => {
 const [isLoading,setIsLoading] = useState(false)
 const {userData,setUserData,userToken} = useContext(AuthContext)    
-const [oldPassowrd,setOldPassowrd] = useState("")
-const [newPassowrd,setNewPassowrd] = useState("")
+const [oldPassword,setoldPassword] = useState("")
+const [newPassword,setnewPassword] = useState("")
     
     const [users, setUsers] = useState({
         name: userData?.name,
@@ -70,9 +71,50 @@ const [newPassowrd,setNewPassowrd] = useState("")
       setIsLoading(false)
      }
   }
+
+  const Change_passowrd= async(e)=>{
+    e.preventDefault()
+
+     if(!newPassword ) return Toast("please fill new password")
+     if( !validator.isStrongPassword(newPassword)) return Toast("password is not strong")
+    var formdata = new FormData()
+    formdata.append("new_psw",newPassword)
+    formdata.append("old_psw",oldPassword)
+    
+     try{
+      setIsLoading(true)
+      const response= await axios({
+        method: "post",
+       url:'/change-password',
+        data:formdata,
+        headers: {
+          Authorization:`Bearer ${userToken}`,
+          "Content-Type": "application/json",
+          
+        },
+       })
+       
+       if(response.status===200){
+        const data = response.data
+      
+        Toast(data.message,response.status)
+       
+       }
+     }
+     catch(err){
+      const error = err.response.data
+      Toast(error.message);
+      
+
+
+     }
+     finally{
+      setIsLoading(false)
+     }
+  }
   return (
    <>
-
+{isLoading &&(<Loader />)}
 <img src={img} alt="cover" style={{
                 width: '100%', height: 280, objectFit: 'cover'
             }}></img>
@@ -109,17 +151,17 @@ const [newPassowrd,setNewPassowrd] = useState("")
      
     </div>
     <div className="between-div" style={{gridGap:'40px',margin: "1.5rem  0"}}>
-    <input className='profile-input' type='name' placeholder="New Passowrd " name="New Password" value={oldPassowrd} onChange={e =>setOldPassowrd(e.target.value)} style={{maxWidth:'300px'}} ></input>  
+    <input className='profile-input' type='name' placeholder="old Passowrd "  value={oldPassword} onChange={e =>setoldPassword(e.target.value)} style={{maxWidth:'300px'}} ></input>  
     
     </div>
     <div className="between-div" style={{gridGap:'40px',margin: "1.5rem  0"}}>
-    <input className='profile-input' type='name' placeholder="Confirm passowrd " name="current Passowrd" value={newPassowrd} onChange={e => setNewPassowrd(e.target.value)} style={{maxWidth:'300px'}}></input>  
+    <input className='profile-input' type='name' placeholder="new passowrd "  value={newPassword} onChange={e => setnewPassword(e.target.value)} style={{maxWidth:'300px'}}></input>  
     
     </div>
     
             
 
-    <button type='submit' className='themeButton' style={{ marginTop: 20, width: '100%',maxWidth:'300px' }}>Change Password</button>
+    <button className='themeButton' style={{ marginTop: 20, width: '100%',maxWidth:'300px' }} onClick={Change_passowrd}>Change Password</button>
     
 
         

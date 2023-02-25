@@ -6,6 +6,7 @@ import validator from 'validator';
 import Toast from '../../Toast'
 import axios from '../../axios'
 import { AuthContext } from '../../AuthProvider';
+import Loader from '../../component/Loader';
 
 function Verify() {
     const {setUserToken,setUserData} = useContext(AuthContext)
@@ -135,7 +136,8 @@ function Verify() {
     
 
     return (
-        // <div className='container section'>
+    <>
+    {isLoading?<Loader />:null}
         <div className='main-form'>
             
             <div className='row form-width1000' style={{ alignItems: 'center',margin:0 }}>
@@ -217,6 +219,7 @@ function Verify() {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

@@ -9,7 +9,7 @@ const Toast = (msg,status) => {
         if(status===200){
            return toast.success(msg, {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,
@@ -21,7 +21,7 @@ const Toast = (msg,status) => {
         else{
            return toast.error(msg, {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,

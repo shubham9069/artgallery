@@ -6,6 +6,7 @@ import { Banner,Slickslider,SaleBanner,ShopbyCategory } from './Exportfile'
 import axios from '../axios'
 import Toast from '../Toast'
 import { AllProduct } from '../component/Exportfiles'
+import Loader from '../component/Loader'
 
 
 
@@ -58,6 +59,7 @@ const [isLoading,setIsLoading] = useState(true)
   
   return (
     <>
+    
     <Banner />
     <Slickslider ImgArr={All_Product_Page} title={['RECENT','VIEW']}  /> 
     <ShopbyCategory  />

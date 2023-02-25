@@ -93,6 +93,11 @@ const Navigationbar = () => {
                     </div> */}
 
                     <div style={{ margin: 15 }}>
+                      <Link to='/orders' className='darkLink' href="#/help" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 0 }}>
+                      <i class="bi bi-list" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 18 }}></i>
+                        My Orders</Link>
+                    </div>
+                    <div style={{ margin: 15 }}>
                       <Link to='/help&support' className='darkLink' href="#/help" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 0 }}>
                         <i className="bi bi-question-circle" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 13 }}></i>
                         Help & Support</Link>

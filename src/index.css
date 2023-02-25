@@ -16,18 +16,31 @@ body {
     Animation:ani 2s linear infinite;
     width:50px;
     height:50px;
-    background:#ffd700;
+    background:#6dcccc;
     border-radius:50%;
     position:absolute;
-    left:50%;
-    top:50%;
-    transform: translate(-50%,-50%)
+    margin: 0 auto ;
+    z-index: 111111;
+    
     }
   @keyframes ani{
     0%{transform:scale(0);
-    opacity:1}
+      opacity: 0;
+    }
     100%{
-      transform:scale(3);
-      opacity:0
+      transform:scale(1.5);
+      opacity: 1;
     }
   }
+ #black-bg{
+  width: 100%;
+  /* background: black; */
+  /* opacity: 0.3; */
+  background: #0007;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom:0;
+  z-index: 11111;
+ }

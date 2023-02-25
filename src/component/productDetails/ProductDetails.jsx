@@ -6,12 +6,13 @@ import { Link,useNavigate,useParams } from 'react-router-dom';
 import Toast from '../../Toast'
 import axios from '../../axios';
 import { AuthContext } from '../../AuthProvider';
+import Loader from '../Loader';
 
 const ProductDetails = () => {
   const navigate = useNavigate()
   const readmore = useRef(null);
   const {userToken,All_Product_Page,Cart,setCart} = useContext(AuthContext)
-  const [isLoading,setIsLoading] = useState(false);
+  const [isLoading,setIsLoading] = useState(true);
   const {id} = useParams()
   const [productDetails, setProductDetails] = useState([]);
   
@@ -59,6 +60,9 @@ console.log(readmore)
       const error = err?.response?.data;
       Toast(error?.message);
     }
+    finally{
+      setIsLoading(false);
+    }
   };
 
 
@@ -67,7 +71,8 @@ console.log(readmore)
     
   },[id])
   const Add_to_cart= async(id) =>{
-    if(!userToken) return navigate('/login')
+
+    if(!userToken) return navigate('/Login')
     const Form = new FormData()
     Form.append("product_id",id)
     Form.append("qty",1)
@@ -105,6 +110,7 @@ console.log(readmore)
 
   return (
     <>
+    {isLoading &&(<Loader />)}
   <div className="product-details section-padding">
 
 <div className="product-details-left ">
@@ -124,8 +130,12 @@ console.log(readmore)
   </div>
   <p id="description-text" style={{overflow:'hidden',height:'130px'}} ref={readmore} dangerouslySetInnerHTML={{__html: `${productDetails?.description}`}}/> <span onClick={readMore} id="showdesc" style={{color:'#56BDBD',cursor:'pointer' }}>Show More </span>
   {Cart?.cart_items?.length && (Cart?.cart_items?.find((product) => product?.item_id == productDetails?.product_id)!=undefined) ? 
-    <Link to="/cart" className="product-btn link-a link-a"   >Already added</Link>:
-<Link  className="product-btn link-a"  onClick={()=>Add_to_cart(productDetails?.product_id)} >Add to Cart </Link>}
+  <>
+    <Link to="/cart" className="white-product-btn link-a link-a">Already added Click</Link>
+    {/* <i class="bi bi-cart-fill" onClick={() =>navigate('/cart')} style={{color:'#56BDBD'}}></i> */}
+    </>
+    :
+<button  className="product-btn link-a"  onClick={()=>Add_to_cart(productDetails?.product_id)} >Add to Cart</button>}
 </div>
   </div>
 
@@ -143,11 +153,14 @@ return <div>
 <span style={{color:' #56BDBD'}}>RS {element?.price}</span>
 </div>
 <p className='product-box-desc' dangerouslySetInnerHTML={{__html: `${element?.description}`}}></p>
-<div className='d-flex center-div' style={{ gridGap:'20px',marginBottom:'1rem'}}>
+<div className='d-flex between-div' style={{ gridGap:'20px',marginBottom:'1rem',padding:'0 1rem'}}>
 
 
 {Cart?.cart_items?.length && (Cart?.cart_items?.find((product) => product?.item_id == element?.product_id)!=undefined) ? 
+  <>
   <Link to="/cart" className="white-themeButton link-a"   >Already added  </Link>
+  <i class="bi bi-cart-fill" onClick={() =>navigate('/cart')} style={{color:'#56BDBD'}}></i>
+  </>
 :
 <button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
 

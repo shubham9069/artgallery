@@ -6,13 +6,14 @@ import Toast from '../../Toast';
 import axios from '../../axios';
 import { AuthContext } from '../../AuthProvider';
 import Categoryleft from './Categoryleft';
+import Loader from '../Loader';
 
 const AllProduct = () => {
   const navigate = useNavigate()
   const {All_Product_Page,Catagory,userToken,Cart,setCart} = useContext(AuthContext);
   const [SortArr,setSortArr]=useState(null)
   const [Toggle,setToggle]=useState(false)
-  const [isLoading,setIsLoading]=useState(true)
+  const [isLoading,setIsLoading]=useState(false)
   const {catid} = useParams()
 
 
@@ -50,12 +51,12 @@ setSortArr(data)
 //  ----------------------------add to cart --------------------
 
 const Add_to_cart= async(id) =>{
-  if(!userToken) return navigate('/login')
+  if(!userToken) return navigate('/Login')
   const Form = new FormData()
   Form.append("product_id",id)
   Form.append("qty",1)
   try{
-    setIsLoading(true)
+   
     const response= await axios({
       method: "post",
      url:'/add-to-cart',
@@ -80,13 +81,12 @@ const Add_to_cart= async(id) =>{
 
 
    }
-   finally{
-    setIsLoading(false)
-   }
+   
   }   
 
   return (
     <>
+    {isLoading &&(<Loader />)}
   <div className="all-product section-padding">
 
 
@@ -128,10 +128,13 @@ return <div>
 <span style={{color:' #56BDBD'}}>RS {element?.price}</span>
 </div>
 <p className='product-box-desc' dangerouslySetInnerHTML={{__html: `${element?.description}`}}></p>
-<div className='d-flex center-div' style={{ gridGap:'20px',marginBottom:'1rem'}}>
+<div className='d-flex between-div' style={{ gridGap:'20px',marginBottom:'1rem',padding:'0 1rem'}}>
 
 {Cart?.cart_items?.length && (Cart?.cart_items?.find((product) =>product?.item_id == element?.product_id)!=undefined) ? 
+  <>
   <Link to="/cart" className="white-themeButton link-a"   >Already added  </Link>
+  <i class="bi bi-cart-fill" onClick={() =>navigate('/cart')} style={{color:'#56BDBD'}}></i>
+  </>
   :
 <button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
 
@@ -150,11 +153,14 @@ return <div>
 <span style={{color:' #56BDBD'}}>RS {element?.price}</span>
 </div>
 <p className='product-box-desc' dangerouslySetInnerHTML={{__html: `${element?.description}`}}></p>
-<div className='d-flex center-div' style={{ gridGap:'20px',marginBottom:'1rem'}}>
+<div className='d-flex between-div' style={{ gridGap:'20px',marginBottom:'1rem',padding:'0 1rem'}}>
 
 
 {Cart?.cart_items?.length && (Cart?.cart_items?.find((product) => product?.item_id == element?.product_id)!=undefined) ? 
+  <>
   <Link to="/cart" className="white-themeButton link-a"   >Already added  </Link>
+  <i class="bi bi-cart-fill" onClick={() =>navigate('/cart')} style={{color:'#56BDBD'}}></i>
+  </>
 :
 <button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
 

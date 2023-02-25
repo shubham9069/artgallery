@@ -1,6 +1,7 @@
 import React from 'react'
 import thanku from '../assest/thanku.png'
 import './thanku.css'
+import { Link } from 'react-router-dom'
 
 function Thanku() {
     return (
@@ -16,9 +17,9 @@ function Thanku() {
                         <br></br>
 
                         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', }}>
-                            <a href="#/cart" className="themeButton" style={{
+                            <Link to='/orders' className="themeButton" style={{
                                 marginTop: 10, marginRight: 10, width: 200,
-                            }}>Track your order</a>
+                            }}>Track your order</Link>
                             <a href="#/" className="secondaryBtn" style={{
                                 marginTop: 10, marginLeft: 10, width: 200,
                             }}>Go to home</a>
