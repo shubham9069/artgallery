@@ -14,6 +14,7 @@ function Login() {
     let navigate = useNavigate();
     const location =useLocation();
   const from = location?.state?.from?.pathname
+  console.log(from)
     const [selected, setSelected] = useState(true);
     const [isLoading, setIsLoading] = useState(false)
  
@@ -65,9 +66,9 @@ function Login() {
 
 
      }
-    //  finally{
-    //   setIsLoading(false)
-    //  }
+     finally{
+      setIsLoading(false)
+     }
   }
     
     return (

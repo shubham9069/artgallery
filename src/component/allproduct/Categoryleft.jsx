@@ -3,7 +3,7 @@ import { AuthContext } from '../../AuthProvider';
 
 const Categoryleft = ({setSortArr,SortArr,toggle,catid}) => {
     const [range,setRange]=useState(2000);
-    const [CatagorySort,setCatagorySort]=useState({size:[],style:[],medium:[]})
+    const [CatagorySort,setCatagorySort]=useState({size:[],style:[],medium:[],artists:[]})
     const {All_Product_Page,Catagory,userToken,Cart,setCart} = useContext(AuthContext);
 
 
@@ -146,6 +146,13 @@ const MinMax =(value)=>{
           return CatagorySort?.style.includes(element?.style.toString())
         })
       }
+      if(CatagorySort.artists.length){
+        
+        updateArr = updateArr?.filter((element) =>{
+    
+          return CatagorySort?.artists.includes(element?.artist_id.toString())
+        })
+      }
       setSortArr(updateArr)
     
     
@@ -222,6 +229,18 @@ return <div className="custom-control custom-checkbox product-filter-input" >
 </div>
 })}
 
+</div>
+
+<div style={{borderBottom: '1px solid #D9D9D9', padding: '1rem 0'}}>
+  <p >Artists</p>
+  {Catagory?.artists?.map((element, index) =>{
+
+
+return <div className="custom-control custom-checkbox product-filter-input" >
+<input type="checkbox" className="custom-control-input" id="customCheck1"   name="artists" value={element?.id} onChange={handleCatagoryChange} />
+<label className="custom-control-label px-3" htmlFor="customCheck1">{element?.name}</label>
+</div>
+})}
 </div>
 </div>
 

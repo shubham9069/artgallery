@@ -36,7 +36,7 @@ const [isLoading,setIsLoading] = useState(true)
 
         }
         
-      //   Toast(data.message,response.status)
+        // Toast(data.message,response.status)
        
      }
      catch(err){
@@ -61,12 +61,12 @@ const [isLoading,setIsLoading] = useState(true)
     <>
     
     <Banner />
-    <Slickslider ImgArr={All_Product_Page} title={['RECENT','VIEW']}  /> 
+    <Slickslider ImgArr={All_Product_Page} type={1}  title={['RECENT','VIEW']}  /> 
     <ShopbyCategory  />
     {/* <Slickslider ImgArr={All_Product_Page} type={1}  title={['PORTRAIT','ART']} /> */}
     <Slickslider ImgArr={All_Product_Page} type={2} title={['TODAYS','DEALS']}  /> 
   <SaleBanner/>
-  <Slickslider ImgArr={Recommended} title={['RECOMMENDED','VIEW']}  /> 
+  <Slickslider ImgArr={Recommended} type={1}  title={['RECOMMENDED','VIEW']}  /> 
   </>
 
   )

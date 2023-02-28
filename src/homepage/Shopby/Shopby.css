@@ -21,7 +21,7 @@ flex-wrap: wrap;
      cursor: pointer;
 }
 .shopby-box>img{
-   max-width: 70px !important;
+   max-width: 100px !important;
 }
 .shopby-box:hover {
     

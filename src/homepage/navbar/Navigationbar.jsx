@@ -35,13 +35,19 @@ const Navigationbar = () => {
             <Link to='/allproduct' className="nav-link nav-btn">Product</Link>
           </li>
           <li className="nav-item">
+            <Link to='/AllArtist' className="nav-link nav-btn">Artist</Link>
+          </li>
+          <li className="nav-item">
             <a className="nav-link nav-btn">Contact us </a>
           </li>
         </ul>
-        {/* <div className='d-flex'>
-        <Link to='/cart'  className='nav-btn link-a'><i className="bi bi-cart"></i></Link>
-                 <a  className='nav-btn'><i className="bi bi-heart"></i></a>
-        </div> */}
+        <div className='d-flex'>
+        {/* <Link to='/cart'  className='nav-btn link-a'><i className="bi bi-cart"></i></Link> */}
+        <div class="">
+ 
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Search bar " style={{backgroundColor: '#f1f1f16e',border: '1.5px solid #56BDBD'}}/>
+</div>
+        </div>
        
       </div>
      

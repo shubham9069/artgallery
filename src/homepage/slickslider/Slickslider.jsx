@@ -1,15 +1,24 @@
 import React from 'react'
 import Slider from "react-slick";
 import './Slider.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate,useLocation } from 'react-router-dom';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { arrows } from 'react-slick-carousel/lib/default-props';
+import { Button } from 'react-bootstrap';
+import { useContext,useState } from 'react';
+import { AuthContext } from '../../AuthProvider';
+import axios from '../../axios';
+import Toast from '../../Toast';
+
 
 
 
 const Slickslider = ({ImgArr,type,title}) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const {userToken,setCart} = useContext(AuthContext)
+  const [isLoading,setIsLoading] = useState(false)
   console.log(ImgArr)
 
 
@@ -25,7 +34,7 @@ const Slickslider = ({ImgArr,type,title}) => {
   pauseOnHover: true,
   responsive: [
     {
-      breakpoint: 1350,
+      breakpoint: 1200,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1,
@@ -202,6 +211,43 @@ responsive: [
       }
     ]
   };
+
+  const Add_to_cart= async(id) =>{
+
+    if(!userToken) return navigate('/Login',{state:{from :location} })
+    const Form = new FormData()
+    Form.append("product_id",id)
+    Form.append("qty",1)
+    try{
+      setIsLoading(true)
+      const response= await axios({
+        method: "post",
+       url:'/add-to-cart',
+       data:Form,
+       headers:{
+        Authorization:`Bearer ${userToken}`,
+        "Content-Type": "multipart/form-data",
+        
+       }
+       })
+       
+       if(response.status===200){
+        const data = response.data;
+        setCart(data)
+        Toast(data.message,response.status)
+       }
+     }
+     catch(err){
+      const error = err.response.data
+      Toast(error.message);
+      
+  
+  
+     }
+     finally{
+      setIsLoading(false)
+     }
+    } 
    
       return (
         <>
@@ -216,20 +262,14 @@ responsive: [
          {ImgArr?.map((element,index)=>{
           
            return <div  key={index} className='d-flex center-div slider-container' Style={'flex-direction:column;height:270px !important;  margin: 0 auto; cursor:pointer'} >
-           <img src={element?.images?.length &&(element?.images[0])} alt="img1" Style={" max-width:300px;width: 60%;height:80%; object-fit:fill"} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
-           {/* <div className=' potrait-hover-details '>
-
-           <div className="item1"><h3>Abstract - GP0009-22</h3></div>
-  <div className="item2"><i className="bi bi-heart"></i></div>
-  <div className="item3">Lorem ipsum dolor sit amet consectetur. Consectetur magnis porttitor rhoncus at in. A nec volutpat nulla magna morbi. Non id lectus amet cursus ac velit. Nulla .</div>  
-  <div className="item4">
-    <p>Sixe: 30X30</p>
-    <p>Mediam: Oil On Canvas</p>
-    <p>Code: GP0009-22</p>
-  </div>
-  <div className="item5"><button className="white-btn-design">Add To Cart</button></div>
-            
-           </div> */}
+           <img src={element?.images?.length &&(element?.images[0])} alt="img1" Style={" max-width:250px;max-height:250px;width: 100%;height:100%; object-fit:fill;   border-radius: 10px"} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
+          {/* <div className="sliderBG">
+            <div className="center-div">
+              <h4>{element.name}</h4>
+              <p style={{margin:'0 auto'}}>{element.short_description}</p>
+              <button className="white-themeButton" onClick={()=>navigate('/ProductDetails/' + element.product_id)} style={{color:'#56BDBD',margin:'0  auto'}}>View </button>
+            </div>
+          </div> */}
           </div>
           
          })} 
@@ -241,8 +281,22 @@ responsive: [
      
      {ImgArr?.map((element,index)=>{
       
-       return <div  key={index} className='d-flex center-div' Style={"height:370px !important;max-width:350px;  margin: 0 auto; cursor:pointer"}>
-       <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={"width: 100%;height:100%; max-width:350px;object-fit:fill"} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
+       return <div  key={index} className='d-flex center-div ' id="slider2" Style={"height:370px !important;max-width:350px;  margin: 0 auto; cursor:pointer"}>
+       <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={"width: 100%;height:100%; max-width:350px;object-fit:fill;    border-radius: 10px"} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
+       <div className="sliderbg2">
+        <div className="">
+        <h4 style={{fontSize:'18px',fontWeight:400}}>{element.name}</h4>
+              <p style={{maxHeight:'50px'}}>{element.short_description}</p>
+              <p>size : {element?.size_name}</p>
+              <p>medium : {element?.medium_name}</p>
+              <p>code : {element?.product_id}</p>
+              <div className='d-flex ' style={{flexWrap:'wrap',gridGap:'10px'}}>
+                <button className="white-themeButton" onClick={()=>Add_to_cart(element?.product_id)} style={{fontSize:'10px'}}>Add To Cart</button>
+                <button className="white-themeButton" onClick={()=>navigate('/ProductDetails/' + element.product_id)} style={{fontSize:'10px'}}>View</button>
+              </div>
+
+        </div>
+       </div>
       </div>
       
      })} 
@@ -256,7 +310,7 @@ responsive: [
          {ImgArr?.map((element,index)=>{
           
            return   <div   key={index} className='d-flex center-div' Style={'height:250px !important;cursor:pointer  '} >
-           <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={'max-width:300px;width: 70%;height:80%; object-fit:fill'} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
+           <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={'max-width:300px;width: 70%;height:80%; object-fit:fill;    border-radius: 10px'} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
           </div>
           
          })} 

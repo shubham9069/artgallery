@@ -1,7 +1,7 @@
 import React ,{useState,useEffect, useContext} from 'react'
 import './Allproduct.css';
 import {bottomRight} from '../../homepage/asset/Export'
-import { Link,useNavigate, useParams } from 'react-router-dom';
+import { Link,useNavigate, useParams,useLocation } from 'react-router-dom';
 import Toast from '../../Toast';
 import axios from '../../axios';
 import { AuthContext } from '../../AuthProvider';
@@ -10,6 +10,7 @@ import Loader from '../Loader';
 
 const AllProduct = () => {
   const navigate = useNavigate()
+  const location = useLocation()
   const {All_Product_Page,Catagory,userToken,Cart,setCart} = useContext(AuthContext);
   const [SortArr,setSortArr]=useState(null)
   const [Toggle,setToggle]=useState(false)
@@ -51,7 +52,7 @@ setSortArr(data)
 //  ----------------------------add to cart --------------------
 
 const Add_to_cart= async(id) =>{
-  if(!userToken) return navigate('/Login')
+  if(!userToken) return navigate('/Login',{state:{from :location} })
   const Form = new FormData()
   Form.append("product_id",id)
   Form.append("qty",1)
@@ -132,14 +133,14 @@ return <div>
 
 {Cart?.cart_items?.length && (Cart?.cart_items?.find((product) =>product?.item_id == element?.product_id)!=undefined) ? 
   <>
-  <Link to="/cart" className="white-themeButton link-a"   >Already added  </Link>
+  {/* <Link to="/cart" className="white-themeButton link-a"   >Already added  </Link> */}
   <i class="bi bi-cart-fill" onClick={() =>navigate('/cart')} style={{color:'#56BDBD'}}></i>
   </>
   :
 <button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
 
 
-{/* <button className="themeButton" >Buy Now </button> */}
+<button className="white-themeButton" >Buy Now </button>
 </div>
 </div>
     })
@@ -158,14 +159,14 @@ return <div>
 
 {Cart?.cart_items?.length && (Cart?.cart_items?.find((product) => product?.item_id == element?.product_id)!=undefined) ? 
   <>
-  <Link to="/cart" className="white-themeButton link-a"   >Already added  </Link>
+  {/* <Link to="/cart" className="white-themeButton link-a"   >Already added  </Link> */}
   <i class="bi bi-cart-fill" onClick={() =>navigate('/cart')} style={{color:'#56BDBD'}}></i>
   </>
 :
 <button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
 
 
-{/* <button className="themeButton" >Buy Now </button> */}
+<button className="white-themeButton" >Buy Now </button>
 </div>
 </div>
 

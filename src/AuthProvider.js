@@ -10,7 +10,7 @@ const AuthProvider = ({children}) => {
     const [userToken, setUserToken] = useState("")
     const [userData, setUserData] = useState("")
     const [All_Product_Page,setAll_Product_Page ] = useState([]);
-    const [Catagory,setCatagory ] = useState({mediums:[],styles:[],sizes:[]});
+    const [Catagory,setCatagory ] = useState({mediums:[],styles:[],sizes:[],artists:[]});
     const [homepage,setHomepage] = useState({
       Banner:[],
       offer:[],
@@ -57,6 +57,7 @@ const AuthProvider = ({children}) => {
           setCatagory((p)=>({...p,["mediums"]:data.mediums}));
           setCatagory((p)=>({...p,["styles"]:data.styles}));
           setCatagory((p)=>({...p,["sizes"]:data.sizes}));
+          setCatagory((p)=>({...p,["artists"]:data.artists}));
 
           return;
           case 'category':

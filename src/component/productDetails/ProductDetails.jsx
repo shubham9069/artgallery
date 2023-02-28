@@ -2,7 +2,7 @@ import React,{useEffect,useState,useContext,useRef} from 'react'
 import './ProductDetails.css'
 import Productimg from '../assest/Rectangle 3980.png'
 import {bottomRight} from '../../homepage/asset/Export'
-import { Link,useNavigate,useParams } from 'react-router-dom';
+import { Link,useNavigate,useParams ,useLocation} from 'react-router-dom';
 import Toast from '../../Toast'
 import axios from '../../axios';
 import { AuthContext } from '../../AuthProvider';
@@ -10,6 +10,7 @@ import Loader from '../Loader';
 
 const ProductDetails = () => {
   const navigate = useNavigate()
+  const location = useLocation()
   const readmore = useRef(null);
   const {userToken,All_Product_Page,Cart,setCart} = useContext(AuthContext)
   const [isLoading,setIsLoading] = useState(true);
@@ -72,7 +73,7 @@ console.log(readmore)
   },[id])
   const Add_to_cart= async(id) =>{
 
-    if(!userToken) return navigate('/Login')
+    if(!userToken) return navigate('/Login',{state:{from :location} })
     const Form = new FormData()
     Form.append("product_id",id)
     Form.append("qty",1)
@@ -129,13 +130,16 @@ console.log(readmore)
     <p>frame: {productDetails?.style}</p>
   </div>
   <p id="description-text" style={{overflow:'hidden',height:'130px'}} ref={readmore} dangerouslySetInnerHTML={{__html: `${productDetails?.description}`}}/> <span onClick={readMore} id="showdesc" style={{color:'#56BDBD',cursor:'pointer' }}>Show More </span>
+  <div className="d-flex" style={{gridGap:'20px'}}>
   {Cart?.cart_items?.length && (Cart?.cart_items?.find((product) => product?.item_id == productDetails?.product_id)!=undefined) ? 
   <>
-    <Link to="/cart" className="white-product-btn link-a link-a">Already added Click</Link>
-    {/* <i class="bi bi-cart-fill" onClick={() =>navigate('/cart')} style={{color:'#56BDBD'}}></i> */}
+    {/* <Link to="/cart" className="white-product-btn link-a link-a">Already added Click</Link> */}
+    <i class="bi bi-cart-fill" onClick={() =>navigate('/cart')} style={{color:'#56BDBD'}}></i>
     </>
     :
-<button  className="product-btn link-a"  onClick={()=>Add_to_cart(productDetails?.product_id)} >Add to Cart</button>}
+<button  className="themeButton link-a"  onClick={()=>Add_to_cart(productDetails?.product_id)} >Add to Cart</button>}
+<button  className="white-themeButton link-a"  onClick={()=>Add_to_cart(productDetails?.product_id)} >buy Now</button>
+</div>
 </div>
   </div>
 
@@ -158,14 +162,14 @@ return <div>
 
 {Cart?.cart_items?.length && (Cart?.cart_items?.find((product) => product?.item_id == element?.product_id)!=undefined) ? 
   <>
-  <Link to="/cart" className="white-themeButton link-a"   >Already added  </Link>
+  {/* <Link to="/cart" className="white-themeButton link-a"   >Already added  </Link> */}
   <i class="bi bi-cart-fill" onClick={() =>navigate('/cart')} style={{color:'#56BDBD'}}></i>
   </>
 :
 <button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
 
 
-{/* <button className="themeButton" >Buy Now </button> */}
+<button className="white-themeButton" >Buy Now </button>
 </div>
 </div>
 

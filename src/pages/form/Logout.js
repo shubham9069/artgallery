@@ -12,7 +12,7 @@ import Loader from '../../component/Loader'
 const Logout =  () => {
    const navigate =useNavigate()
    const [isLoading,setIsLoading] = useState(true)
-   const {userData,userToken,setUserData,setUserToken} = useContext(AuthContext)
+   const {userData,userToken,setUserData,setUserToken,setCart} = useContext(AuthContext)
 
   
 
@@ -31,8 +31,10 @@ const Logout =  () => {
          if(response.status===200){
           const data = response.data
           window.localStorage.clear();
-          setUserData()
-          setUserToken()
+          setUserData("")
+          setUserToken("")
+          setCart([])
+          
           navigate('/')
           
           Toast(data.message,response.status)

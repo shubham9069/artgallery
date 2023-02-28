@@ -1,7 +1,7 @@
 import react ,{useState,useEffect} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { CheckOut, AllProduct,ProductDetails, Cart, Thanku } from './component/Exportfiles';
+import { CheckOut, AllProduct,ProductDetails, Cart, Thanku, AllArtists, ArtistDetails } from './component/Exportfiles';
 import { Footer, Navigationbar} from './homepage/Exportfile';
 import {Help,Forget, Login,Signup, Verify, Profile, AboutUs} from './pages/exportfiles'
 import HomePage from './homepage/HomePage'
@@ -35,6 +35,8 @@ function App() {
     <Route path="/" element={<><Navigationbar/><HomePage /><Footer /></>} />
     <Route path="/allproduct" element={<><Navigationbar/><AllProduct /><Footer /></>} />
     <Route path="/allproduct/:catid" element={<><Navigationbar/><AllProduct /><Footer /></>} />
+    <Route path="/AllArtist" element={<><Navigationbar/><AllArtists /><Footer /></>} />
+    <Route path="/Artistdetails/:id" element={<><Navigationbar/><ArtistDetails /><Footer /></>} />
     <Route path="/ProductDetails/:id" element={<><Navigationbar/><ProductDetails /><Footer /></>} />
     <Route path="/help&support" element={<><Navigationbar/><Help /><Footer /></>} />
     <Route path="/aboutus" element={<><Navigationbar/><AboutUs/><Footer /></>} />

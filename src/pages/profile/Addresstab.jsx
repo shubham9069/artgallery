@@ -98,7 +98,7 @@ const delete_Address= async(address_id)=>{
  }
   return (
    <>
-   {isLoading &&(<Loader />)}
+   {/* {isLoading &&(<Loader />)} */}
  <div style={{width: '100%', }}>
  <div className=' section' style={{ display: 'flex', flexDirection: 'column',width:'100%' }}>
 
