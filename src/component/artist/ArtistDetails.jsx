@@ -135,7 +135,7 @@ console.log(readmore)
 
 
   <div className="section-padding" Style={'padding-top:1rem !important; max-width: 1800px, margin:0 auto' }>
-<p style={{ fontSize:'1.7rem', fontWeight:600}}>Art By <span style={{color:'#56BDBD',fontWeight:600}}> {productDetails?.name}</span> </p>
+<p style={{ fontSize:'1.7rem', fontWeight:600}}>Art By <span style={{color:'#56BDBD',fontWeight:600}}>{productDetails?.name}</span> </p>
   <div className="allproduct-right">
 
 
