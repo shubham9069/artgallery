@@ -6,6 +6,7 @@ import validator from 'validator';
 import Toast from '../../Toast'
 import axios from '../../axios'
 import Loader from '../../component/Loader';
+import { StrictMode } from 'react';
 
 
 
@@ -33,11 +34,12 @@ function Signup() {
   }
 
   const signup = async(e)=>{
+
     e.preventDefault()
   
      if(!name || !email || !mobile  || !password) return Toast("please fill properly")
      if( !validator.isEmail(email)) return Toast("email is not valid")
-     if( !validator.isMobilePhone(mobile)) return Toast("mobile no  is not valid")
+     if( !/^[0]?[789]\d{9}$/.test(mobile)) return Toast("mobile no  is not valid")
      if( !validator.isStrongPassword(password)) return Toast("password is not strong")
     //  if( password !== confirmpassword ) return Toast("password and confirm is not match")
      if( selected===false) return Toast("plz read terms & condition ")

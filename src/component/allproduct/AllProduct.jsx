@@ -140,7 +140,7 @@ return <div>
 <button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
 
 
-<button className="white-themeButton" >Buy Now </button>
+<button className="white-themeButton" onClick={()=>navigate('/checkout',{state:{productDetails:element}})}>Buy Now </button>
 </div>
 </div>
     })
@@ -166,7 +166,7 @@ return <div>
 <button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
 
 
-<button className="white-themeButton" >Buy Now </button>
+<button className="white-themeButton" onClick={()=>navigate('/checkout',{state:{productDetails:element}})} >Buy Now </button>
 </div>
 </div>
 

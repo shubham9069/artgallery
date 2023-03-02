@@ -2,7 +2,7 @@
 
 .shopby-container{
 grid-gap:40px;
-max-width: 1200px;
+max-width: 1500px;
 margin:0 auto ;
 flex-wrap: wrap;
 }
@@ -21,7 +21,7 @@ flex-wrap: wrap;
      cursor: pointer;
 }
 .shopby-box>img{
-   max-width: 100px !important;
+   width: 150px !important;
 }
 .shopby-box:hover {
     
@@ -32,4 +32,10 @@ flex-wrap: wrap;
 .shopby-box>p{
   margin: 0 !important;
   font-size: 14px;
+}
+@media screen and (max-width:1000px ) {
+  .shopby-box>img{
+    width: 100px !important;
+ }
+  
 }

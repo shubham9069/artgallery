@@ -12,7 +12,7 @@ const ProductDetails = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const readmore = useRef(null);
-  const {userToken,All_Product_Page,Cart,setCart} = useContext(AuthContext)
+  const {userToken,All_Product_Page,Cart,setCart,userData} = useContext(AuthContext)
   const [isLoading,setIsLoading] = useState(true);
   const {id} = useParams()
   const [productDetails, setProductDetails] = useState([]);
@@ -138,14 +138,14 @@ console.log(readmore)
     </>
     :
 <button  className="themeButton link-a"  onClick={()=>Add_to_cart(productDetails?.product_id)} >Add to Cart</button>}
-<button  className="white-themeButton link-a"  onClick={()=>Add_to_cart(productDetails?.product_id)} >buy Now</button>
+<button  className="white-themeButton link-a"  onClick={()=>navigate('/checkout',{state:{productDetails}})}>buy Now</button>
 </div>
 </div>
   </div>
 
 
 <div className="section-padding" Style={'padding-top:1rem !important; max-width: 1800px, margin:0 auto' }>
-<p style={{ fontSize:'1.7rem', fontWeight:600}}>ALSO LIKE <span style={{color:'#56BDBD',fontWeight:600}}>ALSO LIKE</span> </p>
+<p style={{ fontSize:'1.7rem', fontWeight:600}}>ALSO<span style={{color:'#56BDBD',fontWeight:600}}> LIKE</span> </p>
   <div className="allproduct-right">
   {All_Product_Page?.slice(0,6)?.map((element, index) =>{
 
@@ -169,7 +169,7 @@ return <div>
 <button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
 
 
-<button className="white-themeButton" >Buy Now </button>
+<button className="white-themeButton" onClick={()=>navigate('/checkout',{state:{productDetails:element}})} >Buy Now </button>
 </div>
 </div>
 

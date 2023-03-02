@@ -7,10 +7,4 @@ export {default as whitelandscape } from './category img/landscape (2).png'
 export {default as whiteshape } from './category img/abstract-shape (2).png'
 export {default as whiteart} from './category img/abstract-art (2).png'
 
-export {default as img1} from './Rectangle 3963.png'
-export {default as img2} from './Rectangle 3964.png'
-export {default as img3} from './Rectangle 3965.png'
-export {default as img4} from './Rectangle 3966.png'
 
-export {default as bottomLeft} from './bottom-big1.png'
-export {default as bottomRight} from './bottom-big2.png'

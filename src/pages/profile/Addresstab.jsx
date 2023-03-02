@@ -44,6 +44,7 @@ const Addresstab = ({type,setAddressId,addressId}) => {
          }
          catch(err){
           const error = err.response.data
+          setGetAddress([])
           Toast(error.message);
           
       

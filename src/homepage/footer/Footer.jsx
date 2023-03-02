@@ -7,12 +7,12 @@ import { AuthContext } from '../../AuthProvider'
 
 const Footer = () => {
     const navigate = useNavigate()
-    const {All_Product_Page} = useContext(AuthContext)
+    const {All_Product_Page,Catagory} = useContext(AuthContext)
   return (
     <div className='footer ' style={{marginTop:'2rem'}}>
     <div className='main-footer d-flex' >
     <div className='footer-section'>
-        <img src={logo} alt="logo"></img>
+        <img src={logo} alt="logo" style={{maxWidth: '180px'}}></img>
     </div>
 <div className='footer-section'>
 <h5>Heading</h5>
@@ -34,12 +34,12 @@ const Footer = () => {
 </div>
 
 <div className='footer-section'>
-<h5>COMMUNITY</h5>
-    <p>CodeStudio </p>
-    <p>Blog</p>
-    <p>Events</p>
-    <p>Campus Ninja</p>
-    <p>Affilate</p>
+<h5>ARTISTS</h5>
+{Catagory?.artists.map((element)=>{
+
+    return <Link to={'/Artistdetails/' + element.id}>{element?.name}</Link>
+})}
+   
 </div>
 <div className='footer-section'>
 <h5>FOLLOW US ON</h5>

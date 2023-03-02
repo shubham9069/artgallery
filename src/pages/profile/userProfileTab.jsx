@@ -22,7 +22,7 @@ const [newPassword,setnewPassword] = useState("")
     const { name, email, mobile } = users;
     const onchange = e => {
         // setErrorMsg('')
-        setUsers(users => ({ ...users, [e.target.name]: e.target.value }));
+        setUsers({ ...users, [e.target.name]: e.target.value });
     }
 
 
@@ -30,10 +30,10 @@ const [newPassword,setnewPassword] = useState("")
        
   const edit_profile = async(e)=>{
     e.preventDefault()
-
+    
      if(!email) return Toast("please fill properly")
      if( !validator.isEmail(email)) return Toast("email is not valid")
-     if( !validator.isMobilePhone(mobile)) return Toast("mobile is not valid")
+     if( !/^[0]?[789]\d{9}$/.test(mobile)) return Toast("mobile no  is not valid")
     
      try{
       setIsLoading(true)
@@ -117,14 +117,22 @@ const [newPassword,setnewPassword] = useState("")
 {isLoading &&(<Loader />)}
 <img src={img} alt="cover" style={{
                 width: '100%', height: 280, objectFit: 'cover'
-            }}></img>
+            }}
+            ></img>
 
-            <img src={img} alt="cover" style={{
+            <img src={userData?.avatar} alt="cover" style={{
                 width: 150, height: 150, borderRadius: 100,
                 border: '10px solid white',
                 marginTop: -80,
-                alignSelf: 'center'
-            }}></img>
+                alignSelf: 'center',
+                backgroundColor:'white'
+            }}
+            onError={(e) =>
+          (e.target.onerror = null)(
+            (e.target.src =
+              "images/userdefault.png")
+          )}
+            ></img>
             <br></br>
 
 <div>
@@ -139,7 +147,7 @@ const [newPassword,setnewPassword] = useState("")
     </div>
     <div className="between-div" style={{gridGap:'40px',margin: "1.5rem  0"}}>
     <input className='profile-input' type='name' placeholder="Enter Email" name="email" value={email} onChange={e => onchange(e)}></input>  
-    <input className='profile-input' type='name' placeholder="Enter Mobile no " name="mobile" value={mobile} onChange={e => onchange(e)}></input>  
+    <input className='profile-input' type='Number' placeholder="Enter Mobile no " name="mobile" value={mobile} onChange={e => onchange(e)}></input>  
     
     </div>
     <button type='submit' className='themeButton' style={{ marginTop: 20, width: '100%',maxWidth:'300px' }} onClick={edit_profile}>Save changes</button>

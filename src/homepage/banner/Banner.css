@@ -7,51 +7,61 @@
 .text-banner{
     position: relative;
 }
-.text-banner>div{
-    background-color: transparent;
-   
+ .text-banner>div>div{
+    
+   height: 100%;
    margin: 0 !important;
-   /* padding :2rem 4rem ; */
+    padding :2rem 4rem ; 
    position :absolute ;
    left:10%;
-   top: 40%;
-   -ms-transform: translateY(-70%);
-   transform: translateY(-70%);
+
    z-index: 1;
-   display: flex;
+   display: none;
    flex-direction: column;
    justify-content:center;
   
 }
-.text-banner>div>h2{
+.bannerbg2>div>h2{
     margin-bottom:2rem;
 }
-.text-banner>div>p{
+.bannerbg2>div>p{
     max-width:600px;
     margin-bottom:2rem;
     overflow-y: hidden;
     max-height: 50px;
     font-size: 12px;
 }
-.text-banner>div>*{
+.bannerbg2>div>*{
    color:white;
 }
-.text-banner>div>*{
-   color:white;
+
+
+.bannerbg2{
+
 }
-.text-banner:after{
-    content: "";
-    height:100%;
-    width: 100%;;
-    position: absolute;;
+
+.text-banner:hover .bannerbg2>div{
+   display:flex;
+}
+.text-banner:hover .bannerbg2{
+    transition: all 0.2s ease-in-out;
+    position: absolute;
     left: 0;
-    top: 0;
-    background-color:#00000061;;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    /* max-width:250px; */
+    /* max-height:250px; */
+    margin: 0 auto;
+   
+    background-color: #00000069;
+    border-radius: 8px;
 }
 
 
 @media screen and (max-width:600px) {
-    .text-banner>div>h1{
+    .bannerbg2>div>h1{
         margin-bottom:0.5rem;
         font-size: 1.2rem;
     }
@@ -59,7 +69,7 @@
       top:55%
       
     }
-    .text-banner>div>p{
+    .bannerbg2>div>p{
         max-width:400px;
         font-size: 0.8rem;
         margin-bottom:0.2rem;

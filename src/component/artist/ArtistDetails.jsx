@@ -135,12 +135,13 @@ console.log(readmore)
 
 
   <div className="section-padding" Style={'padding-top:1rem !important; max-width: 1800px, margin:0 auto' }>
-<p style={{ fontSize:'1.7rem', fontWeight:600}}>ALSO LIKE <span style={{color:'#56BDBD',fontWeight:600}}>ALSO LIKE</span> </p>
+<p style={{ fontSize:'1.7rem', fontWeight:600}}>Art By <span style={{color:'#56BDBD',fontWeight:600}}> {productDetails?.name}</span> </p>
   <div className="allproduct-right">
+
+
   {All_Product_Page?.slice(0,6)?.map((element, index) =>{
 
-
-return <div>
+    return element?.artist_id==productDetails?.id && (<div>
 <Link to={'/productDetails/' + element.product_id} key={index} className="link-a"><img src={element?.images?.length ? element?.images[0] : null}></img> </Link>
 <div className='between-div m-3'>
 <p style={{fontWeight: '600',margin:0,}}>{element.name}</p>
@@ -161,7 +162,8 @@ return <div>
 
 <button className="white-themeButton" >Buy Now </button>
 </div>
-</div>
+</div>)
+
 
 })}
 </div>

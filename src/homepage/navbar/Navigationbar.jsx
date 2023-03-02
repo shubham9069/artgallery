@@ -5,6 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
   import { useContext } from 'react'
 import { AuthContext } from '../../AuthProvider'
 import { Logout } from '../../pages/exportfiles'
+import Dropdown from 'react-bootstrap/Dropdown';
+
 
 
 const Navigationbar = () => {
@@ -57,31 +59,36 @@ const Navigationbar = () => {
   
     
   </nav>
-  <div className='d-flex Buttonofnavbar dropdown '>
+  <div className='d-flex Buttonofnavbar dropdown align-items-center '>
        {userToken?<>
-        <li className="nav-item dropdown headerLink">
-                  <a className="nav-link dropdown-toggle " href="#"   id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src={userData?.avatar} alt="pic" style={{
+        <Dropdown size="lg">
+        <Dropdown.Toggle className="nav-link dropdown-toggle " id="dropdown-basic" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{backgroundColor:'transparent',border:'none'}}>
+                    <img src={userData?.avatar}  style={{
                       height: 30, width: 30, borderRadius: 30, marginRight: 5,
-                    }}></img>  <span>{userData?.name}</span>
-                  </a>
-                  <ul className="dropdown-menu" aria-labelledby="navbarDropdown" Style={ 'padding: 15px; paddingTop: 20px; width:max-content;position: absolute;right: 0'}>
-
-                    <div className='row'>
-                      <div className='col-md-3 alignCenter'>
+                    }}
+                    onError={(e) =>
+          (e.target.onerror = null)(
+            (e.target.src =
+              "images/userdefault.png")
+          )}
+                    ></img>  <span>{userData?.name}</span>
+                  </Dropdown.Toggle>
+    
+      <Dropdown.Menu size="lg" style={{padding:'1rem',width:'200px'}}>
+      <Dropdown.Item className='row'>
+                      <div className='center-div'>
                         <img src={userData?.avatar} alt="pic" style={{
                           height: 60, width: 60, borderRadius: 30, marginRight: 10,
                         }}></img>
                       </div>
-                      <div className='col-md-9' style={{ textAlign: 'center' }}>
+                      <div className='' style={{ textAlign: 'center' }}>
                         <span style={{ fontSize: 18, fontWeight: '700', color: '#000' }}> {userData?.name}</span><br></br>
-                        <a className='darkLink grayLink' href='#/profile' style={{ margin: 0 }}>See your profile</a>
+                        <Link to='/profile' className='darkLink grayLink'  style={{ padding: 0 }}>See your profile</Link>
                       </div>
-                    </div>
-
+                    </Dropdown.Item>
                     <li style={{ marginTop: 20 }}><hr className="dropdown-divider"></hr></li>
 
-                    <div style={{ margin: 15 }}>
+       <Dropdown.Item >
                       <Link to='/cart' className='darkLink' href='#/cart' style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 0 }}>
                         <i className="bi bi-cart" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 13 }}>
                         </i>
@@ -90,37 +97,28 @@ const Navigationbar = () => {
     {Cart?.cart_items?.length ? Cart?.cart_items?.length: "No"}
     <span class="visually-hidden">unread messages</span>
   </span></Link>
-                    </div>
+                    </Dropdown.Item>  
 
-                    {/* <div style={{ margin: 15 }}>
-                      <a className='darkLink' href='#/change-password' style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 0 }}>
-                        <i className="bi bi-gear" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 18 }}></i>
-                        Change password</a>
-                    </div> */}
-
-                    <div style={{ margin: 15 }}>
+                       <Dropdown.Item >
                       <Link to='/orders' className='darkLink' href="#/help" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 0 }}>
                       <i class="bi bi-list" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 18 }}></i>
                         My Orders</Link>
-                    </div>
-                    <div style={{ margin: 15 }}>
+                    </Dropdown.Item>
+
+                    <Dropdown.Item >
                       <Link to='/help&support' className='darkLink' href="#/help" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 0 }}>
                         <i className="bi bi-question-circle" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 13 }}></i>
                         Help & Support</Link>
-                    </div>
+                    </Dropdown.Item>
 
-                    <div style={{ margin: 15 }}>
+                    <Dropdown.Item >
                       <div className='darkLink' style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 0 }}
                         onClick={() => logout()}>
                         <i className="bi bi-box-arrow-right" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 13 }}></i>
                         Logout</div>
-                    </div>
-
-                    {/* <li><a className="dropdown-item" href="#">Action</a></li>
-                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                    <li><a className="dropdown-item" href="#">Something else here</a></li> */}
-                  </ul>
-                </li>  
+                    </Dropdown.Item>        
+      </Dropdown.Menu>
+    </Dropdown> 
                 
                  </>
                 

@@ -55,7 +55,7 @@ const Add_Address = async(e)=>{
 
   if(!mobile || !street  || !city || !pin_code  ) return Toast("plz fill required field mobile,street,city,pin_code") 
   
-   if( !validator.isMobilePhone(mobile)) return Toast("mobile is not valid")
+   if( !/^[0]?[789]\d{9}$/.test(mobile)) return Toast("mobile is not valid")
   
    try{
     setIsLoading(true)
@@ -97,7 +97,7 @@ const Update_Address = async()=>{
  
 const address_id = data?.id
   
-   if( !validator.isMobilePhone(mobile)) return Toast("mobile is not valid")
+   if(!/^[0]?[789]\d{9}$/.test(mobile)) return Toast("mobile is not valid")
   
    try{
     setIsLoading(true)

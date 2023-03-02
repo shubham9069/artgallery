@@ -11,7 +11,7 @@ import Loader from '../component/Loader'
 
 
 const HomePage = () => {
-  const {All_Product_Page,homepage,setHomepage} = useContext(AuthContext)
+  const {All_Product_Page,homepage,setHomepage,userToken,Catagory} = useContext(AuthContext)
   const {Recommended} = homepage
 
   
@@ -56,12 +56,16 @@ const [isLoading,setIsLoading] = useState(true)
       
      
     },[])
+
+    
   
   return (
     <>
     
     <Banner />
-    <Slickslider ImgArr={All_Product_Page} type={1}  title={['RECENT','VIEW']}  /> 
+    <Slickslider ImgArr={All_Product_Page} type={1}  title={userToken? ['RECENT','VIEW']:['BEST','ART']}  /> 
+
+    <Slickslider ImgArr={Catagory?.artists} type={'artist'}  title={ ['GREATEST','ARTISTS']}  /> 
     <ShopbyCategory  />
     {/* <Slickslider ImgArr={All_Product_Page} type={1}  title={['PORTRAIT','ART']} /> */}
     <Slickslider ImgArr={All_Product_Page} type={2} title={['TODAYS','DEALS']}  /> 

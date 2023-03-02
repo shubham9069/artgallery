@@ -27,7 +27,8 @@ const Slickslider = ({ImgArr,type,title}) => {
     className: 'slideShow',
     dots: true,
     draggable: true,
-    
+    // nextArrow:<h1>jfbrfrfhfhhf</h1>,
+   
     arrows: true,
   slidesToShow: 4,
   slidesToScroll: 4,
@@ -257,33 +258,34 @@ responsive: [
         <h2 className="section-heading"> <span className="section-heading"style={{color:"#56BDBD"}}>{title[0]}</span> {title[1]}</h2>
         <p className='span-underline' onClick={()=>navigate('/allproduct')}  > View All </p>
         </div>
-        {type==1?<Slider {...settings1}>
+
+        {type==1 && (<Slider {...settings1}>
      
          {ImgArr?.map((element,index)=>{
           
            return <div  key={index} className='d-flex center-div slider-container' Style={'flex-direction:column;height:270px !important;  margin: 0 auto; cursor:pointer'} >
            <img src={element?.images?.length &&(element?.images[0])} alt="img1" Style={" max-width:250px;max-height:250px;width: 100%;height:100%; object-fit:fill;   border-radius: 10px"} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
-          {/* <div className="sliderBG">
+          <div className="sliderBG" onClick={()=>navigate('/ProductDetails/' + element.product_id)}>
             <div className="center-div">
               <h4>{element.name}</h4>
               <p style={{margin:'0 auto'}}>{element.short_description}</p>
               <button className="white-themeButton" onClick={()=>navigate('/ProductDetails/' + element.product_id)} style={{color:'#56BDBD',margin:'0  auto'}}>View </button>
             </div>
-          </div> */}
+          </div>
           </div>
           
          })} 
          
           
-        </Slider>
-        :
-        type==2?<Slider {...settings2}>
+        </Slider>)}
+        
+        {type==2 && (<Slider {...settings2}>
      
      {ImgArr?.map((element,index)=>{
       
        return <div  key={index} className='d-flex center-div ' id="slider2" Style={"height:370px !important;max-width:350px;  margin: 0 auto; cursor:pointer"}>
        <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={"width: 100%;height:100%; max-width:350px;object-fit:fill;    border-radius: 10px"} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
-       <div className="sliderbg2">
+       <div className="sliderbg2" onClick={()=>navigate('/ProductDetails/' + element.product_id)}>
         <div className="">
         <h4 style={{fontSize:'18px',fontWeight:400}}>{element.name}</h4>
               <p style={{maxHeight:'50px'}}>{element.short_description}</p>
@@ -302,10 +304,11 @@ responsive: [
      })} 
      
       
-    </Slider>
-    :
+    </Slider>)
+        }
+    
 
-        <Slider {...settings}>
+    {/* {type==    <Slider {...settings}>
      
          {ImgArr?.map((element,index)=>{
           
@@ -317,8 +320,36 @@ responsive: [
          
           
         </Slider>
-        }
+        } */}
         
+
+        {type=='artist' && (<Slider {...settings1}>
+     
+     {ImgArr?.map((element,index)=>{
+      
+       return <div  key={index} className='d-flex center-div slider-container' Style={'flex-direction:column;height:270px !important;  margin: 0 auto; cursor:pointer'} >
+       <img src={element?.image} alt="img1" Style={" max-width:250px;max-height:250px;width: 100%;height:100%; object-fit:fill;   border-radius: 10px"} onClick={()=>navigate('/Artistdetails/' + element?.id)} ></img>
+      {/* <div className="sliderBG" >
+        <div className="center-div" >
+          <h4>{element?.name}</h4>
+          <p style={{margin:'0 auto',height:'80px' ,overflow: 'hidden',}}>{element?.description}</p>
+          <button className="white-themeButton" onClick={()=>navigate('/ProductDetails/' + element.product_id)} style={{color:'#56BDBD',margin:'0  auto'}}>View </button>
+        </div>
+      </div> */}
+
+        <div className="sliderBG3" >
+        <div className="justify-content-center align-items-center" >
+          <h4>{element?.name}</h4>
+          
+         
+        </div>
+      </div>
+      </div>
+      
+     })} 
+     
+      
+    </Slider>)}
       </div>
         </>
       )

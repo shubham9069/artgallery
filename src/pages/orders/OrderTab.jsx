@@ -112,7 +112,7 @@ const cancel_order= async(id)=>{
 
               
                 <h5 style={{ marginBottom: 20 }}>All Orders</h5>
-                {AllOrder?.map((element)=>{
+                {AllOrder.reverse()?.map((element)=>{
 
                 return   <div  style={{
                         boxShadow: "0px 3px 12px rgba(0, 0, 0, 0.15)",

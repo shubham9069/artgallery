@@ -9,10 +9,12 @@ import Toast from '../../Toast';
 import Addresstab from '../../pages/profile/Addresstab';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../Loader';
+import  Payment from '../../Payment'
 
 const Cart = () => {
+    const payWithRazorpay = Payment()
     const navigate = useNavigate()
-    const {userToken,Cart,setCart} = useContext(AuthContext)
+    const {userToken,Cart,setCart,userData} = useContext(AuthContext)
     const [show, setShow] = useState(false);
     const [showAddress, setShowAddress] = useState(false);
     const [isLoading,setIsLoading] = useState(false);
@@ -207,7 +209,7 @@ const Add_to_cart= async(id,qty,type) =>{
            if(response.status===200){
             const data = response.data
             setCart([])
-            navigate('/thanku')
+            payWithRazorpay(data?.order)
             Toast(data.message,response.status)
            
            }
