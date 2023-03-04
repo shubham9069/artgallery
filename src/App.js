@@ -13,6 +13,10 @@ import Protected from './pages/Protected'
 import OrderTab from './pages/orders/OrderTab';
 import ScrollToTop from './component/ScrollToTop';
 import OrderDetails from './pages/orders/OrderDetails';
+import Contact from  './pages/contactus/Contact';
+
+
+
 
 function App() {
 
@@ -40,6 +44,8 @@ function App() {
     <Route path="/ProductDetails/:id" element={<><Navigationbar/><ProductDetails /><Footer /></>} />
     <Route path="/help&support" element={<><Navigationbar/><Help /><Footer /></>} />
     <Route path="/aboutus" element={<><Navigationbar/><AboutUs/><Footer /></>} />
+    <Route path="/contactus" element={<><Navigationbar/><Contact/><Footer /></>} />
+    
 
     <Route element={<RequiredLogin />}>
     <Route path="/checkout" element={<><Navigationbar/><CheckOut/><Footer /></>} />

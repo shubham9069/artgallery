@@ -37,7 +37,7 @@ const AllProduct = () => {
 
 
 return <div>
-<Link to={'/Artistdetails/' + element?.id} key={index} className="link-a"><img src={ element?.image}></img> </Link>
+<Link to={'/Artistdetails/' + element?.id} key={index} className="link-a"><img src={ element?.images}></img> </Link>
 <div className='between-div m-3'>
 <p style={{fontWeight: '600',margin:0,}}>{element.name}</p>
 

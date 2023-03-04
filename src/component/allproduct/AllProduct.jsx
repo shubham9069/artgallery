@@ -151,7 +151,7 @@ return <div>
 <Link to={'/ProductDetails/' + element.product_id} key={index} className="link-a"><img src={element?.images?.length ? element?.images[0] : null}></img> </Link>
 <div className='between-div m-3'>
 <p style={{fontWeight: '600',margin:0,}}>{element.name}</p>
-<span style={{color:' #56BDBD'}}>RS {element?.price}</span>
+<span style={{color:' #56BDBD'}}>&#x20B9; {element?.price}</span>
 </div>
 <p className='product-box-desc' dangerouslySetInnerHTML={{__html: `${element?.description}`}}></p>
 <div className='d-flex between-div' style={{ gridGap:'20px',marginBottom:'1rem',padding:'0 1rem'}}>

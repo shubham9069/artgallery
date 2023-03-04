@@ -95,7 +95,7 @@ const Banner = () => {
   return (
 <>
 <div className='container-fluid' style={{padding:0}}>
-<Carousel variant="dark" prevIcon={""}  nextIcon={""} interval={2000} >
+<Carousel variant="dark" prevIcon={<i class="bi bi-arrow-left-circle" Style={'font-size:3vw !important; color:white'}></i>}  nextIcon={<i class="bi bi-arrow-right-circle" Style={'font-size:3vw !important; color:white'}></i>} interval={2000} >
  
 {/* <div >
     <h2 style={{}}>{Banner[0]?.title} </h2>

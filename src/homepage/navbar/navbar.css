@@ -1,6 +1,7 @@
 
 .main-div{
-    background-image: url("../asset/image 2.png");
+    /* background-image: url("../asset/image 2.png"); */
+    background-color: #eaeaea;
    width: 100% !important;
    background-size: contain;
    background-position: center;
@@ -23,11 +24,14 @@ align-items: center;
 }
 .nav-item{
     list-style-type: none !important;
+    align-items: center;
+    display: flex;
 }
 .nav-btn{
-padding: 0 0.8rem !important;
+padding: 0 0.6rem !important;
 font-weight: 600 !important;
-color:black !important
+color:black !important;
+font-size: 12px !important;
 
 }
 .btn{
@@ -39,6 +43,7 @@ color:black !important
 }
 .Buttonofnavbar{
     position: relative;
+    align-items: center;
     /* top: 10px; */
 }
 .headerLink {
@@ -51,7 +56,7 @@ color:black !important
 }
 
 .headerLink>.nav-link:hover {
-    color:rgb(86, 189, 189)  !important;
+    color:#009ba1 !important;
 }
 .darkLink{
     text-decoration: none; 
@@ -63,7 +68,7 @@ color:black !important
 }
 .darkLink:hover{
   
-    color:rgb(86, 189, 189);
+    color:#009ba1;
     
 }
  .dropdown-item {
@@ -75,11 +80,51 @@ color:black !important
    all:unset !important
 
 }
+.searchdropdown{
+    position: absolute;
+   top:100%;
+    width: 100%;
+    height: 250px;
+    background-color: white;
+    z-index: 11111;
+    overflow: scroll;
+    cursor: pointer;
+   
+}
+#search:focus{
+   
+    background-color: white !important;
+   
+   
+}
+.searchdropdown>div{
+    display: flex;
+    padding: 8px;
+    /* border: 1px solid black; */
+    margin: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border-radius: 10px;
+}
+.searchdropdown>div>p{
+    margin: 0;
+    font-size:13px;
+    font-weight:500;
+}
+.searchdropdown>div>img{
+   width: 50px;
+}
 
 
 @media screen and (max-width:1000px) {
     .navbar .container-fluid{
         grid-gap:20px !important;
+    }
+    .Buttonofnavbar{
+        align-items: flex-start !important;
+        padding-top: 20px;
+    
     }
     
 }
@@ -102,6 +147,10 @@ color:black !important
 @media screen and (max-width:350px) {
     .artgallery-logo{
         width:50%;
+    }
+    .Buttonofnavbar{
+        padding-top: 0;
+    
     }
     
     

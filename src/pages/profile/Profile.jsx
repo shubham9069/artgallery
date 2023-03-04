@@ -27,11 +27,11 @@ const Profile = () => {
                 <i class="bi bi-star" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 18 }}></i>
                 Watchlist
             </div> */}
-            <div className='darkLink profileLink' href='#' style={{ color: tab === 4 ? "#56BDBD" : '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 15 }}
+            {/* <div className='darkLink profileLink' href='#' style={{ color: tab === 4 ? "#56BDBD" : '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 15 }}
             onClick={() => setTab(4)}>
                 <i class="bi bi-heart" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 18 }}></i>
                 Account
-            </div>
+            </div> */}
             <a className='darkLink profileLink'  style={{ color: tab === 5 ? "#56BDBD" : '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 15 }}
                 onClick={() => setTab(5)}>
                 <i class="bi bi-gear" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 18 }}></i>

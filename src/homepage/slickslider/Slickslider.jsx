@@ -252,10 +252,10 @@ responsive: [
    
       return (
         <>
-        
-          <div className={type==1?'section-slider section-padding' :"section-slider"}>
+        <h2 className="section-heading" > <span className="section-heading"style={{color:"#009ba1"}}>{title[0]}</span> {title[1]}</h2>
+          <div className={type==1?'section-slider ' :"section-slider"}>
           <div className={type==1?" d-flex justify-content-between ":"text d-flex justify-content-between "} style={type==1?{marginBottom:"1.5rem"}:null}>
-        <h2 className="section-heading"> <span className="section-heading"style={{color:"#56BDBD"}}>{title[0]}</span> {title[1]}</h2>
+        
         <p className='span-underline' onClick={()=>navigate('/allproduct')}  > View All </p>
         </div>
 
@@ -264,12 +264,12 @@ responsive: [
          {ImgArr?.map((element,index)=>{
           
            return <div  key={index} className='d-flex center-div slider-container' Style={'flex-direction:column;height:270px !important;  margin: 0 auto; cursor:pointer'} >
-           <img src={element?.images?.length &&(element?.images[0])} alt="img1" Style={" max-width:250px;max-height:250px;width: 100%;height:100%; object-fit:fill;   border-radius: 10px"} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
+           <img src={element?.images?.length &&(element?.images[0])} alt="img1" Style={" max-width:250px;max-height:250px;width: 100%;height:100%; object-fit:fill; "} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
           <div className="sliderBG" onClick={()=>navigate('/ProductDetails/' + element.product_id)}>
             <div className="center-div">
               <h4>{element.name}</h4>
               <p style={{margin:'0 auto'}}>{element.short_description}</p>
-              <button className="white-themeButton" onClick={()=>navigate('/ProductDetails/' + element.product_id)} style={{color:'#56BDBD',margin:'0  auto'}}>View </button>
+              <button className="white-themeButton" onClick={()=>navigate('/ProductDetails/' + element.product_id)} style={{color:'#009ba1',margin:'0  auto'}}>View </button>
             </div>
           </div>
           </div>
@@ -284,11 +284,11 @@ responsive: [
      {ImgArr?.map((element,index)=>{
       
        return <div  key={index} className='d-flex center-div ' id="slider2" Style={"height:370px !important;max-width:350px;  margin: 0 auto; cursor:pointer"}>
-       <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={"width: 100%;height:100%; max-width:350px;object-fit:fill;    border-radius: 10px"} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
+       <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={"width: 100%;height:100%; max-width:350px;object-fit:fill; "} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
        <div className="sliderbg2" onClick={()=>navigate('/ProductDetails/' + element.product_id)}>
         <div className="">
         <h4 style={{fontSize:'18px',fontWeight:400}}>{element.name}</h4>
-              <p style={{maxHeight:'50px'}}>{element.short_description}</p>
+              <p style={{maxHeight:'50px',overflow:'hidden'}}>{element.short_description}</p>
               <p>size : {element?.size_name}</p>
               <p>medium : {element?.medium_name}</p>
               <p>code : {element?.product_id}</p>
@@ -328,7 +328,7 @@ responsive: [
      {ImgArr?.map((element,index)=>{
       
        return <div  key={index} className='d-flex center-div slider-container' Style={'flex-direction:column;height:270px !important;  margin: 0 auto; cursor:pointer'} >
-       <img src={element?.image} alt="img1" Style={" max-width:250px;max-height:250px;width: 100%;height:100%; object-fit:fill;   border-radius: 10px"} onClick={()=>navigate('/Artistdetails/' + element?.id)} ></img>
+       <img src={element?.images} alt="img1" Style={" max-width:250px;max-height:250px;width: 100%;height:100%; object-fit:fill; "} onClick={()=>navigate('/Artistdetails/' + element?.id)} ></img>
       {/* <div className="sliderBG" >
         <div className="center-div" >
           <h4>{element?.name}</h4>

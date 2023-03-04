@@ -32,7 +32,7 @@ a:hover{
 }
  
 .section-margin{
-  margin: 2rem 2rem !important ;
+  margin: 3rem 3rem !important ;
 }
 .section-padding{
   padding: 2rem 2rem !important ;
@@ -49,7 +49,7 @@ margin: 2rem 0 !important
   color:white !important;
   font-size: 16px;
 line-height: 19px; 
-background: #56BDBD;
+background: #009ba1;
 border-radius: 8px !important;
 width: max-content;
 height: fit-content;
@@ -57,8 +57,8 @@ height: fit-content;
 
 .white-btn-design{
   padding: 0.8rem 1.5rem !important ;
-  border: 2px solid #56BDBD;
-  color:#56BDBD!important;
+  border: 2px solid #009ba1;
+  color:#009ba1!important;
   font-size: 14px;
 line-height: 19px; 
 background: white;
@@ -69,12 +69,12 @@ border-radius: 3px !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #56BDBD;
+  background-color: #009ba1;
   color: white;
   padding: 10px 25px;
   /* margin: 30px 0px; */
   cursor: pointer;
-  border: 1.5px solid #56BDBD;
+  border: 1.5px solid #009ba1;
   border-radius: 8px;
   transition: 0.2s ease-in-out;
   text-decoration: none;
@@ -89,11 +89,11 @@ border-radius: 3px !important;
   justify-content: center;
   align-items: center;
   background-color:white;
-  color: #56BDBD;
+  color: #009ba1;
   padding: 10px 25px;
   /* margin: 30px 0px; */
   cursor: pointer;
-  border: 1.5px solid #56BDBD;
+  border: 1.5px solid #009ba1;
   border-radius: 8px;
   transition: 0.2s ease-in-out;
   text-decoration: none;
@@ -109,8 +109,8 @@ border-radius: 3px !important;
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  color: #56BDBD;
-  border: 1.5px solid #56BDBD;
+  color: #009ba1;
+  border: 1.5px solid #009ba1;
   text-decoration: none;
   /* box-shadow: 0px 2px 8px #ccc; */
 }
@@ -154,6 +154,10 @@ input[type=number] {
 input:focus-visible {
     outline:none;
   }
+input:focus{
+    outline:none;
+    box-shadow: none !important;
+  }
 select option[hidden]{
     color:red !important
   }
@@ -192,22 +196,29 @@ select option[hidden]{
 }
 .span-underline{
   font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
+  
+  font-size: 15px;
   line-height: 126.19%;
   /* or 20px */
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 300;
   text-decoration: none;
-  color: #56BDBD;
+  background-color: #009ba1;
+  color:white;
+  border-radius: 20px;
+  padding: 3px 10px;
+  margin: 0 0 0 auto;
+
 }
 .section-heading{
   font-style: normal;
 
-font-size: 20px;
+font-size: 24px;
 line-height: 126.19%;
   text-transform: uppercase !important;
-  font-weight: 600 !important;
+  font-weight: 400 !important;
+  text-align: center;
+  margin-top: 4rem ;
 
 }
 
@@ -259,6 +270,7 @@ line-height: 126.19%;
  
   
   font-size: 18px !important;
+  margin-top: 2rem ;
   
 }
 .lighptgrey-p{

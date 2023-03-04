@@ -1,6 +1,6 @@
 .footer{
-    background-color: #56BDBD;
-    background-image: url("../asset/image\ 3.png");
+    background-color: #009ba1;
+    /* background-image: url("../asset/image\ 3.png"); */
     
     width: 100%;
     background-size: contain;
@@ -25,18 +25,21 @@
 .footer-section{
     margin:  50px 30px;
 }
+.footer-section *{
+    color:white
+}
 .footer-section>h5{
-    color:black;
-    font-weight: 700;
+    color:white;
+    font-weight: 300;
     font-size: 22px;
     line-height: 24px;
     margin-bottom: 1rem;
     
 }
 .footer-section>p{
-    color:black;
+    color:white;
     
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     
 }
@@ -45,15 +48,15 @@
     cursor: pointer;
     display: block;
     margin-bottom: 1rem;
-    color:black;
+    color:white;
     
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     
 }
 
 .bottom-line{
-    border-top: 2px solid black
+    border-top: 2px solid white
 }
 
 
@@ -66,17 +69,16 @@
         flex-basis: 200px;
     }
     .footer-section>h5{
-        color:black;
-        font-weight: 700;
+        
         font-size: 20px;
         line-height: 24px;
         margin-bottom: 1rem;
         
     }
     .footer-section>p{
-        color:black;
+        color:white;
         
-        font-size: 14px;
+        font-size: 13px;
         line-height: 24px;
         
     }

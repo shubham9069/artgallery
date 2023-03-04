@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../AuthProvider'
 
+
 const Footer = () => {
     const navigate = useNavigate()
     const {All_Product_Page,Catagory} = useContext(AuthContext)
@@ -16,7 +17,7 @@ const Footer = () => {
     </div>
 <div className='footer-section'>
 <h5>Heading</h5>
-    <p>About us</p>
+    <Link to="/aboutus">About us</Link>
     <p>Privacy Policy</p>
     <p>Term & Conditions</p>
     <p>Pricing & Privacy Policy</p>
@@ -44,18 +45,18 @@ const Footer = () => {
 <div className='footer-section'>
 <h5>FOLLOW US ON</h5>
 <div className='d-flex' style={{marginBottom:'1rem'}}>
-<i className="bi bi-linkedin px-2"></i>
+
 <i className="bi bi-instagram px-2"></i>
 <i className="bi bi-facebook px-2"></i>
 </div>
     <h5>CONTACT US</h5>
-    <Link to='/help&support' className='link-a'><p>Help & support</p></Link>
+    <Link to='/help&support' className='link-a' ><p>Help & support</p></Link>
     <p>footer</p>
 </div>
 
     </div>
     <div className='bottom-line'>
-        <p className='center-div ' style={{padding:'1.5rem',margin:0}}>@ 2022 xyz All right resereved</p>
+        <p className='center-div ' style={{padding:'1.5rem',margin:0,color:'white'}}>@ 2022 xyz All right resereved</p>
     </div>
    
     </div>

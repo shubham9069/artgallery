@@ -16,12 +16,12 @@ function Thanku() {
                         <span>Payment was successful and your order is confirmed Enjoy the excellent service and fast delivery.</span>
                         <br></br>
 
-                        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', }}>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center',justifyContent:'center',gridGap:10 }}>
                             <Link to='/orders' className="themeButton" style={{
-                                marginTop: 10, marginRight: 10, width: 200,
+                                width: 200,
                             }}>Track your order</Link>
                             <a href="#/" className="secondaryBtn" style={{
-                                marginTop: 10, marginLeft: 10, width: 200,
+                                width: 200,
                             }}>Go to home</a>
                         </div>
                         {/* <button className='themeButton' style={{ width: '100%', marginTop: 20 }}>Go back home</button> */}

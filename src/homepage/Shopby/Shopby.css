@@ -14,18 +14,18 @@ flex-wrap: wrap;
 .shopby-box{
     flex-direction: column;
     grid-gap:20px;
-    padding:1rem 3rem ;
+    padding:3rem 4rem ;
     background: white;
-     border-radius: 8px !important;
+     /* border-radius: 8px !important; */
      transition: all 0.3s ease-in-out;
      cursor: pointer;
 }
 .shopby-box>img{
-   width: 150px !important;
+   width: 100px !important;
 }
 .shopby-box:hover {
     
-    background: #56BDBD;
+    background: #009ba1;
      
 }
 

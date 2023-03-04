@@ -61,7 +61,18 @@ function Login() {
      }
      catch(err){
       const error = err.response.data
+    //   console.log(error.status)
+      if(error?.status==403){
+// console.log('hello')
+        resendotp();
+       
+        
+        Toast(error.message);
+        return 
+      }
       Toast(error.message);
+     
+      
       
 
 
@@ -70,6 +81,37 @@ function Login() {
       setIsLoading(false)
      }
   }
+
+  const resendotp=async(e)=>{
+    try{
+      setIsLoading(true)
+        const response= await axios({
+          method: "post",
+         url:'/resend-otp',
+          data:{
+            email
+          },
+          headers: {
+            "Content-Type": "application/json",
+            
+          },
+         })
+         
+         if(response.status===200){
+          const data = response.data
+          navigate('/verifyotp',{state:{email}})
+          Toast(data.message,response.status)
+         }
+       }
+       catch(err){
+        const error = err.response.data
+        Toast(error.message)
+  
+       }
+       finally{
+        setIsLoading(false)
+       }
+}
     
     return (
        

@@ -16,7 +16,7 @@ const ShopbyCategory = ({CatArr}) => {
     
     var div = document.getElementById("shopby-container"+i)
       
-    div.style.background ='#56BDBD'
+    div.style.background ='#009ba1'
     div.childNodes[0].setAttribute("src",img)
   div.childNodes[1].style.color="white"
 
@@ -32,10 +32,11 @@ const ShopbyCategory = ({CatArr}) => {
   }
   return (
     <>
-        <div className='section-padding' style={{background: '#F7F7F7'}}>
+          <h2 className="section-heading" style={{marginBottom:'3rem'}}> <span className="section-heading" style={{color:"#56BDBD"}}>Shop</span> By Category</h2>
+
+        <div className='section-padding' style={{background: '#eaeaea'}}>
         
           <div className=" d-flex justify-content-between " style={{marginBottom:"2rem"}} >
-        <h2 className="section-heading"> <span className="section-heading" style={{color:"#56BDBD"}}>Shop</span> By Category</h2>
         {/* <p className='span-underline' onClick={()=>navigate('/allproduct')}> View All </p> */}
         </div>
       

@@ -16,6 +16,7 @@ const ProductDetails = () => {
   const [isLoading,setIsLoading] = useState(true);
   const {id} = useParams()
   const [productDetails, setProductDetails] = useState([]);
+  const [imgstate,setImageState]=useState("")
   
   
 
@@ -51,6 +52,7 @@ console.log(readmore)
         const data = response?.data;
         if(type=="product"){
           setProductDetails(data?.product)
+          setImageState(data?.product?.images?.length &&(data?.product?.images[0]) )
           console.log(data?.product)
         }
        
@@ -115,12 +117,21 @@ console.log(readmore)
   <div className="product-details section-padding">
 
 <div className="product-details-left ">
-  <img src={productDetails?.images?.length? productDetails.images[0]:null}></img>
+  <img src={imgstate}></img>
+  <div  style={{}}>
+  {productDetails?.images?.map((element)=>{
+
+    return <img src={element} 
+    style={{width:60,margin:'0.5rem 1rem',boxShadow:' rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px'}}
+    onClick={()=>setImageState(element)} ></img>
+  })}
+  
+  </div>
 </div>
 
 <div className="product-details-right ">
   <h2>{productDetails?.name}</h2>
-  <h3> Rs {productDetails?.price}</h3>
+  <h3>&#x20B9; {productDetails?.price}</h3>
   <p>{productDetails?.short_description}</p>
   <div>
     <p>size : {productDetails?.size}</p>
@@ -154,7 +165,7 @@ return <div>
 <Link to={'/productDetails/' + element.product_id} key={index} className="link-a"><img src={element?.images?.length ? element?.images[0] : null}></img> </Link>
 <div className='between-div m-3'>
 <p style={{fontWeight: '600',margin:0,}}>{element.name}</p>
-<span style={{color:' #56BDBD'}}>RS {element?.price}</span>
+<span style={{color:' #56BDBD'}}>&#x20B9; {element?.price}</span>
 </div>
 <p className='product-box-desc' dangerouslySetInnerHTML={{__html: `${element?.description}`}}></p>
 <div className='d-flex between-div' style={{ gridGap:'20px',marginBottom:'1rem',padding:'0 1rem'}}>

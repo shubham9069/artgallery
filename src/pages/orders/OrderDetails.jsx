@@ -140,6 +140,19 @@ return   <div className='row ' style={{ border: '1px solid #C7C5C5', padding: '2
         </div>
 
 })}
+
+
+
+  <div className='row'>
+<h5>Add Review</h5>
+  <div className=" col-md-8 form-outline mx-auto">
+  <textarea className="form-control" id="textAreaExample3" rows="2"></textarea>
+  <button type="button" className="btn btn-white mt-5 mx-auto" style={{backgroundColor:"rgb(86, 189, 189)"}}>Add Review</button>
+</div>
+        
+        </div>
+
+
       
 {/* 
         <div style={{margin:"2rem 0 "}}>
