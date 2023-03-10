@@ -17,12 +17,12 @@
 .slideShow .slick-prev  {
     position: absolute;
     top: 48%;
-    left: 2px;
+    left: -20px;
 }
 .slideShow .slick-next{
     position: absolute;
     top: 48%;
-    right:2px
+    right:-20px
 }
 
 .slideShow .slick-prev:before,
@@ -77,7 +77,7 @@
     border: 2px solid red 
 } */
 .sliderBG{
-    
+    all:unset
 }
 .sliderBG>div{
     display: none;
@@ -111,6 +111,7 @@
     max-width:250px;
     max-height:250px;
     margin: 0 auto;
+ 
    
     background-color: #0000008c;
     /* border-radius: 8px; */
@@ -118,6 +119,9 @@
 }
 #slider2{
     position: relative;
+}
+.sliderbg2{
+    all:unset
 }
 .sliderbg2>div{
     display: none;

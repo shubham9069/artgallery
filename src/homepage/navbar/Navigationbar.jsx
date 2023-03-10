@@ -1,16 +1,19 @@
 import React from 'react'
 import "./navbar.css"
 import logo from '../asset/image 1.png'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate,useLocation } from 'react-router-dom'
   import { useContext,useState,debounce } from 'react'
 import { AuthContext } from '../../AuthProvider'
 import { Logout } from '../../pages/exportfiles'
 import Navbar from 'react-bootstrap/Navbar';
 import Dropdown from 'react-bootstrap/Dropdown';
+import { useEffect } from 'react'
 
 
 
 const Navigationbar = () => {
+  const location =useLocation()
+  console.log(location)
   const navigate = useNavigate()
   const {userToken,userData,Cart,All_Product_Page,Catagory} =useContext(AuthContext);
   const [SearchArr,setSearchArr] = useState([])
@@ -53,7 +56,10 @@ setSearchArr([...PaintingArr])
   const filerSearch = debounce((inputvalue) => handleSearch(inputvalue), 300)
 
 
+useEffect(() => {
 
+  setSearchShow(false)
+},[location?.pathname])
  
   const logout = Logout();
   return (
@@ -69,7 +75,7 @@ setSearchArr([...PaintingArr])
 
       <div className="collapse navbar-collapse " id="navbarSupportedContent">
 
-      <div className="" style={{margin:'0 auto',maxWidth:'300px',position:'relative'}}>
+      <div className="searchbaron1000" style={{margin:'0 auto',maxWidth:'300px',position:'relative',    width: '50%'}}>
  
  <input type="text" className="form-control" id="search" placeholder="Search bar "
   style={{backgroundColor: 'transparent',border: '1px solid #cccccc'}}
@@ -106,9 +112,9 @@ setSearchArr([...PaintingArr])
           </li>
           <li className="nav-item">
             <Link to='/cart' className="nav-link nav-btn">
-            <i className="bi bi-cart4" Style={'font-size: 14px !important '}>
+            <i className="bi bi-cart-x" Style={'font-size: 16px !important ;'}>
             <span className="position-absolute translate-middle badge rounded-pill bg-danger" style={{fontSize:9}}>
-    {Cart?.cart_items?.length ? Cart?.cart_items?.length: "No"}
+    {Cart?.cart_items?.length ? Cart?.cart_items?.length: 0}
     <span className="visually-hidden">unread messages</span>
   </span>
                         </i>  

@@ -267,7 +267,7 @@ return (
   <p style={{margin:0,fontWeight:600,}}>Apply voucher</p>
   <button type='button' className='white-btn-design' Style={'padding:0.5rem 4rem !important'} onClick={()=>setShow(true)}>Check</button>
   </div>
- {couponprice && (<p style={{color:'green'}}>applied coupen succesfully</p>)} 
+ {couponprice && (<p style={{color:'green'}}>Coupon Applied <br/>{couponprice?.coupon_code }</p>)} 
 </div>
 
 <div className='voucher container my-3 '>

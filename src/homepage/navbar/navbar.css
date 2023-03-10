@@ -115,8 +115,13 @@ font-size: 12px !important;
 .searchdropdown>div>img{
    width: 50px;
 }
+#search{
+    min-width: 200px
+}
 
-
+.searchdropdown{
+   min-width: 200px;
+}
 @media screen and (max-width:1000px) {
     .navbar .container-fluid{
         grid-gap:20px !important;
@@ -125,6 +130,9 @@ font-size: 12px !important;
         align-items: flex-start !important;
         padding-top: 20px;
     
+    }
+    .searchbaron1000{
+        margin: 1rem 0 !important;
     }
     
 }
@@ -141,17 +149,20 @@ font-size: 12px !important;
     .main-div{
         padding: 8px !important;
     }
-    
+    .searchdropdown>div>img{
+       display: none;
+     }
     
 }
-@media screen and (max-width:350px) {
+@media screen and (max-width:400px) {
     .artgallery-logo{
         width:50%;
     }
     .Buttonofnavbar{
-        padding-top: 0;
+        padding-top: 15px;
     
     }
+
     
     
 }

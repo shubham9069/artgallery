@@ -19,7 +19,7 @@ const Slickslider = ({ImgArr,type,title}) => {
   const location = useLocation();
   const {userToken,setCart} = useContext(AuthContext)
   const [isLoading,setIsLoading] = useState(false)
-  console.log(ImgArr)
+  // console.log(ImgArr)
 
 
   // secound crousel 
@@ -30,10 +30,37 @@ const Slickslider = ({ImgArr,type,title}) => {
     // nextArrow:<h1>jfbrfrfhfhhf</h1>,
    
     arrows: true,
-  slidesToShow: 4,
+  slidesToShow: 6,
   slidesToScroll: 4,
   pauseOnHover: true,
   responsive: [
+    {
+      breakpoint: 1700,
+      settings: {
+        slidesToShow: 5.5,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 1600,
+      settings: {
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 1400,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true
+      }
+    },
     {
       breakpoint: 1200,
       settings: {
@@ -46,7 +73,7 @@ const Slickslider = ({ImgArr,type,title}) => {
     {
       breakpoint: 1050,
       settings: {
-        slidesToShow: 2.25,
+        slidesToShow: 2.5,
         slidesToScroll: 1,
         infinite: true,
         dots: true
@@ -55,7 +82,7 @@ const Slickslider = ({ImgArr,type,title}) => {
     {
       breakpoint: 800,
       settings: {
-        slidesToShow: 1.5,
+        slidesToShow: 2,
         slidesToScroll: 1,
         infinite: true,
         dots: true
@@ -63,7 +90,7 @@ const Slickslider = ({ImgArr,type,title}) => {
       }
     },
     {
-      breakpoint: 750,
+      breakpoint: 570,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -83,10 +110,28 @@ var settings2= {
   
     arrows: true,
   draggable: true,
-slidesToShow: 3.5,
+slidesToShow: 4.5,
 slidesToScroll: 1,
 pauseOnHover: true,
 responsive: [
+  {
+    breakpoint: 1900,
+    settings: {
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      infinite: true,
+      dots: true
+    }
+  },
+  {
+    breakpoint: 1610,
+    settings: {
+      slidesToShow: 3.5,
+      slidesToScroll: 1,
+      infinite: true,
+      dots: true
+    }
+  },
   {
     breakpoint: 1350,
     settings: {
@@ -249,6 +294,12 @@ responsive: [
       setIsLoading(false)
      }
     } 
+
+    const HandlePropagationError=(e,product_id)=>{
+      e.stopPropagation();
+      Add_to_cart(product_id)
+      
+    }
    
       return (
         <>
@@ -264,8 +315,8 @@ responsive: [
          {ImgArr?.map((element,index)=>{
           
            return <div  key={index} className='d-flex center-div slider-container' Style={'flex-direction:column;height:270px !important;  margin: 0 auto; cursor:pointer'} >
-           <img src={element?.images?.length &&(element?.images[0])} alt="img1" Style={" max-width:250px;max-height:250px;width: 100%;height:100%; object-fit:fill; "} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
-          <div className="sliderBG" onClick={()=>navigate('/ProductDetails/' + element.product_id)}>
+           <img id="sliderimg" src={element?.images?.length &&(element?.images[0])} loading="lazy" decoding="async" alt="img1" Style={" max-width:250px;max-height:250px;width: 100%;height:100%; object-fit:fill; "} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
+          <div onClick={()=>navigate('/ProductDetails/' + element.product_id)} className="sliderBG" >
             <div className="center-div">
               <h4>{element.name}</h4>
               <p style={{margin:'0 auto'}}>{element.short_description}</p>
@@ -284,8 +335,8 @@ responsive: [
      {ImgArr?.map((element,index)=>{
       
        return <div  key={index} className='d-flex center-div ' id="slider2" Style={"height:370px !important;max-width:350px;  margin: 0 auto; cursor:pointer"}>
-       <img src={element?.images?.length &&(element?.images[0])}  alt="img1" Style={"width: 100%;height:100%; max-width:350px;object-fit:fill; "} onClick={()=>navigate('/ProductDetails/' + element.product_id)}></img>
-       <div className="sliderbg2" onClick={()=>navigate('/ProductDetails/' + element.product_id)}>
+       <img src={element?.images?.length &&(element?.images[0])} loading="lazy" decoding="async"  alt="img1" Style={"width: 100%;height:100%; max-width:350px;object-fit:fill; "} ></img>
+       <div onClick={()=>navigate('/ProductDetails/' + element.product_id)} className="sliderbg2" >
         <div className="">
         <h4 style={{fontSize:'18px',fontWeight:400}}>{element.name}</h4>
               <p style={{maxHeight:'50px',overflow:'hidden'}}>{element.short_description}</p>
@@ -293,7 +344,7 @@ responsive: [
               <p>medium : {element?.medium_name}</p>
               <p>code : {element?.product_id}</p>
               <div className='d-flex ' style={{flexWrap:'wrap',gridGap:'10px'}}>
-                <button className="white-themeButton" onClick={()=>Add_to_cart(element?.product_id)} style={{fontSize:'10px'}}>Add To Cart</button>
+                <button className="white-themeButton" onClick={(e)=>HandlePropagationError(e,element?.product_id)} style={{fontSize:'10px'}}>Add To Cart</button>
                 <button className="white-themeButton" onClick={()=>navigate('/ProductDetails/' + element.product_id)} style={{fontSize:'10px'}}>View</button>
               </div>
 
@@ -328,7 +379,7 @@ responsive: [
      {ImgArr?.map((element,index)=>{
       
        return <div  key={index} className='d-flex center-div slider-container' Style={'flex-direction:column;height:270px !important;  margin: 0 auto; cursor:pointer'} >
-       <img src={element?.images} alt="img1" Style={" max-width:250px;max-height:250px;width: 100%;height:100%; object-fit:fill; "} onClick={()=>navigate('/Artistdetails/' + element?.id)} ></img>
+       <img src={element?.images} alt="img1" decoding="async" loading="lazy" Style={" max-width:250px;max-height:250px;width: 100%;height:100%; object-fit:fill; "} onClick={()=>navigate('/Artistdetails/' + element?.id)} ></img>
       {/* <div className="sliderBG" >
         <div className="center-div" >
           <h4>{element?.name}</h4>

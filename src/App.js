@@ -1,19 +1,35 @@
-import react ,{useState,useEffect} from 'react';
+import react ,{useState,useEffect,Suspense,lazy} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { CheckOut, AllProduct,ProductDetails, Cart, Thanku, AllArtists, ArtistDetails } from './component/Exportfiles';
+import { CheckOut, } from './component/Exportfiles';
 import { Footer, Navigationbar} from './homepage/Exportfile';
-import {Help,Forget, Login,Signup, Verify, Profile, AboutUs} from './pages/exportfiles'
-import HomePage from './homepage/HomePage'
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PresistLogin from './pages/PresistLogin'
 import RequiredLogin from './pages/Requiredlogin'
 import Protected from './pages/Protected'
-import OrderTab from './pages/orders/OrderTab';
+
 import ScrollToTop from './component/ScrollToTop';
-import OrderDetails from './pages/orders/OrderDetails';
-import Contact from  './pages/contactus/Contact';
+
+import Loader from './component/Loader';
+const HomePage= lazy(() => import( './homepage/HomePage'));
+const OrderTab= lazy(() => import( './pages/orders/OrderTab'));
+const OrderDetails= lazy(() => import( './pages/orders/OrderDetails'));
+const Contact= lazy(() => import( './pages/contactus/Contact'));
+const AllProduct= lazy(() => import( './component/allproduct/AllProduct'));
+const ProductDetails= lazy(() => import( './component/productDetails/ProductDetails'));
+const Cart= lazy(() => import( './component/cart/Cart'));
+const AllArtists= lazy(() => import( './component/artist/AllArtists'));
+const ArtistDetails= lazy(() => import( './component/artist/ArtistDetails'));
+const  Thanku= lazy(() => import( './component/thanku/Thanku'));
+const  Help= lazy(() => import( './pages/help/Help'));
+const  Forget= lazy(() => import( './pages/form/Forgot'));
+const  Login= lazy(() => import( './pages/form/Login'));
+const  Signup= lazy(() => import( './pages/form/Signup'));
+const  Verify= lazy(() => import( './pages/form/Verify'));
+const  AboutUs= lazy(() => import( './pages/aboutus/AboutUs'));
+const Profile= lazy(() => import( './pages/profile/Profile'));
 
 
 
@@ -24,8 +40,9 @@ function App() {
     <>
       {/* <Navigationbar/> */}
      <ScrollToTop />
+     <Suspense fallback={<Loader />}>
      <Routes>
-
+    
      <Route element={<Protected/>} >
      <Route path="/Login" element={<Login />} />
     <Route path="/forgetpassword" element={<Forget />} />
@@ -46,11 +63,13 @@ function App() {
     <Route path="/aboutus" element={<><Navigationbar/><AboutUs/><Footer /></>} />
     <Route path="/contactus" element={<><Navigationbar/><Contact/><Footer /></>} />
     
+    <Route path="/thanku" element={<><Navigationbar/><Thanku title="Congratulations" desc="Payment was successful and your order is confirmed Enjoy the excellent service and fast delivery." /><Footer /></>} />
+    <Route path="/orderFailed" element={<><Navigationbar/><Thanku title="Order Unsuccesfull" desc="Call us Our Helpline number +917845126325 we will reach you soon" /><Footer /></>} />
 
     <Route element={<RequiredLogin />}>
     <Route path="/checkout" element={<><Navigationbar/><CheckOut/><Footer /></>} />
     <Route path="/cart" element={<><Navigationbar/><Cart /><Footer /></>} />
-    <Route path="/thanku" element={<><Navigationbar/><Thanku /><Footer /></>} />
+    
     <Route path="/profile" element={<><Navigationbar/><Profile/><Footer /></>} />
     <Route path="/orders" element={<><Navigationbar/><OrderTab/><Footer /></>} />
     <Route path="/OrderDetails/:id" element={<><Navigationbar/><OrderDetails/><Footer /></>} />
@@ -58,6 +77,7 @@ function App() {
     </Route>
     </Route>
      </Routes>
+    </Suspense>
 
      <ToastContainer
 position="top-right"

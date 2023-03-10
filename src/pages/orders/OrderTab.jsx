@@ -5,6 +5,7 @@ import { AuthContext } from '../../AuthProvider'
 import axios from '../../axios'
 import Loader from '../../component/Loader'
 import Toast from '../../Toast'
+import OrderDetails from './OrderDetails'
 
 
 const OrderTab = () => {
@@ -42,7 +43,7 @@ const OrderTab = () => {
           
           if(response.status===200){
            const data = response.data
-           setAllOrder(data?.orders)
+           setAllOrder(data?.orders.reverse())
         //    Toast(data.message,response.status)
           
           }
@@ -108,11 +109,20 @@ const cancel_order= async(id)=>{
   return (
     <>
 {isLoading &&(<Loader />)}
+{!AllOrder?.length ? 
+    <div className='container section' style={{ display: 'flex', flexDirection: 'column',alignItems:'center',justifyContent:'center',gridGap:'30px' }}>
+    <img src="/images/orderEmpty.png" alt="no-item" style={{ maxHeight: 250, maxWidth: 200,width:'80%',textAlign:'center' }}></img>
+    <h6 style={{fontSize: '22px',color:'#56BDBD'}}> Empty</h6>
+    <p style={{color: '#C4C4C4', fontSize:'18px'}}> Look like you haven’t made 
+your choice yet..</p>
+</div>
+ :
+
             <div className='container section-padding' style={{ display: 'flex', flexDirection: 'column' }}>
 
               
                 <h5 style={{ marginBottom: 20 }}>All Orders</h5>
-                {AllOrder.reverse()?.map((element)=>{
+                {AllOrder?.map((element)=>{
 
                 return   <div  style={{
                         boxShadow: "0px 3px 12px rgba(0, 0, 0, 0.15)",
@@ -178,7 +188,7 @@ const cancel_order= async(id)=>{
 
 
 
-
+}
 
     </>
   )

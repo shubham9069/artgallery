@@ -14,7 +14,8 @@ flex-wrap: wrap;
 .shopby-box{
     flex-direction: column;
     grid-gap:20px;
-    padding:3rem 4rem ;
+   width: 220px;
+   height: 220px;
     background: white;
      /* border-radius: 8px !important; */
      transition: all 0.3s ease-in-out;
@@ -37,5 +38,28 @@ flex-wrap: wrap;
   .shopby-box>img{
     width: 100px !important;
  }
+  
+}
+@media screen and (max-width:600px ) {
+  .shopby-box{
+    width: 180px;
+    height: 180px;
+    
+}
+.shopby-box>img{
+   width: 70px !important;
+}
+  
+}
+@media screen and (max-width:450px ) {
+  .shopby-box{
+    width: 150px;
+    height: 150px;
+    
+    
+}
+.shopby-box>img{
+   width: 50px !important;
+}
   
 }

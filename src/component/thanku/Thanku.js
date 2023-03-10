@@ -3,7 +3,7 @@ import thanku from '../assest/thanku.png'
 import './thanku.css'
 import { Link } from 'react-router-dom'
 
-function Thanku() {
+function Thanku({title,desc}) {
     return (
         <>
          
@@ -12,8 +12,8 @@ function Thanku() {
                     <div className='col-md-12' style={{ alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                         <a href='#/'><img src={thanku} alt="404" style={{ maxHeight: 450, maxWidth: 500 }}></img></a>
                         <br></br>
-                        <h4>Congratulations</h4>
-                        <span>Payment was successful and your order is confirmed Enjoy the excellent service and fast delivery.</span>
+                        <h4>{title}</h4>
+                        <span>{desc}</span>
                         <br></br>
 
                         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center',justifyContent:'center',gridGap:10 }}>

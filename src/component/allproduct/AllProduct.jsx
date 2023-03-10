@@ -7,6 +7,8 @@ import axios from '../../axios';
 import { AuthContext } from '../../AuthProvider';
 import Categoryleft from './Categoryleft';
 import Loader from '../Loader';
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 
 const AllProduct = () => {
   const navigate = useNavigate()
@@ -123,7 +125,8 @@ const Add_to_cart= async(id) =>{
 
 
 return <div>
-<Link to={'/ProductDetails/' + element.product_id} key={index} className="link-a"><img src={element?.images?.length ? element?.images[0] : null}></img> </Link>
+<Link to={'/ProductDetails/' + element.product_id} key={index} className="link-a">
+<img src={element?.images?.length ? element?.images[0] : null} loading="lazy" decoding="async"></img> </Link>
 <div className='between-div m-3'>
 <p style={{fontWeight: '600',margin:0,}}>{element.name}</p>
 <span style={{color:' #56BDBD'}}>RS {element?.price}</span>
@@ -148,7 +151,8 @@ return <div>
 
 
 return <div>
-<Link to={'/ProductDetails/' + element.product_id} key={index} className="link-a"><img src={element?.images?.length ? element?.images[0] : null}></img> </Link>
+<Link to={'/ProductDetails/' + element.product_id} key={index} className="link-a">
+<img src={element?.images?.length ? element?.images[0] : null} loading="lazy"></img> </Link>
 <div className='between-div m-3'>
 <p style={{fontWeight: '600',margin:0,}}>{element.name}</p>
 <span style={{color:' #56BDBD'}}>&#x20B9; {element?.price}</span>

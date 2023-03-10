@@ -40,6 +40,11 @@ element.style {
     border: 1.5px solid #56BDBD;
     transition: 0.2s ease-in-out;
 }
+#below650{
+    display: none;
+    margin: 1rem 0 0 1rem;
+    cursor: pointer;
+}
 
 @media screen and (max-width:750px) {
 
@@ -47,5 +52,18 @@ element.style {
         width:98% !important;
          
     }
+    
+}
+@media screen and (max-width:650px) {
+
+   #above650{
+    display: none;
+   }
+   #main-div-right{
+    justify-content: center !important;
+   }
+   #below650{
+    display:inline-block
+   }
     
 }

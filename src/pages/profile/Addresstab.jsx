@@ -115,7 +115,7 @@ const delete_Address= async(address_id)=>{
         <div className='rowAlign spaceBetween'>
             <span style={{ color: '#000' ,fontWeight:600 ,marginRight:'10px'}}>{element?.type==1?"Home":element?.type==2?"Office":"other"}</span>
           
-            {type=="cart" &&(<span style={{ color: '#000', fontSize: 12,fontWeight:500,color:'grey',    float: 'right' }} onClick={()=>setAddressId(element?.id)}>{addressId==element?.id? "seleted":" select" }</span>)}
+            {type=="cart" &&(<span style={{ color: '#000', fontSize: 12,fontWeight:500,color:'grey',    float: 'right' }} onClick={()=>setAddressId(element?.id)}>{addressId==element?.id? <i class="bi bi-check-circle" style={{fontSize: 12,color:'green'}}></i>:"select" }</span>)}
             <p> </p>
         </div>
         <hr class="dropdown-divider" style={{ margin: "10px 0px 20px 0px", backgroundColor: "#aaa" }}></hr>

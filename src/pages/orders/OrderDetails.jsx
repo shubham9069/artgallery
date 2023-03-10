@@ -63,7 +63,7 @@ useEffect(()=>{
 
         <div className="between-div" style={{background: '#EEEEEE', padding:'1rem'}}>
             <p style={{marginBottom:0}}>ORDER ID: {orderDetails?.order_id}</p>
-            <span>Copy</span>
+            <span onClick={()=>navigator.clipboard.writeText(orderDetails?.order_id)}>Copy</span>
         </div>
 {orderDetails?.products?.map((element, i) =>{
 

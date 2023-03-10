@@ -117,13 +117,13 @@ console.log(readmore)
   <div className="product-details section-padding">
 
 <div className="product-details-left ">
-  <img src={imgstate}></img>
+  <img src={imgstate} loading="lazy"/>
   <div  style={{}}>
   {productDetails?.images?.map((element)=>{
 
     return <img src={element} 
     style={{width:60,margin:'0.5rem 1rem',boxShadow:' rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px'}}
-    onClick={()=>setImageState(element)} ></img>
+    onClick={()=>setImageState(element)}  loading="lazy"></img>
   })}
   
   </div>
@@ -162,7 +162,8 @@ console.log(readmore)
 
 
 return <div>
-<Link to={'/productDetails/' + element.product_id} key={index} className="link-a"><img src={element?.images?.length ? element?.images[0] : null}></img> </Link>
+<Link to={'/productDetails/' + element.product_id} key={index} className="link-a">
+<img src={element?.images?.length ? element?.images[0] : null} loading="lazy"></img> </Link>
 <div className='between-div m-3'>
 <p style={{fontWeight: '600',margin:0,}}>{element.name}</p>
 <span style={{color:' #56BDBD'}}>&#x20B9; {element?.price}</span>

@@ -89,7 +89,7 @@ const Payment = () => {
            
            if(response.status===200){
             const data = response.data
-            navigate('/thanku')
+            navigate(payment_status==1 ? '/thanku':"/orderFailed")
             Toast(data.message,response.status)
            
            }

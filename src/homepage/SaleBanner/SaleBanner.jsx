@@ -63,7 +63,7 @@ const navigate = useNavigate()
 {offer?.map((element) =>{
 
   return <div className='salebanner-right' onClick={()=>navigate("/ProductDetails/" + element?.product_id)}>
-<img src={element?.banner} />
+<img src={element?.banner} loading="lazy" />
 </div> 
 })}
 

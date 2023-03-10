@@ -113,15 +113,15 @@ const Banner = () => {
         <img
         onClick={()=>navigate('/ProductDetails/' + element?.product_id)}
           className="d-block w-100"
-          
+          loading="lazy"
           src={element?.image}
           alt="Third slide"
           style={{maxWidth:'3000px',maxHeight:'90vh',objectFit: 'cover'}}
         />
         <div className="bannerbg2">
            <div >
-    <h2 style={{}}>{Banner[0]?.title} </h2>
-    <p style={{}}>{Banner[0].description}</p>
+    <h2 style={{}}>{element?.title} </h2>
+    <p style={{}}>{element.description}</p>
     <div className='d-flex' style={{ gridGap:'20px'}}>
     <button className="white-btn-design" onClick={()=>Add_to_cart(element?.product_id)} >Add to cart </button>
     <button className="white-btn-design" onClick={()=>navigate('/ProductDetails/'+element?.product_id)}> view</button>

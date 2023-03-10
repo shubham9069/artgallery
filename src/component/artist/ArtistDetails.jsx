@@ -113,7 +113,7 @@ console.log(readmore)
   <div className="product-details section-padding">
 
 <div className="product-details-left ">
-  <img src={productDetails?.image}></img>
+  <img src={productDetails?.image} loading="lazy"></img>
 </div>
 
 <div className="product-details-right ">
@@ -142,7 +142,8 @@ console.log(readmore)
   {All_Product_Page?.slice(0,6)?.map((element, index) =>{
 
     return element?.artist_id==productDetails?.id && (<div>
-<Link to={'/productDetails/' + element.product_id} key={index} className="link-a"><img src={element?.images?.length ? element?.images[0] : null}></img> </Link>
+<Link to={'/productDetails/' + element.product_id} key={index} className="link-a">
+<img src={element?.images?.length ? element?.images[0] : null} loading="lazy"></img> </Link>
 <div className='between-div m-3'>
 <p style={{fontWeight: '600',margin:0,}}>{element.name}</p>
 <span style={{color:' #56BDBD'}}>&#x20B9;  {element?.price}</span>
