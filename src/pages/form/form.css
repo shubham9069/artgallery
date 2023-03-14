@@ -102,17 +102,21 @@
     color: #000;
     filter: drop-shadow(1px 4px 4px #0005);
 }
+.form-rightW1000{
+  
+   padding: 22px !important;
+   box-shadow: 0 0 18px 0 rgb(0 0 0 / 18%);
+   border-radius: 12px;
+   max-width: 500px;
+   width: 100%;
+}
+.form-width1000{
+    padding: 2rem 0;
+}
 
 @media screen and (max-width:1000px) {
-    .form-width1000{
-        flex-direction: column;
-    }
-    .main-form{
-        padding-right: 0;
-    }
-    .form-rightW1000{
-        padding:  1rem !important; 
-    }
+ 
+  
     
 }
 

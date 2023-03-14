@@ -23,12 +23,13 @@ const Cart = () => {
     const [AddressId ,setAddressId] = useState("");
     const [couponprice ,setCouponPrice] = useState("");
 
-
+    const [searchCoupon,setSearchCoupon] = useState("")
     // var cartitem =['item-1','item-2']
 
     const coupen =(e,coupenData)=>{
 
         if(e.target.checked){
+            Toast("Applied successfully",200)
             setCouponPrice(coupenData)
             setShow(false)
         }
@@ -37,38 +38,25 @@ const Cart = () => {
         }
 
     } 
-    const debounce = (func, delay) => {
-        let timer
-        return (...args) => {
-            clearTimeout(timer)
-            timer = setTimeout(() => {
-                func(...args)  // func.apply(null,args)     
-            }, delay)
-        }
-    }
-
-    const search = debounce((value) => coupenSearch(value), 500)
+  
+  
 
     const coupenSearch =(e)=>{
         
-        if(e.target.value==""){
-            return setCouponFilter("")
-        }
-
-        let value = e.target.value.toLowerCase();
-        
         var arr =coupon?.filter((element)=>{
-            
-            let coupon_name = element?.coupon_code.toLowerCase()
-            
-            return coupon_name.includes(value)
+          
+          
+            return element?.coupon_code == searchCoupon
            
         })
         
         if(arr.length){
+          Toast("Applied successfully",200)
+          setCouponPrice(...arr)
             setCouponFilter(arr)
         }
         else{
+          Toast("Invalid Coupon ")
             setCouponFilter("")
         }
         
@@ -448,42 +436,42 @@ your choice yet..</p>
 
 {/* --------------------coupon ----------------------- */}
 <Modal show={show} onHide={()=>{setCouponFilter("");setShow(false)}}>
-        <Modal.Header closeButton>
-         
-        </Modal.Header>
-        <Modal.Body className='center-div flex-column'>
-        <h4>Apply Voucher / Offers</h4>
-        <div className="voucher-input" style={{margin: '2rem 0'}}>
-        <input type="text" style={{padding: '1rem'}} onChange={search} />
-        {/* <button >Apply</button> */}
-        </div>
-        <div className="coupon">
-        <h6>OR</h6>
-        <p style={{textAlign: 'center', marginBottom:'1.5rem'}}> Select Coupan from below</p>
+      <Modal.Header closeButton>
+       
+      </Modal.Header>
+      <Modal.Body className='center-div flex-column'>
+      <h4>Apply Voucher / Offers</h4>
+      <div className="voucher-input d-flex" style={{margin: '2rem 0'}}>
+      <input type="text" style={{padding: '1rem'}} value={searchCoupon} onChange={(e)=>setSearchCoupon(e.target.value)} />
+      <button onClick={coupenSearch} >Apply</button>
+      </div>
+      <div className="coupon">
+      <h6>OR</h6>
+      <p style={{textAlign: 'center', marginBottom:'1.5rem'}}> Select Coupan from below</p>
 
-        <div className='d-flex flex-column' style={{gridGap:'20px'}}>
-        {(couponFilter || coupon )?.map((element)=>{
+      <div className='d-flex flex-column' style={{gridGap:'20px'}}>
+      {(couponFilter || coupon )?.map((element)=>{
 
 
-    return   <div className="custom-control custom-checkbox d-flex align-items-center"  >
-  <input type="checkbox" className="custom-control-input" id="customCheck1" value={element} checked={couponprice? element?.coupon_code==couponprice?.coupon_code: false} onClick={(e)=>coupen(e,element)} />
-  <label className="custom-control-label px-3 coupan-lable" for="customCheck1">
-    <p >{element?.coupon_code}</p>
-    <pdesc style={{fontSize:'12px', fontWeight:600}}>Save <span style={{color: '#56BDBD'}}>{element?.type==1 && (element?.discount)+" Rs" || element?.type==2 && (element?.discount)+" %" || element?.type==3 && "UPTO "+(element?.discount)+" Rs" || element?.type==1 && "UPTO "+(element?.discount)+" %"  } off on Product price </span></pdesc>
-  </label>
+  return   <div className="custom-control custom-checkbox d-flex align-items-center"  >
+<input type="checkbox" className="custom-control-input" id="customCheck1" value={element} checked={couponprice? element?.coupon_code==couponprice?.coupon_code: false} onClick={(e)=>coupen(e,element)} />
+<label className="custom-control-label px-3 coupan-lable" for="customCheck1">
+  <p >{element?.coupon_code}</p>
+  <pdesc style={{fontSize:'12px', fontWeight:600}}>Save <span style={{color: '#56BDBD'}}>{element?.type==1 && (element?.discount)+" Rs" || element?.type==2 && (element?.discount)+" %" || element?.type==3 && "UPTO "+(element?.discount)+" Rs" || element?.type==1 && "UPTO "+(element?.discount)+" %"  } off on Product price </span></pdesc>
+</label>
 </div>
 {/* <p style={{fontSize:'12px',margin: '0.5rem 3rem'}}>save upto a 15% off </p> */}
-        
-                })}
       
-        </div>
-        </div>
+              })}
+    
+      </div>
+      </div>
 
 
 
-        </Modal.Body>
-      
-      </Modal>
+      </Modal.Body>
+    
+    </Modal>
 
 
 {/* ================Address=========== */}

@@ -6,13 +6,16 @@ import axios from '../../axios'
 import Loader from '../../component/Loader'
 import Toast from '../../Toast'
 import OrderDetails from './OrderDetails'
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 
 const OrderTab = () => {
     const {userToken}=useContext(AuthContext)
     const [isLoading,setIsLoading]=useState(true)
     const [AllOrder,setAllOrder] = useState([])
-
+    const [cancelOrder,setcancelOrder] = useState([])
+    const [show, setShow] = useState(false);
     
     const payment_type =
     {
@@ -86,6 +89,7 @@ const cancel_order= async(id)=>{
        const data = response.data;
        get_order();
     //    setAllOrder(data?.orders)
+    setShow(false)
        Toast(data.message,response.status)
       
       }
@@ -138,7 +142,7 @@ your choice yet..</p>
                                 <br></br>
                                 <span style={{ fontSize: 12 }}>{element?.order_date}</span>
                             </div>
-                            <p style={{margin: '0 10px 0 auto'}} onClick={()=>cancel_order(element?.id)}><i class="bi bi-bag-x-fill" style={{}}></i></p>
+                           {element?.status==0? <p style={{margin: '0 10px 0 auto',fontSize:12}}>Ordered Cancelled</p>:<p style={{margin: '0 10px 0 auto',fontSize:12,cursor:'pointer',color:'red'}} onClick={()=>{setcancelOrder(element?.id);setShow(true)}}>Cancel Order</p>}
                         </div>
                         <hr class="dropdown-divider" style={{ margin: "10px 0px 20px 0px", backgroundColor: "#aaa" }}></hr>
 
@@ -189,6 +193,22 @@ your choice yet..</p>
 
 
 }
+<Modal show={show} onHide={()=>setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Are You Sure You Want To Cancel ? </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p style={{color:'grey',padding:'1rem'}}>If you Confirm a Simple Transaction You Will Not Have Chance To Undo It  </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secoundary"  onClick={()=>setShow(false)} >
+            No
+          </Button>
+          <button className="themeButton " onClick={()=>cancel_order(cancelOrder)} >
+            Yes Cancel 
+          </button>
+        </Modal.Footer>
+      </Modal>
 
     </>
   )

@@ -68,7 +68,7 @@
 }
 
 .voucher-input>input{
-    width: 300px;
+    /* width: 300px; */
     height: 55px;
     border: 1px solid #C6C0C0;
 border-radius: 8px 0 8px 8px;
@@ -127,5 +127,20 @@ border-radius: 8px;
 font-size:0.7rem;
 margin: 0;
 
+}
+@media screen and (max-width:600px) {
+    .voucher-input>button{
+        width: 100px;
+        height: 45px;
+   
+    
+    }
+    .voucher-input>input{
+        /* width: 300px; */
+        height: 45px;
+       
+    
+    }
+    
 }
 

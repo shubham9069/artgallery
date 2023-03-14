@@ -55,18 +55,14 @@ function Forgot() {
         // <div className='container section'>
         <>
         {isLoading ?<Loader />:null}
-        <div className='main-form'>
-            <div className='row .main-form' style={{ alignItems: 'center',margin:0 }}>
-                <div className='col-md-6' style={{ padding: 0 }}>
-                    <img src={form} alt="focusImg"
-                        style={{ objectFit: 'fill', width: '100%', height: '100%' }}></img>
-                </div>
-                <div className='col-md-6 form-rightW1000' style={{ padding: 0}}>
+     
+     <div className='center-div'>
+                <div className='section-margin form-rightW1000' style={{ padding: 0}}>
                     <form className=' inputForm'
                         onSubmit={forget}>
                       
                         <h3>Forgot your password</h3>
-                        <span>Please enter the email address you’d like your password reset
+                        <span  style={{fontWeight:600,color:'#757373b0'}}>Please enter the email address you’d like your password reset
                             information sent to</span>
                         <br></br>
                         <br></br>
@@ -78,12 +74,12 @@ function Forgot() {
 
                         <button type='submit' className='themeButton' style={{ width: '100%', marginTop: 20 }}>Request reset link</button>
                         <br></br>
-                        <p style={{ color: '#000', textAlign: 'center' }}><a href="#/login" className='link-a span-underline' >Back to login</a></p>
+                        <p style={{ color: '#000', textAlign: 'center' }}><a href="#/login" className='link-a ' style={{color:'#009ba1'}} ><i class="bi bi-arrow-left px-2" style={{color:'#009ba1',fontSize:15}}></i>Back to login</a></p>
 
                     </form>
                 </div>
-            </div>
-        </div>
+                 </div>
+                 
         </>
     )
 }

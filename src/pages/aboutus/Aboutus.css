@@ -1,9 +1,10 @@
 .about-us-top{
     padding-top: 10rem;
     padding-bottom: 12rem;
-   
-    background:url("../assest/Rectangle\ 4007.png") no-repeat center center/cover;
     position :relative;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
     z-index: 0;
 }
 .about-us-top h1{

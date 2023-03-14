@@ -25,51 +25,43 @@ const CheckOut = () => {
   const [AddressId ,setAddressId] = useState("");
   const [couponprice ,setCouponPrice] = useState("");
 
+  const [searchCoupon,setSearchCoupon] = useState("")
+
+  
+
 
   // var cartitem =['item-1','item-2']
 
   const coupen =(e,coupenData)=>{
 
       if(e.target.checked){
-          setCouponPrice(coupenData)
+        Toast("Applied successfully",200)
+          setCouponPrice(coupenData);
+          setShow(false)
       }
       else{
           setCouponPrice("")
       }
 
   } 
-  const debounce = (func, delay) => {
-      let timer
-      return (...args) => {
-          clearTimeout(timer)
-          timer = setTimeout(() => {
-              func(...args)  // func.apply(null,args)     
-          }, delay)
-      }
-  }
-
-  const search = debounce((value) => coupenSearch(value), 500)
+  
 
   const coupenSearch =(e)=>{
       
-      if(e.target.value==""){
-          return setCouponFilter("")
-      }
-
-      let value = e.target.value.toLowerCase();
-      
       var arr =coupon?.filter((element)=>{
           
-          let coupon_name = element?.coupon_code.toLowerCase()
           
-          return coupon_name.includes(value)
+          return element?.coupon_code == searchCoupon
          
       })
       
       if(arr.length){
+        Toast("Applied successfully",200)
+        setCouponPrice(...arr)
           setCouponFilter(arr)
       }
       else{
+        Toast("Invalid Coupon ")
           setCouponFilter("")
       }
       
@@ -347,9 +339,9 @@ return (
       </Modal.Header>
       <Modal.Body className='center-div flex-column'>
       <h4>Apply Voucher / Offers</h4>
-      <div className="voucher-input" style={{margin: '2rem 0'}}>
-      <input type="text" style={{padding: '1rem'}} onChange={search} />
-      {/* <button >Apply</button> */}
+      <div className="voucher-input d-flex" style={{margin: '2rem 0'}}>
+      <input type="text" style={{padding: '1rem'}} value={searchCoupon} onChange={(e)=>setSearchCoupon(e.target.value)} />
+      <button onClick={coupenSearch} >Apply</button>
       </div>
       <div className="coupon">
       <h6>OR</h6>

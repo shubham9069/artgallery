@@ -65,5 +65,8 @@ element.style {
    #below650{
     display:inline-block
    }
+   #togglehideSetting{
+    display: none !important;
+   }
     
 }

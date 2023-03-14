@@ -15,7 +15,7 @@ const Profile = () => {
      
     
 <div className='' style={{maxWidth: '1500px' ,margin:'0 auto'}} >
-<h4 id="below650" onClick={()=>setToggle(!Toggle)}> toogle by </h4>
+<h4 id="below650" onClick={()=>setToggle(!Toggle)}> Setting</h4>
     <div className='d-flex section-margin justify-content-between' id="main-div-right" >
         <div className='col-md-2' id="above650">
           
@@ -45,7 +45,7 @@ const Profile = () => {
 
         { Toggle ?  <div className='col-md-2'  >
           
-          <h5>Setting</h5>
+          <h5 id="togglehideSetting">Setting</h5>
           <div className='darkLink profileLink' href='#' style={{ color: tab === 1 ? "#56BDBD" : '#000', display: 'flex', flexDirection: 'row', alignItems: 'center', margin: 15 }}
               onClick={() => setTab(1)}>
               <i class="bi bi-person" style={{ marginRight: 20, fontWeight: 'bold', fontSize: 18 }}></i>

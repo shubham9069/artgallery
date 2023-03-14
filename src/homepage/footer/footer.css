@@ -36,8 +36,8 @@
     margin-bottom: 1rem;
     
 }
-.footer-section>p{
-    color:white;
+.footer-section>a{
+    color:white !important;
     
     font-size: 14px;
     line-height: 24px;

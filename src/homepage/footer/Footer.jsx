@@ -17,16 +17,16 @@ const Footer = () => {
     </div>
 <div className='footer-section'>
 <h5>Heading</h5>
+    <Link to="/allproduct">All Product</Link>
     <Link to="/aboutus">About us</Link>
-    <p>Privacy Policy</p>
-    <p>Term & Conditions</p>
-    <p>Pricing & Privacy Policy</p>
-    <p>Bug Bounty</p>
-    <p>Our Students</p>
+    <Link to='/Privacy_&_policy '>Privacy & Policy</Link>
+    <Link to='/Terms_&_condition'>Term & Conditions</Link>
+   
+   
 </div>
 <div className='footer-section'>
     <h5>PRODUCTS</h5>
-    {All_Product_Page?.slice(0,6)?.map((element)=>{
+    {All_Product_Page?.slice(0,5)?.map((element)=>{
 
         return <Link to={'/ProductDetails/' + element.product_id}>{element?.name}</Link>
     })}
@@ -36,9 +36,9 @@ const Footer = () => {
 
 <div className='footer-section'>
 <h5>ARTISTS</h5>
-{Catagory?.artists.map((element)=>{
+{Catagory?.artists.slice(0,5).map((element)=>{
 
-    return <Link to={'/Artistdetails/' + element.id}>{element?.name}</Link>
+    return <Link to={'/Artistdetails/' + element.id} >{element?.name}</Link>
 })}
    
 </div>
@@ -51,7 +51,8 @@ const Footer = () => {
 </div>
     <h5>CONTACT US</h5>
     <Link to='/help&support' className='link-a' ><p>Help & support</p></Link>
-    <p>footer</p>
+    <Link to='/contactus' className='link-a' ><p>Contact Form</p></Link>
+    
 </div>
 
     </div>

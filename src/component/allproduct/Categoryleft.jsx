@@ -1,8 +1,10 @@
 import React,{useContext,useEffect,useState} from 'react'
 import { AuthContext } from '../../AuthProvider';
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 
 const Categoryleft = ({setSortArr,SortArr,toggle,catid}) => {
-    const [range,setRange]=useState(2000);
+    const [range,setRange]=useState([2000,150000]);
     const [CatagorySort,setCatagorySort]=useState({size:[],style:[],medium:[],artists:[]})
     const {All_Product_Page,Catagory,userToken,Cart,setCart} = useContext(AuthContext);
 
@@ -57,6 +59,7 @@ const MinMax =(value)=>{
     
     const getdata =(value)=>{
       // setCatagorySort({size:[],style:[],medium:[]})
+      
       var updateArr = All_Product_Page;
       if(catid){
        
@@ -67,12 +70,13 @@ const MinMax =(value)=>{
         
       }
     var data =  updateArr?.filter((element)=>{
-      return Number(element.price) <= value
+      return  value[0]<=Number(element.price) && Number(element.price) <= value[1]
     })
     
     setSortArr(data);
     }
     const HandleRange =(e)=>{
+      
       setRange(e.target.value)
       filterByPrice(e.target.value)
     
@@ -81,7 +85,7 @@ const MinMax =(value)=>{
     
     
     
-    const filterByPrice = debounce((value) => getdata(value), 400)
+    const filterByPrice = debounce((value) => getdata(value), 600)
     
     // --------------------onchanage for checkbox -----------
     
@@ -107,7 +111,7 @@ const MinMax =(value)=>{
     // ------------------filter for  Category --------------
     
     const filterCatagory = ()=>{
-      setRange(2000)
+      setRange([2000,150000])
     // console.log("hello cdchdccd")
     var updateArr = All_Product_Page;
     if(catid){
@@ -186,9 +190,19 @@ const MinMax =(value)=>{
                         <span>₹{MinMax("min")} - ₹{MinMax("max")}</span>
                     </div>
                     <form className='rangeForm'>
-                        <input type="range" id="rangeInput" name="rangeInput" min={MinMax("min")} max={MinMax()} value={range} onChange={HandleRange}  className='rangeInput' ></input>
+                    <Slider
+        getAriaLabel={() => 'Temperature range'}
+        value={range}
+        onChange={HandleRange}
+       
+        min={MinMax("min")}
+          max={MinMax("max")}
+        
+        
+      />
+
                     </form>
-                    <span>Upto ₹{range}</span>
+                    <span>Upto ₹ {range[0]+ "-" +range[1]}</span>
 </div>
 
 </div>

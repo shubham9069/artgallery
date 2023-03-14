@@ -61,12 +61,12 @@
 
 
 @media screen and (max-width:600px) {
-    .bannerbg2>div>h1{
+    .bannerbg2>div>h2{
         margin-bottom:0.5rem;
         font-size: 1.2rem;
     }
     .text-banner>div{
-      top:55%
+     
       
     }
     .bannerbg2>div>p{
@@ -77,4 +77,10 @@
         
         height: 40px;
     }
+    .text-banner>div>div{
+    
+         padding :1rem 1rem ; 
+       
+       
+     }
 }

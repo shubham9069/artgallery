@@ -7,6 +7,7 @@ import Toast from '../../Toast'
 import axios from '../../axios';
 import { AuthContext } from '../../AuthProvider';
 import Loader from '../Loader';
+import { Review } from '../../pages/exportfiles';
 
 const ProductDetails = () => {
   const navigate = useNavigate()
@@ -110,6 +111,34 @@ console.log(readmore)
      }
     }   
   
+    const getstar =(rating) => {
+      var total = 5
+      var star =[]
+      for(var i=0; i<Math.floor(rating);i++){
+          star.push(<div 
+              style={{clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', 
+              background:"#fed001",
+              height:20,
+              width:20
+              
+              }}>
+  
+              </div>)
+      }
+      for(var i=0; i<total-rating;i++){
+          star.push(<div 
+              style={{clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)', 
+              background:'#D9D1D1',
+              height:20,
+              width:20
+              
+              }}>
+  
+              </div>)
+      }
+      return star
+  }
+
 
   return (
     <>
@@ -131,6 +160,11 @@ console.log(readmore)
 
 <div className="product-details-right ">
   <h2>{productDetails?.name}</h2>
+
+
+  <div className="d-flex" style={{gridGap:7}}>{getstar(productDetails?.reviews?.reduce((a,b)=> a+Number(b.rating),0)/productDetails?.reviews?.length)}{`(${productDetails?.reviews?.length})`}</div>
+
+
   <h3>&#x20B9; {productDetails?.price}</h3>
   <p>{productDetails?.short_description}</p>
   <div>
@@ -153,6 +187,7 @@ console.log(readmore)
 </div>
 </div>
   </div>
+  <Review reviewArr={productDetails?.reviews}/>
 
 
 <div className="section-padding" Style={'padding-top:1rem !important; max-width: 1800px, margin:0 auto' }>

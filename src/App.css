@@ -83,6 +83,7 @@ border-radius: 3px !important;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
+  width: fit-content;
 }
 .white-themeButton {
   display: flex;
@@ -102,6 +103,7 @@ border-radius: 3px !important;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
+  width: fit-content;
 }
 
 .themeButton:hover {

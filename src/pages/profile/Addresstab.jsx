@@ -115,7 +115,7 @@ const delete_Address= async(address_id)=>{
         <div className='rowAlign spaceBetween'>
             <span style={{ color: '#000' ,fontWeight:600 ,marginRight:'10px'}}>{element?.type==1?"Home":element?.type==2?"Office":"other"}</span>
           
-            {type=="cart" &&(<span style={{ color: '#000', fontSize: 12,fontWeight:500,color:'grey',    float: 'right' }} onClick={()=>setAddressId(element?.id)}>{addressId==element?.id? <i class="bi bi-check-circle" style={{fontSize: 12,color:'green'}}></i>:"select" }</span>)}
+            {type=="cart" &&(<span style={{ color: '#000', fontSize: 12,fontWeight:500,color:'grey',    float: 'right',cursor:"pointer" }} onClick={()=>setAddressId(element?.id)}>{addressId==element?.id? <i class="bi bi-check-circle" style={{fontSize: 12,color:'green'}}></i>:"select" }</span>)}
             <p> </p>
         </div>
         <hr class="dropdown-divider" style={{ margin: "10px 0px 20px 0px", backgroundColor: "#aaa" }}></hr>
@@ -130,7 +130,7 @@ const delete_Address= async(address_id)=>{
             <a  className="editLink link-a" style={{ width: 80, borderRight: '1px solid #ccc', marginRight: 30,color:'#56BDBD',fontWeight:500,fontSize:'14px' }} onClick={() =>{setModal_for_edit(true);setEditAddress(element)}}>
                 <i class="bi bi-pencil" Style={'margin-right: 1px; color:#56BDBD; font-size:14px !important' } ></i> Edit
             </a>
-            <div className="deleteLink" style={{ width: 100 ,color:'#f44',fontWeight:500,fontSize:'14px'}} onClick={()=>delete_Address(element?.id)} >
+            <div className="deleteLink" style={{ width: 100 ,color:'#f44',fontWeight:500,fontSize:'14px' ,cursor:'pointer'}} onClick={()=>delete_Address(element?.id)} >
                 <i class="bi bi-trash" Style={'margin-right: 1px;color:#f44;font-size:14px !important' }></i> Remove
             </div>
         </div>

@@ -118,18 +118,15 @@ function Login() {
       <>
       {isLoading ?<Loader />:null}
          
-            <div className='row between-div form-width1000' style={{ alignItems: 'center',margin:0 }}>
-                <div className='col-md-6' style={{ padding: 0 }}>
-                    <img src={form} alt="focusImg"
-                        style={{ objectFit: 'fill', width: '100%', height: '100%'}}></img>
-                </div>
-                <div className='col-md-5 form-rightW1000' style={{ padding: 0 }}>
+               <div className="center-div">
+                <div className=' form-rightW1000 section-margin' style={{ padding: 0 }}>
+                
                     <form className=' inputForm' onSubmit={login}
                         style={{}}>
                         {/* <ErrorContainer /> */}
                         
                         <h3>Welcome to Art Gallery!</h3>
-                        <span style={{fontWeight:600,color:'#757373b0'}}>Log in and  go to the Dashboard</span>
+                        <span style={{fontWeight:600,color:'#757373b0'}}>Log in and  go to the <Link to="/" className='link-a' style={{color:'#009ba1'}}>Home</Link></span>
                         <br></br>
                         <br></br>
                         <div className="labelAndInput">
@@ -177,7 +174,7 @@ function Login() {
 
                     </form>
                 </div>
-            </div>
+                </div>
         
         </>
     )

@@ -138,14 +138,11 @@ function Verify() {
     return (
     <>
     {isLoading?<Loader />:null}
-        <div className='main-form'>
-            
-            <div className='row form-width1000' style={{ alignItems: 'center',margin:0 }}>
-                <div className='col-md-6' style={{ padding: 0 }}>
-                    <img src={form} alt="focusImg"
-                        style={{ objectFit: 'fill', width: '100%', height: '100%'}}></img>
-                </div>
-                <div className='col-md-6  form-rightW1000' style={{ padding: 40 }}>
+
+
+    <div className="center-div">
+       
+                <div className='section-margin  form-rightW1000' style={{ padding: 40 }}>
                     <form className='otpform' onSubmit={checkotp} 
                         style={{}}>
                         
@@ -217,7 +214,7 @@ function Verify() {
 
                     </form>
                 </div>
-            </div>
+         
         </div>
         </>
     )

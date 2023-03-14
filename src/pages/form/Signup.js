@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import './form.css'
 import form from '../assest/Rectangle 4007.png'
 import validator from 'validator';
@@ -80,19 +80,13 @@ function Signup() {
              {isLoading ?<Loader />:null}
         
         
-        <div className='main-form'>
-            
-            <div className='row  form-width1000' style={{ alignItems: 'center',margin:0 }}>
-                <div className='col-md-6' style={{ padding: 0 }}>
-                    <img src={form} alt="focusImg"
-                        style={{ objectFit: 'fill', width: '100%', height: '100%'}}></img>
-                </div>
-                <div className='col-md-6 form-rightW1000' style={{ padding: 0}}>
+             <div className="center-div">
+                <div className=' form-rightW1000 section-margin' style={{ padding: 0}}>
                     <form className=' inputForm' onSubmit={signup} 
                         style={{}}>
                      
                         <h3>Welcome to Art Gallery</h3>
-                        <span style={{fontWeight:600,color:'#757373b0'}}>Create your account</span>
+                        <span style={{fontWeight:600,color:'#757373b0'}}>Create your account and go to <Link to="/" className='link-a' style={{color:'#009ba1'}}>Home</Link></span>
                         <br></br>
                         <br></br>
                         <div className="labelAndInput">
@@ -123,7 +117,7 @@ function Signup() {
                                     <i class="bi bi-check-lg" style={{ color: '#56BDBD' }}></i>
                                     : null}
                             </div>
-                            <p style={{ color: '#000', textAlign: 'center', margin: 0,fontWeight:600 }}>I agree to the <a href="#" className='link-a' style={{fontWeight:600,color:'#56BDBD'}}>Terms & Conditions</a></p>
+                            <p style={{ color: '#000', textAlign: 'center', margin: 0,fontWeight:600 }}>I agree to the <Link to='/Terms_&_condition' className='link-a' style={{fontWeight:600,color:'#56BDBD'}}>Terms & Conditions</Link></p>
                         </div>
                         <button type='submit' className='themeButton' style={{ width: '100%', marginTop: 20 }}>Sign up</button>
                         <br></br>
@@ -131,8 +125,8 @@ function Signup() {
 
                     </form>
                 </div>
-            </div>
-        </div>
+           </div>
+           
         </>
     )
 }

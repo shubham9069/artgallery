@@ -60,7 +60,11 @@ function App() {
     <Route path="/Artistdetails/:id" element={<><Navigationbar/><ArtistDetails /><Footer /></>} />
     <Route path="/ProductDetails/:id" element={<><Navigationbar/><ProductDetails /><Footer /></>} />
     <Route path="/help&support" element={<><Navigationbar/><Help /><Footer /></>} />
-    <Route path="/aboutus" element={<><Navigationbar/><AboutUs/><Footer /></>} />
+
+    <Route path="/aboutus" element={<><Navigationbar/><AboutUs title={"About us"} url={"/about"} /><Footer /></>} />
+    <Route path="/Privacy_&_policy" element={<><Navigationbar/><AboutUs title={"Privacy & Policy "}  url={"/privacy_policy"}/><Footer /></>} />
+    <Route path="/Terms_&_condition" element={<><Navigationbar/><AboutUs  title={"Terms & Condition"} url={"/terms"}/><Footer /></>} />
+
     <Route path="/contactus" element={<><Navigationbar/><Contact/><Footer /></>} />
     
     <Route path="/thanku" element={<><Navigationbar/><Thanku title="Congratulations" desc="Payment was successful and your order is confirmed Enjoy the excellent service and fast delivery." /><Footer /></>} />

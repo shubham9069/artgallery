@@ -56,7 +56,7 @@ const[message,setmessage]=useState("")
       <div className="section_padding">
         <div className="contact-info">
       <div className="contact-info-box ">
-      <img src="" />
+      {/* <img src="" /> */}
       <div className="contact-info-box-content">
       <h3>Phone</h3>
       <p>58458915521</p>
@@ -64,15 +64,15 @@ const[message,setmessage]=useState("")
       </div>
   
       <div className="contact-info-box ">
-      <img src=""/>
+      {/* <img src=""/> */}
       <div className="contact-info-box-content">
       <h3>E-mail</h3>
-      <p>office@bnwjounal.com</p>
+      <p>office@artgallery .com</p>
       </div>
       </div>
   
       <div className="contact-info-box ">
-      <img src=""/>
+      {/* <img src=""/> */}
       <div className="contact-info-box-content">
       <h3>Address</h3>
       <p>Shop 59, HUDA Market,Sector 22</p>

@@ -75,14 +75,22 @@ useEffect(() => {
 
       <div className="collapse navbar-collapse " id="navbarSupportedContent">
 
-      <div className="searchbaron1000" style={{margin:'0 auto',maxWidth:'300px',position:'relative',    width: '50%'}}>
+      <div className="searchbaron1000 d-flex justify-content-between" style={{margin:'0 auto',position:'relative',    width: '100%', flex: 1}}>
  
  <input type="text" className="form-control" id="search" placeholder="Search bar "
-  style={{backgroundColor: 'transparent',border: '1px solid #cccccc'}}
+  style={{backgroundColor: 'transparent',border: '1px solid #cccccc',maxWidth:'300px'}}
     onChange={(e)=>filerSearch(e.target.value)}
     onClick={()=>setSearchShow(!searchShow)}
     autocomplete="off"
   />
+   <Link to='/cart' className="nav-link nav-btn" id="carticon" >
+            <i className="bi bi-cart-x" Style={'font-size: 16px !important ;'}>
+            <span className="position-absolute translate-middle badge rounded-pill bg-danger" style={{fontSize:9}}>
+    {Cart?.cart_items?.length ? Cart?.cart_items?.length: 0}
+    <span className="visually-hidden">unread messages</span>
+  </span>
+                        </i>  
+                        </Link>
   {searchShow && (  <div className="searchdropdown" >
         {SearchArr.length ?  SearchArr?.map((element)=>{
     {/* console.log(typeof element) */}
@@ -110,7 +118,7 @@ useEffect(() => {
           <li className="nav-item">
             <Link to='/AllArtist' className="nav-link nav-btn">ARTIST</Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item" id='cartHide'>
             <Link to='/cart' className="nav-link nav-btn">
             <i className="bi bi-cart-x" Style={'font-size: 16px !important ;'}>
             <span className="position-absolute translate-middle badge rounded-pill bg-danger" style={{fontSize:9}}>
@@ -135,7 +143,7 @@ useEffect(() => {
   </nav>
   <div className='d-flex Buttonofnavbar dropdown  '>
        {userToken?<>
-        <Dropdown size="lg">
+        <Dropdown size="lg" id="dropdownnavbar">
         <Dropdown.Toggle className="nav-link dropdown-toggle " id="dropdown-basic" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{backgroundColor:'transparent',border:'none'}}>
                     <img src={userData?.avatar}  style={{
                       height: 20, width: 20, borderRadius: 30, marginRight: 5,
@@ -204,7 +212,7 @@ useEffect(() => {
                  </>
                 
                  :
-                  <Link Link to='/login' className='btn-design link-a'>Sign in</Link>
+                  <Link Link to='/login' className='btn-design link-a' id="signinnavbar">Sign in</Link>
                  }
        </div>
 

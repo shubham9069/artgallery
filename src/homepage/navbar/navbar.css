@@ -10,6 +10,7 @@
 
 .artgallery-logo{
    max-width: 180px;
+   cursor: pointer;
 }
 
  .menu>ul{
@@ -26,6 +27,7 @@ align-items: center;
     list-style-type: none !important;
     align-items: center;
     display: flex;
+    
 }
 .nav-btn{
 padding: 0 0.6rem !important;
@@ -64,6 +66,7 @@ font-size: 12px !important;
     color:#626262;
     font-size: 13px;
     padding-left: 16px;
+    cursor: pointer;
     
 }
 .darkLink:hover{
@@ -122,19 +125,39 @@ font-size: 12px !important;
 .searchdropdown{
    min-width: 200px;
 }
+#carticon{
+    display:none
+}
 @media screen and (max-width:1000px) {
     .navbar .container-fluid{
         grid-gap:20px !important;
     }
     .Buttonofnavbar{
         align-items: flex-start !important;
-        padding-top: 20px;
+        
     
+    }
+    #signinnavbar{
+        top: 16px;
+        position: relative;
+    }
+    #dropdownnavbar{
+        top:20px
     }
     .searchbaron1000{
         margin: 1rem 0 !important;
     }
-    
+    .nav-item{
+       padding-bottom: 0.5rem;
+        
+ 
+    }
+    #cartHide{
+        display: none
+    }
+    #carticon{
+        display: inline-block
+    }
 }
 @media screen and (max-width:600px) {
     .artgallery-logo{
@@ -158,9 +181,13 @@ font-size: 12px !important;
     .artgallery-logo{
         width:50%;
     }
-    .Buttonofnavbar{
-        padding-top: 15px;
+    #dropdownnavbar{
+        top: 12px;
     
+    }
+    #signinnavbar{
+        top: 9px;
+        
     }
 
     

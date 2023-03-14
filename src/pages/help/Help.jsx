@@ -13,7 +13,7 @@ const Help = () => {
 <img src={help} style={{maxWidth:'350px'}}></img>
 
 </div>
-<div className="section-padding center-div flex-column" style={{ maxWidth:'1500px',gridGap:'40px' ,margin:'0 auto'}}>
+<div className="section-padding center-div " style={{ maxWidth:'1500px',gridGap:'40px' ,margin:'0 auto',flexWrap:"wrap"}}>
             <div className="help" >
                <div>
                 <p > Call us<br/><span style={{fontWeight: 400,color: '#807A7A'}}>+31 9868999004</span> </p>

@@ -7,8 +7,7 @@ import axios from '../../axios';
 import { AuthContext } from '../../AuthProvider';
 import Categoryleft from './Categoryleft';
 import Loader from '../Loader';
-import Box from '@mui/material/Box';
-import Slider from '@mui/material/Slider';
+
 
 const AllProduct = () => {
   const navigate = useNavigate()
@@ -99,8 +98,6 @@ const Add_to_cart= async(id) =>{
     <div id="filter-toggle" onClick={()=>{setToggle(!Toggle)}}>Filter by </div>
       <select onClick={sortby} >
       <option value="" selected >Recommended</option>
-     
-        <option value="name">A - z</option>
         <option value="priceL_to_H">price Low to High</option>
         <option value="priceH_to_L">price High To Low </option>
         
