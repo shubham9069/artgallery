@@ -45,6 +45,10 @@ element.style {
     margin: 1rem 0 0 1rem;
     cursor: pointer;
 }
+#image
+    {
+    
+}
 
 @media screen and (max-width:750px) {
 

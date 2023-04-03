@@ -13,7 +13,7 @@ import axios from '../../axios';
 
 
 
-const Modale = ({show,setShow, data,getAddress}) => {
+const Modale = ({title,show,setShow, data,getAddress}) => {
   const {userToken}=useContext(AuthContext)
   const [isLoading,setIsLoading]=useState(false)
   const [type,settype]= useState( data?.type || 1)
@@ -137,7 +137,7 @@ const address_id = data?.id
     <>
       <Modal show={show} onHide={()=>setShow(false)} className="modale-Addaddress" >
         <Modal.Header closeButton>
-          <Modal.Title>Change Address</Modal.Title>
+          <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <div>

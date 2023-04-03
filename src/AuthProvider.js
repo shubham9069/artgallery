@@ -81,7 +81,7 @@ const AuthProvider = ({children}) => {
     }
 
     useEffect(()=>{
-      console.log("huehhhrkfhfhrfhrfhjrfrhfjfhfrhjfrhjkf")
+      
       get_all('/get_all_products','product')
     
       get_all('/get_all_categories','category')

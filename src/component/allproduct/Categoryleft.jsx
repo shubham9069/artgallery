@@ -3,10 +3,11 @@ import { AuthContext } from '../../AuthProvider';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 
-const Categoryleft = ({setSortArr,SortArr,toggle,catid}) => {
+const Categoryleft = ({setSortArr,SortArr,toggle,catid,All_Product_Page}) => {
     const [range,setRange]=useState([2000,150000]);
     const [CatagorySort,setCatagorySort]=useState({size:[],style:[],medium:[],artists:[]})
-    const {All_Product_Page,Catagory,userToken,Cart,setCart} = useContext(AuthContext);
+    const {Catagory,userToken,Cart,setCart} = useContext(AuthContext);
+    console.log(catid)
 
 
 
@@ -112,7 +113,7 @@ const MinMax =(value)=>{
     
     const filterCatagory = ()=>{
       setRange([2000,150000])
-    // console.log("hello cdchdccd")
+    
     var updateArr = All_Product_Page;
     if(catid){
        
@@ -158,7 +159,7 @@ const MinMax =(value)=>{
         })
       }
       setSortArr(updateArr)
-    
+      console.log(updateArr)
     
     
      
@@ -174,7 +175,7 @@ const MinMax =(value)=>{
     }
     
       
-    },[CatagorySort])
+    },[CatagorySort,catid])
     
   return (
     <>

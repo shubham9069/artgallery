@@ -159,7 +159,7 @@ function Login() {
                         <br></br>
                         <p style={{ color: '#000', textAlign: 'center',fontWeight:500,letterSpacing: '-0.017em' }}>Don't have an account? <Link to="/signup" className='link-a' style={{color: '#56BDBD'}}>Sign up</Link></p>
 
-                        <div className='googleBtn' style={{ width: '100%', marginTop: 20, fontWeigh:500 }}>
+                        {/* <div className='googleBtn' style={{ width: '100%', marginTop: 20, fontWeigh:500 }}>
                             
                            
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -170,7 +170,7 @@ function Login() {
 </svg>
 
                             Continue With Google
-                        </div>
+                        </div> */}
 
                     </form>
                 </div>

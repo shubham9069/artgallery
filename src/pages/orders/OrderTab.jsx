@@ -115,7 +115,7 @@ const cancel_order= async(id)=>{
 {isLoading &&(<Loader />)}
 {!AllOrder?.length ? 
     <div className='container section' style={{ display: 'flex', flexDirection: 'column',alignItems:'center',justifyContent:'center',gridGap:'30px' }}>
-    <img src="/images/orderEmpty.png" alt="no-item" style={{ maxHeight: 250, maxWidth: 200,width:'80%',textAlign:'center' }}></img>
+    <img src="images/orderEmpty.png" alt="no-item" style={{ maxHeight: 250, maxWidth: 200,width:'80%',textAlign:'center' }}></img>
     <h6 style={{fontSize: '22px',color:'#56BDBD'}}> Empty</h6>
     <p style={{color: '#C4C4C4', fontSize:'18px'}}> Look like you haven’t made 
 your choice yet..</p>
@@ -198,7 +198,7 @@ your choice yet..</p>
           <Modal.Title>Are You Sure You Want To Cancel ? </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p style={{color:'grey',padding:'1rem'}}>If you Confirm a Simple Transaction You Will Not Have Chance To Undo It  </p>
+          <p style={{color:'grey',padding:'1rem'}}>If you confirm, you will not have chance to undo it. </p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secoundary"  onClick={()=>setShow(false)} >

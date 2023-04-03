@@ -13,7 +13,6 @@ import { useEffect } from 'react'
 
 const Navigationbar = () => {
   const location =useLocation()
-  console.log(location)
   const navigate = useNavigate()
   const {userToken,userData,Cart,All_Product_Page,Catagory} =useContext(AuthContext);
   const [SearchArr,setSearchArr] = useState([])
@@ -24,14 +23,16 @@ const Navigationbar = () => {
       setSearchArr([])
       return 
     }
-    // console.log(inputvalue)
+    7
     inputvalue = inputvalue.toLowerCase()
     var PaintingArr = All_Product_Page?.filter((element=>{
       var lowercase = element.name.toLowerCase().split(" ").join("");
       
       
-      return lowercase.includes(inputvalue) || element.name.toLowerCase().includes(inputvalue);
+      return lowercase.includes(inputvalue) || element.name.toLowerCase().includes(inputvalue) || element.size_name.includes(inputvalue.toString())
     }))
+
+
     // var ArtistArr = Catagory?.artists?.filter((element=>{
     //   var lowercase = element.name.toLowerCase().split(" ").join("");
 
@@ -75,23 +76,17 @@ useEffect(() => {
 
       <div className="collapse navbar-collapse " id="navbarSupportedContent">
 
-      <div className="searchbaron1000 d-flex justify-content-between" style={{margin:'0 auto',position:'relative',    width: '100%', flex: 1}}>
+      <div className="searchbaron1000 d-flex justify-content-between" style={{margin:'0 auto',position:'relative',    width: '100%', flex: 1,gridGap:20}}>
  
+ <div style={{maxWidth:'300px',width:'100%',position:'relative', display:'flex'}} onClick={()=>setSearchShow(!searchShow)}>
  <input type="text" className="form-control" id="search" placeholder="Search bar "
-  style={{backgroundColor: 'transparent',border: '1px solid #cccccc',maxWidth:'300px'}}
+  style={{backgroundColor: 'transparent',border: '1px solid #cccccc'}}
     onChange={(e)=>filerSearch(e.target.value)}
-    onClick={()=>setSearchShow(!searchShow)}
+    
     autocomplete="off"
   />
-   <Link to='/cart' className="nav-link nav-btn" id="carticon" >
-            <i className="bi bi-cart-x" Style={'font-size: 16px !important ;'}>
-            <span className="position-absolute translate-middle badge rounded-pill bg-danger" style={{fontSize:9}}>
-    {Cart?.cart_items?.length ? Cart?.cart_items?.length: 0}
-    <span className="visually-hidden">unread messages</span>
-  </span>
-                        </i>  
-                        </Link>
-  {searchShow && (  <div className="searchdropdown" >
+  <i class="bi bi-search" Style={'position:absolute;right:10px;font-size:1.2rem !important;top:2.5px;cursor:pointer;'}></i>
+    {searchShow && (  <div className="searchdropdown" >
         {SearchArr.length ?  SearchArr?.map((element)=>{
     {/* console.log(typeof element) */}
     return <div onClick={()=>navigate('/ProductDetails/' + element.product_id)}>
@@ -100,15 +95,22 @@ useEffect(() => {
       <p>&#x20B9; {element?.price}</p>
     </div>}):<div>no product found</div>}
     </div>)}
+  </div>
+  
+   <Link to='/cart' className="nav-link nav-btn" id="carticon" >
+            <i className="bi bi-cart-x" Style={'font-size: 16px !important ;'}>
+            <span className="position-absolute translate-middle badge rounded-pill bg-danger" style={{fontSize:9}}>
+    {Cart?.cart_items?.length ? Cart?.cart_items?.length: 0}
+    <span className="visually-hidden">unread messages</span>
+  </span>
+                        </i>  
+                        </Link>
 
-  
-    
-  
 </div>
 
         <ul className="navbar-nav " style={{gridGap:'10px',margin:'0 0 0 auto'}}>
           <li className="nav-item">
-            <Link to="/" className="nav-link nav-btn active link-a"  >FREE CONSULTATION</Link>
+            <Link to="/freeConsulting" className="nav-link nav-btn link-a"  >FREE CONSULTATION</Link>
           </li>
         
         
@@ -150,7 +152,7 @@ useEffect(() => {
 
                     }}
                     onError={(e) =>
-          (e.target.onerror = null)(
+          (e.target.onError = null)(
             (e.target.src =
               "images/userdefault.png")
           )}
@@ -165,7 +167,7 @@ useEffect(() => {
                           height: 50, width:50, borderRadius: 30, marginRight: 10,
                         }}
                         onError={(e) =>
-          (e.target.onerror = null)(
+          (e.target.onError = null)(
             (e.target.src =
               "images/userdefault.png")
           )}></img>

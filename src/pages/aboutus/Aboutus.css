@@ -7,6 +7,16 @@
     background-size: cover !important;
     z-index: 0;
 }
+.about-us-top::after{
+    height: 100%;
+    width: 100%;
+
+    background-color: black;
+    position :absolute;
+   top:0;
+   left:0;
+    z-index: 1;
+}
 .about-us-top h1{
     text-align:center;
     font-size: 3rem;

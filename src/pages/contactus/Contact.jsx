@@ -102,11 +102,11 @@ const[message,setmessage]=useState("")
   
             <textarea rows="8" id="msg" cols="40" name="message"    required placeholder="enter text here" style={{fontWeight:"400",fontSize:"15px"}}  value={message} onChange={(e)=>setmessage(e.target.value)}/>  
           
-          <button  onClick={contactsubmit}>Send Message</button>
+          <button  onClick={contactsubmit} className="themeButton">Send Message</button>
           
           
         </div>
-        </form>
+        </form> 
       
         
       </div>

@@ -7,7 +7,7 @@ const  Requiredlogin=()=> {
     
     const {userToken,userData} = useContext(AuthContext);
     const location = useLocation();
-  //  console.log(location);
+  
 
   
   return (

@@ -63,8 +63,9 @@ const [isLoading,setIsLoading] = useState(true)
     <>
     
     <Banner />
-    <Slickslider ImgArr={All_Product_Page} type={1}  title={userToken? ['RECENT','VIEW']:['BEST','ART']}  /> 
     <ShopbyCategory  />
+    <Slickslider ImgArr={All_Product_Page} type={1}  title={userToken? ['RECENT','VIEW']:['BEST','ART']}  /> 
+    
     <Slickslider ImgArr={Catagory?.artists} type={'artist'}  title={ ['GREATEST','ARTISTS']}  /> 
 
     {/* <Slickslider ImgArr={All_Product_Page} type={1}  title={['PORTRAIT','ART']} /> */}

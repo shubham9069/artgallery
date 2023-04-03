@@ -17,6 +17,7 @@ const AllProduct = () => {
   const [Toggle,setToggle]=useState(false)
   const [isLoading,setIsLoading]=useState(false)
   const {catid} = useParams()
+  const [viewMore ,setViewMore] = useState(5)
 
 
 
@@ -88,7 +89,8 @@ const Add_to_cart= async(id) =>{
 
   return (
     <>
-    {isLoading &&(<Loader />)}
+    {isLoading ?  <Loader />:
+    !All_Product_Page?.length ? <Loader />:
   <div className="all-product section-padding">
 
 
@@ -97,7 +99,7 @@ const Add_to_cart= async(id) =>{
       
     <div id="filter-toggle" onClick={()=>{setToggle(!Toggle)}}>Filter by </div>
       <select onClick={sortby} >
-      <option value="" selected >Recommended</option>
+      <option value=""  >Recommended</option>
         <option value="priceL_to_H">price Low to High</option>
         <option value="priceH_to_L">price High To Low </option>
         
@@ -108,20 +110,21 @@ const Add_to_cart= async(id) =>{
     
 <div className=" d-flex" style={{gridGap:'10px'}}>
     {/* --------------left---------------- */}
-    <div id="abovewidth_650"> <Categoryleft sort={SortArr} setSortArr={setSortArr} toggle={true} catid={catid}  /></div>
+    <div id="abovewidth_650">   <Categoryleft sort={SortArr} setSortArr={setSortArr} toggle={true} catid={catid} All_Product_Page={All_Product_Page}  /></div>
 
-    <div id="belowwidth_650"><Categoryleft sort={SortArr} setSortArr={setSortArr} toggle={Toggle} catid={catid} /></div>
+    <div id="belowwidth_650"><Categoryleft sort={SortArr} setSortArr={setSortArr} toggle={Toggle} catid={catid} All_Product_Page={All_Product_Page} /></div>
   
  
-
+   <div style={{height: '100%',width: '100%'}}>
 {/* ===================right================= */}
+<div style={{height: '100%',width: 'fit-content'}}>
     <div className="allproduct-right">
 
     { 
-    SortArr?.length ? SortArr?.map((element, index) =>{
+    SortArr?.length ? SortArr?.slice(0,viewMore)?.map((element, index) =>{
 
 
-return <div>
+return <div key={index+1}>
 <Link to={'/ProductDetails/' + element.product_id} key={index} className="link-a">
 <img src={element?.images?.length ? element?.images[0] : null} loading="lazy" decoding="async"></img> </Link>
 <div className='between-div m-3'>
@@ -144,43 +147,22 @@ return <div>
 </div>
 </div>
     })
-    : SortArr==null? All_Product_Page?.map((element, index) =>{
-
-
-return <div>
-<Link to={'/ProductDetails/' + element.product_id} key={index} className="link-a">
-<img src={element?.images?.length ? element?.images[0] : null} loading="lazy"></img> </Link>
-<div className='between-div m-3'>
-<p style={{fontWeight: '600',margin:0,}}>{element.name}</p>
-<span style={{color:' #56BDBD'}}>&#x20B9; {element?.price}</span>
-</div>
-<p className='product-box-desc' dangerouslySetInnerHTML={{__html: `${element?.description}`}}></p>
-<div className='d-flex between-div' style={{ gridGap:'20px',marginBottom:'1rem',padding:'0 1rem'}}>
-
-
-{Cart?.cart_items?.length && (Cart?.cart_items?.find((product) => product?.item_id == element?.product_id)!=undefined) ? 
-  <>
-  {/* <Link to="/cart" className="white-themeButton link-a"   >Already added  </Link> */}
-  <i class="bi bi-cart-fill" onClick={() =>navigate('/cart')} style={{color:'#56BDBD'}}></i>
-  </>
-:
-<button className="themeButton" onClick={()=>Add_to_cart(element?.product_id)} >Add To cart  </button>}
-
-
-<button className="white-themeButton" onClick={()=>navigate('/checkout',{state:{productDetails:element}})} >Buy Now </button>
-</div>
-</div>
-
-})
+    
 :"no product found "
 
     }
+    </div>
 
+ 
+  </div>
+  { viewMore<SortArr?.length   ? <button className='themeButton' style={{margin:'0rem auto',marginTop:'4rem',padding: '7px 20px'}}  onClick={()=>setViewMore((d)=>2*d)}>View More</button>:null}
+ </div>
   </div>
 
+ 
+  
   </div>
-  </div>
-
+    }
     </>
   )
 }

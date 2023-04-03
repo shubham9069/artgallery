@@ -79,7 +79,7 @@ const Cart = () => {
     
             switch(type){
               case 'coupon': 
-              setCoupon(data?.coupons)
+              setCoupon(data?.coupons?.reverse())
               break;
               
             }
@@ -237,7 +237,7 @@ your choice yet..</p>
 
     <div >
     {Cart?.cart_items?.map((element, index) =>{
-        return <div className='row' style={{ border: '1px solid #C7C5C5', padding: '20px 0px 20px 0 ',borderRadius:'10px',marginBottom:'1rem' }}>
+        return <div key={index+1} className='row' style={{ border: '1px solid #C7C5C5', padding: '20px 0px 20px 0 ',borderRadius:'10px',marginBottom:'1rem' }}>
             <div className='col-md-3'>
 
                 <img src={element?.product?.images} alt="product" style={{ width: '100%', height: 200, objectFit: 'contain', borderRadius: 8 }}></img>
@@ -442,7 +442,7 @@ your choice yet..</p>
       <Modal.Body className='center-div flex-column'>
       <h4>Apply Voucher / Offers</h4>
       <div className="voucher-input d-flex" style={{margin: '2rem 0'}}>
-      <input type="text" style={{padding: '1rem'}} value={searchCoupon} onChange={(e)=>setSearchCoupon(e.target.value)} />
+      <input type="text" style={{padding: '1rem'}} value={searchCoupon} onChange={(e)=>setSearchCoupon(e.target.value)} onKeyPress={(e)=>e.key==="Enter" &&(coupenSearch())} />
       <button onClick={coupenSearch} >Apply</button>
       </div>
       <div className="coupon">
@@ -450,10 +450,10 @@ your choice yet..</p>
       <p style={{textAlign: 'center', marginBottom:'1.5rem'}}> Select Coupan from below</p>
 
       <div className='d-flex flex-column' style={{gridGap:'20px'}}>
-      {(couponFilter || coupon )?.map((element)=>{
+      {(couponFilter || coupon )?.map((element,index)=>{
 
 
-  return   <div className="custom-control custom-checkbox d-flex align-items-center"  >
+  return   <div key={index+1} className="custom-control custom-checkbox d-flex align-items-center"  >
 <input type="checkbox" className="custom-control-input" id="customCheck1" value={element} checked={couponprice? element?.coupon_code==couponprice?.coupon_code: false} onClick={(e)=>coupen(e,element)} />
 <label className="custom-control-label px-3 coupan-lable" for="customCheck1">
   <p >{element?.coupon_code}</p>

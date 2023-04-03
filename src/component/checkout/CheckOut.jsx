@@ -84,7 +84,7 @@ const CheckOut = () => {
   
           switch(type){
             case 'coupon': 
-            setCoupon(data?.coupons)
+            setCoupon(data?.coupons.reverse())
             break;
             
           }
@@ -348,10 +348,10 @@ return (
       <p style={{textAlign: 'center', marginBottom:'1.5rem'}}> Select Coupan from below</p>
 
       <div className='d-flex flex-column' style={{gridGap:'20px'}}>
-      {(couponFilter || coupon )?.map((element)=>{
+      {(couponFilter || coupon )?.map((element,index)=>{
 
 
-  return   <div className="custom-control custom-checkbox d-flex align-items-center"  >
+  return   <div key={index+1} className="custom-control custom-checkbox d-flex align-items-center"  >
 <input type="checkbox" className="custom-control-input" id="customCheck1" value={element} checked={couponprice? element?.coupon_code==couponprice?.coupon_code: false} onClick={(e)=>coupen(e,element)} />
 <label className="custom-control-label px-3 coupan-lable" for="customCheck1">
   <p >{element?.coupon_code}</p>

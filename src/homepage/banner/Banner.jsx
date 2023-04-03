@@ -95,7 +95,7 @@ const Banner = () => {
   return (
 <>
 <div className='section-padding' >
-<Carousel variant="dark" prevIcon={<i class="bi bi-arrow-left-circle" Style={'font-size:3vw !important; color:white'}></i>}  nextIcon={<i class="bi bi-arrow-right-circle" Style={'font-size:3vw !important; color:white'}></i>} interval={2000} >
+<Carousel variant="dark"  nextIcon={<img src="images/square-right.png"></img>}   prevIcon={<img src="images/square-left.png"></img>}interval={2000} >
  
 {/* <div >
     <h2 style={{}}>{Banner[0]?.title} </h2>
@@ -108,15 +108,16 @@ const Banner = () => {
 
      
       
-      {Banner?.map((element)=>{
-         return <Carousel.Item  className="text-banner">
+      {Banner?.map((element,index)=>{
+         return <Carousel.Item  className="text-banner" key={index+1}>
         <img
         onClick={()=>navigate('/ProductDetails/' + element?.product_id)}
           className="d-block w-100"
           loading="lazy"
           src={element?.image}
           alt="Third slide"
-          style={{maxWidth:'3000px',maxHeight:'90vh',objectFit: 'cover'}}
+          id='banner'
+          style={{height:'70dvh',objectFit: 'cover'}}
         />
         <div className="bannerbg2">
            <div >

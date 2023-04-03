@@ -48,7 +48,7 @@ const PresistLogin =()=>{
     useEffect(() => {
 
         const tokenGet = () =>{
-            console.log("hello")
+            
             
             const strtoken = window.localStorage.getItem('userToken');
             const strdata = window.localStorage.getItem('userData');

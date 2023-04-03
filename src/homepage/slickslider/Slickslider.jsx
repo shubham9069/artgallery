@@ -27,9 +27,11 @@ const Slickslider = ({ImgArr,type,title}) => {
     className: 'slideShow',
     dots: true,
     draggable: true,
+    nextArrow: <img src="images/slick-right.png"  />,
+    prevArrow: <img src="images/slick-left.png"  />,
+      
     // nextArrow:<h1>jfbrfrfhfhhf</h1>,
    
-    arrows: true,
   slidesToShow: 6,
   slidesToScroll: 4,
   pauseOnHover: true,
@@ -96,7 +98,7 @@ const Slickslider = ({ImgArr,type,title}) => {
         slidesToScroll: 1,
         infinite: true,
         dots: true,
-        arrows:false
+        arrows:true
         
       }
     }
@@ -186,8 +188,9 @@ responsive: [
 
 // first crousel 
   var settings =  {
-    // dots: true,
-    // arrows:true,
+    dots: true,
+    arrows:true,
+    draggable:true,
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -196,6 +199,7 @@ responsive: [
     speed: 8000,
     pauseOnHover: true,
     cssEase: 'linear',
+    
     responsive: [
       {
         breakpoint: 1400,

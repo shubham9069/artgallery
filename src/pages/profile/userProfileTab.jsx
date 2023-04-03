@@ -12,11 +12,13 @@ const [isLoading,setIsLoading] = useState(false)
 const {userData,setUserData,userToken} = useContext(AuthContext)    
 const [oldPassword,setoldPassword] = useState("")
 const [newPassword,setnewPassword] = useState("")
+const [images,setimages] = useState("")
     
     const [users, setUsers] = useState({
         name: userData?.name,
         email: userData?.email,
         mobile: userData?.mobile,
+        
 
     });
     const { name, email, mobile } = users;
@@ -31,21 +33,25 @@ const [newPassword,setnewPassword] = useState("")
   const edit_profile = async(e)=>{
     e.preventDefault()
     
-     if(!email) return Toast("please fill properly")
+     
      if( !validator.isEmail(email)) return Toast("email is not valid")
      if( !/^[0]?[789]\d{9}$/.test(mobile)) return Toast("mobile no  is not valid")
-    
+    var form = new FormData()
+    form.append('name',name)
+    form.append('email',email)
+    form.append('mobile',mobile)
+    form.append('images',images)
      try{
       setIsLoading(true)
       const response= await axios({
         method: "post",
        url:'/edit_profile',
-        data:{
-          name,email,mobile
-        },
+        data: form
+        ,
         headers: {
+          "Content-Type": "multipart/form-data",
           Authorization:`Bearer ${userToken}`,
-          "Content-Type": "application/json",
+         
           
         },
        })
@@ -112,6 +118,22 @@ const [newPassword,setnewPassword] = useState("")
       setIsLoading(false)
      }
   }
+
+  // const image =()=>{
+  //   var preview = document.querySelector('img');
+  //   var file    = document.querySelector('input[type=file]').files[0];
+  //   var reader  = new FileReader();
+  
+  //   reader.addEventListener("load", function () {
+  //     preview.src = reader.result;
+  //   }, false);
+  
+  //   if (file) {
+  //     alert(file)
+  //     reader.readAsDataURL(file);
+  //   }
+  
+  // }
   return (
    <>
 {isLoading &&(<Loader />)}
@@ -119,11 +141,11 @@ const [newPassword,setnewPassword] = useState("")
                 width: '100%', height: 280, objectFit: 'cover'
             }}
             ></img>
-
+<div className='d-flex justify-content-center' style={{marginTop:'-80px'}}>
             <img src={userData?.avatar} alt="cover" style={{
                 width: 150, height: 150, borderRadius: 100,
                 border: '10px solid white',
-                marginTop: -80,
+               
                 alignSelf: 'center',
                 backgroundColor:'white'
             }}
@@ -132,7 +154,10 @@ const [newPassword,setnewPassword] = useState("")
             (e.target.src =
               "images/userdefault.png")
           )}
+         
             ></img>
+           
+            </div>
             <br></br>
 
 <div>
@@ -142,6 +167,7 @@ const [newPassword,setnewPassword] = useState("")
     </div>
     <div className="between-div" style={{gridGap:'40px',margin: "1.5rem  0"}}>
     <input className='profile-input' type='name' placeholder="Enter full name" name="name" value={name} onChange={e => onchange(e)}></input>
+    <input className='profile-input' type='file'  name="images"  onChange={e => setimages(e.target.files[0])}></input>
       
       
     </div>

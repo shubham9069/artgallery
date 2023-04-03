@@ -45,3 +45,24 @@ body {
   bottom:0;
   z-index: 11111;
  }
+
+ .whatapp-float{
+  position: fixed;
+  z-index: 11;
+  bottom: 45px;
+  right: 25px;
+ }
+ .whatapp-float>a{
+  width: 60px;
+  height: 60px;
+  display: block;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 3px #999;
+ }
+ .whatapp-float .bi{
+ font-size: 28px !important;
+ }

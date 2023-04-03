@@ -18,6 +18,7 @@ const ProductDetails = () => {
   const {id} = useParams()
   const [productDetails, setProductDetails] = useState([]);
   const [imgstate,setImageState]=useState("")
+
   
   
 
@@ -54,7 +55,7 @@ console.log(readmore)
         if(type=="product"){
           setProductDetails(data?.product)
           setImageState(data?.product?.images?.length &&(data?.product?.images[0]) )
-          console.log(data?.product)
+         
         }
        
 
@@ -148,9 +149,9 @@ console.log(readmore)
 <div className="product-details-left ">
   <img src={imgstate} loading="lazy"/>
   <div  style={{}}>
-  {productDetails?.images?.map((element)=>{
+  {productDetails?.images?.map((element,index)=>{
 
-    return <img src={element} 
+    return <img src={element} key={index+1}
     style={{width:60,margin:'0.5rem 1rem',boxShadow:' rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px'}}
     onClick={()=>setImageState(element)}  loading="lazy"></img>
   })}
@@ -160,19 +161,20 @@ console.log(readmore)
 
 <div className="product-details-right ">
   <h2>{productDetails?.name}</h2>
-
-
+{productDetails?.reviews?.length ?
   <div className="d-flex" style={{gridGap:7}}>{getstar(productDetails?.reviews?.reduce((a,b)=> a+Number(b.rating),0)/productDetails?.reviews?.length)}{`(${productDetails?.reviews?.length})`}</div>
-
+  :
+  <p>No Review Found</p>
+}
 
   <h3>&#x20B9; {productDetails?.price}</h3>
   <p>{productDetails?.short_description}</p>
   <div>
-    <p>size : {productDetails?.size}</p>
-    <p>Mediam: {productDetails?.medium}</p>
-    <p>Code  : {productDetails?.product_id}</p>
-    <p>Orientation : {productDetails?.orientation==1?"Landscape":"Portrait"}</p>
-    <p>frame: {productDetails?.style}</p>
+    <p style={{fontWeight:600}}>size :<span> {productDetails?.size}</span></p>
+    <p  style={{fontWeight:600}}>Mediam:<span> {productDetails?.medium}</span></p>
+    <p  style={{fontWeight:600}}>Code  :<span> {productDetails?.product_id}</span></p>
+    <p  style={{fontWeight:600}}>Orientation :<span> {productDetails?.orientation==1?"Landscape":"Portrait"}</span></p>
+    <p  style={{fontWeight:600}}>frame:<span> {productDetails?.style}</span></p>
   </div>
   <p id="description-text" style={{overflow:'hidden',height:'130px'}} ref={readmore} dangerouslySetInnerHTML={{__html: `${productDetails?.description}`}}/> <span onClick={readMore} id="showdesc" style={{color:'#56BDBD',cursor:'pointer' }}>Show More </span>
   <div className="d-flex" style={{gridGap:'20px'}}>
@@ -187,7 +189,12 @@ console.log(readmore)
 </div>
 </div>
   </div>
-  <Review reviewArr={productDetails?.reviews}/>
+  {productDetails?.reviews?.length ?
+    <Review reviewArr={productDetails?.reviews?.reverse()}/>
+    :
+    null
+  }
+
 
 
 <div className="section-padding" Style={'padding-top:1rem !important; max-width: 1800px, margin:0 auto' }>
@@ -197,7 +204,7 @@ console.log(readmore)
 
 
 return <div>
-<Link to={'/productDetails/' + element.product_id} key={index} className="link-a">
+<Link to={'/productDetails/' + element.product_id} key={index+1} className="link-a">
 <img src={element?.images?.length ? element?.images[0] : null} loading="lazy"></img> </Link>
 <div className='between-div m-3'>
 <p style={{fontWeight: '600',margin:0,}}>{element.name}</p>

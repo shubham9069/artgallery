@@ -60,9 +60,9 @@ const navigate = useNavigate()
          
 
 <div className="d-flex section-padding salebanner center-div" >
-{offer?.map((element) =>{
+{offer?.map((element,index) =>{
 
-  return <div className='salebanner-right' onClick={()=>navigate("/ProductDetails/" + element?.product_id)}>
+  return <div key={index+1} className='salebanner-right' onClick={()=>navigate("/ProductDetails/" + element?.product_id)}>
 <img src={element?.banner} loading="lazy" />
 </div> 
 })}

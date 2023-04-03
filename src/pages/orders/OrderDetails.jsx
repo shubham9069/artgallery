@@ -175,7 +175,7 @@ setReview_Desc( "")
   return (
     <>
     {isLoading && <Loader />}
-    <div className="section-padding">
+    <div className="section-padding mx-auto" style={{maxWidth: '2000px', }}>
         <h5 style={{marginBottom:20}}>OrderDetails</h5>
 
         <div className="between-div" style={{background: '#EEEEEE', padding:'1rem'}}>
@@ -352,8 +352,8 @@ return   <div className='row ' style={{ border: '1px solid #C7C5C5', padding: '2
         <Modal.Footer>
 
         { review_product_id?.reviews?.length  ? 
-        <button onClick={()=>Updatereview( review_product_id?.reviews[0]?.id.toString())} className="btn btn-white mt-5 mx-auto" style={{backgroundColor:"rgb(86, 189, 189)",color:'white'}}>Update Review</button>
-        :  <button onClick={Add_review} className="btn btn-white mt-5 mx-auto" style={{backgroundColor:"rgb(86, 189, 189)",color:'white'}}>Add Review</button>
+        <button onClick={()=>Updatereview( review_product_id?.reviews[0]?.id.toString())} className="themeButton mt-5 mx-auto" >Update Review</button>
+        :  <button onClick={Add_review} className="themeButton mt-5 mx-auto" >Add Review</button>
         }
         </Modal.Footer>
       </Modal>

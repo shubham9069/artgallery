@@ -1,9 +1,11 @@
-import React from 'react'
-import './review.css'
+import React ,{useState} from 'react'
+import './review.css';
+
 
 
 
 const Review = ({reviewArr}) => {
+    const [view ,setview] =useState(4)
 
     
 const getstar =(rating) => {
@@ -36,10 +38,12 @@ const getstar =(rating) => {
   return (
     <>
     <div className="section-padding">
-    <h3> Review </h3>
-    <div className="d-flex" style={{gridGap:20}}>
-    {reviewArr?.map((element, index) =>{
-    return <div className="testimonial-container h-100">
+    
+    <h3 style={{display:'inline' , }}> Review </h3>
+    <span style={{float: 'right',cursor:'pointer'}} onClick={()=>setview((p)=>2*p)}> View More </span>
+    <div className="d-flex" style={{gridGap:20,flexWrap:"wrap"}}>
+    {reviewArr?.slice(0,view).map((element, index) =>{
+    return <div className="testimonial-container h-100 ">
                        <div className="row" Style="height:80%;">
                           
                            <div className="col-6" Style="margin-top:auto;">

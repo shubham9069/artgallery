@@ -24,6 +24,7 @@
 }
 .footer-section{
     margin:  50px 30px;
+    
 }
 .footer-section *{
     color:white
@@ -63,7 +64,7 @@
 
 
 
-@media only screen and (max-width : 1500px) {
+@media  screen and (max-width : 1500px) {
     .footer-section{
         margin:  50px 10px;
         flex-basis: 200px;
@@ -83,7 +84,7 @@
         
     }
 }
-@media only screen and (max-width : 1000px) {
+@media  screen and (max-width : 1000px) {
     .main-footer
     {
         
@@ -97,7 +98,7 @@
     }
    
 }
-@media only screen and (max-width : 600px) {
+@media  screen and (max-width : 600px) {
     .main-footer
 {
     
@@ -112,4 +113,6 @@
 .footer-section{
     margin:  10px 20px;
 }
+
+
 }

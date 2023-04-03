@@ -12,6 +12,7 @@ flex-wrap: wrap;
 
 
 .shopby-box{
+  border:0.5px solid grey;
     flex-direction: column;
     grid-gap:20px;
    width: 220px;
@@ -53,6 +54,10 @@ flex-wrap: wrap;
   
 }
 @media screen and (max-width:450px ) {
+  .shopby-container{
+    grid-gap:20px;
+   
+    }
   .shopby-box{
     width: 130px;
     height: 130px;

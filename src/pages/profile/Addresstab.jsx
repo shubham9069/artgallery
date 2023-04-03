@@ -37,7 +37,7 @@ const Addresstab = ({type,setAddressId,addressId}) => {
            
            if(response.status===200){
             const data = response.data
-            setGetAddress(data?.addresses)
+            setGetAddress(data?.addresses.reverse())
             Toast(data.message,response.status)
            
            }
@@ -106,7 +106,7 @@ const delete_Address= async(address_id)=>{
 {getAddress?.map((element, index) =>{
 
 
-    return  <div  className='columnAlign' style={{
+    return  <div key={index+1}  className='columnAlign' style={{
         boxShadow: "0px 3px 12px rgba(0, 0, 0, 0.15)",
         borderRadius: 8,
         margin: '15px 0px',
@@ -146,8 +146,8 @@ const delete_Address= async(address_id)=>{
 
    </div>
 
-  {ShowModal && (<Modal show={ShowModal} setShow={setShowModal} data={""} getAddress={get_Address} />)} 
-   {Modal_for_edit && (<Modal show={Modal_for_edit} setShow={setModal_for_edit} data={editAddress} getAddress={get_Address} />)}
+  {ShowModal && (<Modal show={ShowModal} setShow={setShowModal} data={""} getAddress={get_Address} title="Add New Address"/>)} 
+   {Modal_for_edit && (<Modal show={Modal_for_edit} setShow={setModal_for_edit} data={editAddress} getAddress={get_Address} title="Edit Address" />)}
    </>
   )
 }

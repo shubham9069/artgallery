@@ -86,7 +86,7 @@ font-size: 12px !important;
 .searchdropdown{
     position: absolute;
    top:100%;
-    width: 100%;
+    width: inherit;
     height: 250px;
     background-color: white;
     z-index: 11111;
@@ -119,11 +119,12 @@ font-size: 12px !important;
    width: 50px;
 }
 #search{
-    min-width: 200px
+    /* min-width: 200px */
 }
 
 .searchdropdown{
-   min-width: 200px;
+   /* min-width: 200px; */
+   
 }
 #carticon{
     display:none

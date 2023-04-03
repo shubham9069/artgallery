@@ -34,9 +34,9 @@ const ShopbyCategory = ({CatArr}) => {
     <>
           <h2 className="section-heading" style={{marginBottom:'3rem'}}> <span className="section-heading" style={{color:"#56BDBD"}}>Shop</span> By Category</h2>
 
-        <div className='section-padding' style={{background: '#eaeaea'}}>
+        <div className='section-padding' style={{}}>
         
-          <div className=" d-flex justify-content-between " style={{marginBottom:"2rem"}} >
+          <div className=" d-flex justify-content-between " style={{marginBottom:"0rem"}} >
         {/* <p className='span-underline' onClick={()=>navigate('/allproduct')}> View All </p> */}
         </div>
       
@@ -46,7 +46,7 @@ const ShopbyCategory = ({CatArr}) => {
 
 {CategoryData?.map((element,index)=>{
 
-  return <div onClick={()=>navigate('/allproduct/' + element?.id)} className="center-div shopby-box" id={"shopby-container"+(index+1)}  onMouseEnter={()=>hover(index+1,element?.icon_white)} onMouseLeave={()=>removehover(index+1,element?.icon)}>
+  return <div key={index+1} onClick={()=>navigate('/allproduct/' + element?.id)} className="center-div shopby-box" id={"shopby-container"+(index+1)}  onMouseEnter={()=>hover(index+1,element?.icon_white)} onMouseLeave={()=>removehover(index+1,element?.icon)}>
     <img src={element?.icon}/>
     <p>{element?.name}</p>
     </div>

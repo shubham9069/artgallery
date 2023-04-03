@@ -13,6 +13,7 @@ import Protected from './pages/Protected'
 import ScrollToTop from './component/ScrollToTop';
 
 import Loader from './component/Loader';
+import FreeConsult from './pages/freeconsult/FreeConsult';
 const HomePage= lazy(() => import( './homepage/HomePage'));
 const OrderTab= lazy(() => import( './pages/orders/OrderTab'));
 const OrderDetails= lazy(() => import( './pages/orders/OrderDetails'));
@@ -60,6 +61,7 @@ function App() {
     <Route path="/Artistdetails/:id" element={<><Navigationbar/><ArtistDetails /><Footer /></>} />
     <Route path="/ProductDetails/:id" element={<><Navigationbar/><ProductDetails /><Footer /></>} />
     <Route path="/help&support" element={<><Navigationbar/><Help /><Footer /></>} />
+    <Route path="/freeConsulting" element={<><Navigationbar/><FreeConsult /><Footer /></>} />
 
     <Route path="/aboutus" element={<><Navigationbar/><AboutUs title={"About us"} url={"/about"} /><Footer /></>} />
     <Route path="/Privacy_&_policy" element={<><Navigationbar/><AboutUs title={"Privacy & Policy "}  url={"/privacy_policy"}/><Footer /></>} />
@@ -82,6 +84,15 @@ function App() {
     </Route>
      </Routes>
     </Suspense>
+    <div className="whatapp-float">
+
+    <a href='https://wa.me/+919740450800' target='_blank'>
+
+    <i class="bi bi-whatsapp" style={{color: 'white'}}></i>    
+
+</a>
+
+    </div>
 
      <ToastContainer
 position="top-right"
@@ -94,8 +105,7 @@ draggable
 pauseOnHover
 theme="light"
 />
-{/* Same as */}
-<ToastContainer />
+
       {/* <Footer /> */}
     </>
   );

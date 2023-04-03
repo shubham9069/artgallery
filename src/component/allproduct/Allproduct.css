@@ -1,5 +1,8 @@
 
-
+.all-product{
+    max-width: 2000px;
+    margin: 0 auto ;
+}
 .all-product span{
    font-size: 13px;
 }
