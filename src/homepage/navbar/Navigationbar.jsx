@@ -23,7 +23,7 @@ const Navigationbar = () => {
       setSearchArr([])
       return 
     }
-    7
+    
     inputvalue = inputvalue.toLowerCase()
     var PaintingArr = All_Product_Page?.filter((element=>{
       var lowercase = element.name.toLowerCase().split(" ").join("");
